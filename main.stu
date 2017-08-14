@@ -21,21 +21,54 @@
 
 @all:
 	www/index.html
-##	www/networks/index.html
-##	www/networks/[dat/NETWORKS]/index.html
+	www/networks/index.html
+	www/networks/[dat/NETWORKS]/index.html
 ;
+
+#
+# Directories
+#
 
 # The directory in which the output is placed.  Can be created
 # automatically, but should better be a symlink to a persistent
 # location. 
-www { mkdir -p www ; }
+www/ { mkdir -p www ; }
 
->www/$name.html:  -p www  skeleton/$name.html  static/(head foot).html 
+skeleton/$dir/:  { mkdir -p skeleton/"$dir" ; }
+
+dat/$name:  -p dat;
+dat {
+	echo >&2 '*** dat/ must be a symlink to the analysis/dat/ directory of KONECT'
+	exit 1
+}
+
+#
+# HTML
+#
+
+www/$name.html:   skeleton/$name.html  static/(head foot).html 
 {
-	cat static/head.html
-	cat skeleton/"$name".html
-	cat static/foot.html
+	mkdir -p "$(dirname www/"$name".html)"
+	{
+		cat static/head.html
+		cat skeleton/"$name".html
+		cat static/foot.html
+	} >www/"$name".html
 }
 
 skeleton/index.html = static/index.html;
 
+>skeleton/networks/index.html:
+	-p skeleton/networks/
+	dat/NETWORKS
+	sh/write-networks
+{
+	sh/write-networks
+}
+
+>skeleton/networks/$network/index.html:
+	-p skeleton/networks/$network/
+	sh/write-network
+{
+	sh/write-network
+}

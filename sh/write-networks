@@ -1,0 +1,22 @@
+#! /bin/sh
+#
+# Write content of 'networks/index.html'.
+#
+# STDOUT
+#	Content
+# 
+# INPUT FILES
+#	dat/NETWORKS	List of all networks
+#
+
+set -e
+
+[ -e dat/NETWORKS ]
+
+count=$(echo $(<dat/NETWORKS wc -l))
+echo "<p>KONECT has $count networks.</p>"
+echo "<ul>"
+while IFS= read -r network ; do
+	echo "<li><a href=\"$network/\">$network</a></li>"
+done <dat/NETWORKS
+echo "</ul>"

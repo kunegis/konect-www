@@ -1,0 +1,12 @@
+#! /bin/sh
+#
+# Write the skeleton of the webpage for one network. 
+#
+# PARAMETERS
+#	$network
+#
+# STDOUT
+#	Content is written here
+#
+
+echo "This is the network '$network'."
