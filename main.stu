@@ -1,3 +1,41 @@
+#
+# This is the Stu script to generate the KONECT website.  Stu is similar
+# to Make, but with support for much more complex dependency
+# structures.  Run 'stu' in this directory (like you would run 'make').
+# Get Stu from:
+#
+#	https://github.com/kunegis/stu
+#
+# The KONECT website is completely static -- it consists only of regular
+# files that can be put on any HTTP server, or viewed locally.  It
+# *does* however contain client-side scripts.
+#
+# The skeleton/ directory contains all HTML files, but without header
+# and footer.
+#
+# The static/ directory contains static content that is non generated,
+# i.e., part of this package. 
+#
+
 % version 2.5
 
-@all:;
+@all:
+	www/index.html
+##	www/networks/index.html
+##	www/networks/[dat/NETWORKS]/index.html
+;
+
+# The directory in which the output is placed.  Can be created
+# automatically, but should better be a symlink to a persistent
+# location. 
+www { mkdir -p www ; }
+
+>www/$name.html:  -p www  skeleton/$name.html  static/(head foot).html 
+{
+	cat static/head.html
+	cat skeleton/"$name".html
+	cat static/foot.html
+}
+
+skeleton/index.html = static/index.html;
+
