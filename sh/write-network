@@ -8,11 +8,27 @@
 # STDOUT
 #	Content is written here
 #
+# INPUT FILES
+#	dat/STATISTICS
+#
 
 cat <<EOF
 <h1>$network</h1>
 <p>
 	This is the network '$network'.
 </p>
+<h2>Statistics</h2>
+<table>
 EOF
 
+while IFS= read -r statistic
+do
+	if [ -e dat/statistic."$statistic"."$network" ] ; then
+		value=$(<dat/statistic."$statistic"."$network" head -1)
+		echo "<tr><td>$statistic</td><td>$value</td></tr>"
+	fi
+done <dat/STATISTICS
+
+cat <<EOF
+</table>
+EOF
