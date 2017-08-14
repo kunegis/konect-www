@@ -9,4 +9,10 @@
 #	Content is written here
 #
 
-echo "This is the network '$network'."
+cat <<EOF
+<h1>$network</h1>
+<p>
+	This is the network '$network'.
+</p>
+EOF
+
