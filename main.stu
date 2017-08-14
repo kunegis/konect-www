@@ -46,14 +46,11 @@ dat {
 # HTML
 #
 
-www/$name.html:   skeleton/$name.html  static/(head foot).html 
+www/$name.html:
+	sh/write-html
+	skeleton/$name.html  static/(head foot).html
 {
-	mkdir -p "$(dirname www/"$name".html)"
-	{
-		cat static/head.html
-		cat skeleton/"$name".html
-		cat static/foot.html
-	} >www/"$name".html
+	sh/write-html
 }
 
 skeleton/index.html = static/index.html;

@@ -1,0 +1,22 @@
+#! /bin/sh
+#
+# Generate the full HTML page from a skeleton.
+#
+# PARAMETERS
+#	$name
+#
+# INPUT FILES
+#	skeleton/$name.html
+#	static/(head foot).html 
+#
+
+set -e 
+
+title=$(<skeleton/"$name".html sed -E -e 's|^.*<h1>(.*)</h1>.*$|\1|;t;d')
+
+mkdir -p "$(dirname www/"$name".html)"
+{
+	<static/head.html sed -E -e 's,\$\{title\},'"$title"','
+	cat skeleton/"$name".html
+	cat static/foot.html
+} >www/"$name".html
