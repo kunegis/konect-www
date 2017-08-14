@@ -1,0 +1,12 @@
+== Website ==
+* Recreate most features of the old website
+
+== Public announcements ==
+* @network.convote
+* @network.bag-{kos,nips,enron,nytimes,pubmed}
+* @network.wikilens
+* @statistic.inoutdegree 
+* @network.arnetminer
+* @statistic.avgmult 
+* @network.dimacs9-*
+
