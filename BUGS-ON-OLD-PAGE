@@ -1,0 +1,14 @@
+Here is a list of bugs on the old page of KONECT that is maintained by
+the Univ. of Koblenz-Landau (Germany): 
+
+* On the page of each bipartite network, the number of nodes is shown
+  wrong:  The number of left nodes shown is actually the total number of
+  nodes in the network. 
+* The TSV download file for dblp_coauthor is apparently truncated (it is
+  shorter than it should be).  Correct length:  89152933 bytes.  Length
+  on website:  86163456.
+* The definitions of the statistics extracted from the Handbook, the
+  references, as well as certain parts of the tables, have encoding
+  errors.   
+* The largest networks have no plots and statistics, because the server
+  in Koblenz did not have sufficient memory.
