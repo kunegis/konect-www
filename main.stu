@@ -39,8 +39,8 @@ www/ { mkdir -p www ; }
 
 skeleton/$dir/:  { mkdir -p skeleton/"$dir" ; }
 
-dat/$name:  -p dat;
-dat {
+dat/$name:  -p dat/;
+dat/ {
 	echo >&2 '*** dat/ must be a symlink to the analysis/dat/ directory of KONECT'
 	exit 1
 }
