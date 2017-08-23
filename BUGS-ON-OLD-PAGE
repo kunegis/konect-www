@@ -12,3 +12,5 @@ the Univ. of Koblenz-Landau (Germany):
   errors.   
 * The largest networks have no plots and statistics, because the server
   in Koblenz did not have sufficient memory.
+* On the ca-cit-* networks, the category is wrong:  It should be
+  Cocitation rather than Coauthorship
