@@ -13,22 +13,35 @@
 #
 
 cat <<EOF
-<h1>$network</h1>
-<p>
+<H1>$network</H1>
+<P>
 	This is the network '$network'.
-</p>
-<h2>Statistics</h2>
-<table>
+</P>
+<P>
+EOF
+
+<uni/meta."$network" sed -E -e 's,^\s*long-description\s*:\s*,,;t;d'
+
+cat <<EOF
+</P>
+
+<H2>Metadata</H2>
+<TABLE>
+	<TR><TD>Internal name <TD>$network
+</TABLE>
+
+<H2>Statistics</H2>
+<TABLE>
 EOF
 
 while IFS= read -r statistic
 do
 	if [ -e dat/statistic."$statistic"."$network" ] ; then
 		value=$(<dat/statistic."$statistic"."$network" head -1)
-		echo "<tr><td>$statistic</td><td>$value</td></tr>"
+		echo "<TR><TD>$statistic</TD><TD>$value</TD></TR>"
 	fi
 done <dat/STATISTICS
 
 cat <<EOF
-</table>
+</TABLE>
 EOF

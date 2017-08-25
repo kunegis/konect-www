@@ -15,11 +15,11 @@ set -e
 count=$(echo $(<dat/NETWORKS wc -l))
 
 cat <<EOF
-<h1>Networks</h1>
-<p>KONECT has $count networks.</p>
-<ul>
+<H1>Networks</H1>
+<P>KONECT has $count networks.</P>
+<UL>
 EOF
 while IFS= read -r network ; do
-	echo "<li><a href=\"$network/\">$network</a></li>"
+	echo "<LI><A href=\"$network/\">$network</A>"
 done <dat/NETWORKS
-echo "</ul>"
+echo "</UL>"

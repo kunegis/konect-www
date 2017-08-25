@@ -45,6 +45,12 @@ dat/ {
 	exit 1
 }
 
+uni/$name:  -p uni/;
+uni/ {
+	echo >&2 '*** uni/ must be a symlink to the konect/uni/ directory of KONECT'
+	exit 1
+}
+
 #
 # HTML
 #
@@ -69,7 +75,8 @@ skeleton/index.html = static/index.html;
 >skeleton/networks/$network/index.html:
 	sh/write-network
 	-p skeleton/networks/$network/
-	dat/STATISTICS		
+	dat/STATISTICS
+	uni/meta.$network
 {
 	sh/write-network
 }

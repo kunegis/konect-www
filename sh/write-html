@@ -12,7 +12,7 @@
 
 set -e 
 
-title=$(<skeleton/"$name".html sed -E -e 's|^.*<h1>(.*)</h1>.*$|\1|;t;d')
+title=$(<skeleton/"$name".html sed -E -e 's|^.*<H1>(.*)</H1>.*$|\1|;t;d')
 
 if [ -z "$title" ] ; then
 	echo >&2 "*** Expected a title, but found none"
