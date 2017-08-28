@@ -1,0 +1,38 @@
+#! /bin/sh
+
+set -e
+
+cat <<EOF
+<A HREF="../">KONECT</A> &gt;
+<H1>Statistics</H1>
+<P>A network statistic is a numerical value that characterizes a
+network. Examples of network statistics are the number of nodes and the
+number of edges in a network, but also more complex measures such as the
+diameter and the clustering coefficient.
+</P>
+<P>Statistics are the basis of most network analysis methods; they can
+be used to compare networks, classify networks, detect anomalies in
+networks and for many other tasks. Network statistics are also used to
+map a network's structure to a simple numerical space, in which many
+standard statistical methods can be applied. Thus, network statistics
+are essential for the analysis of almost all network types. 
+</P>
+<P>All statistics described in KONECT are real numbers.
+</P>
+<P>The following statistics are computed for the networks in KONECT. Not
+all statistics are computed for all networks. Some statistics only apply
+to certain kinds of networks (e.g., the clustering coefficient only
+applies to unipartite networks). For very large networks, some
+statistics are not computed because the computations take too long.  
+</P>
+<UL>
+EOF
+for statistic in $(cat dat/STATISTICS) ; do
+	cat <<EOF
+<LI><A HREF="$statistic">$statistic</A>
+EOF
+done
+cat <<EOF
+</UL>
+EOF
+

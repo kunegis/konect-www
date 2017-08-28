@@ -13,6 +13,9 @@
 		echo bidd."$x"."$network"
 	done
 	for x in a u v ; do
+		echo degree."$x"."$network"
+	done
+	for x in a u v ; do
 		echo assortativity."$x"."$network"
 	done
 

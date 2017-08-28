@@ -30,4 +30,4 @@ mkdir -p "$(dirname www/"$name".html)"
 	cat skeleton/"$name".html
 	echo 
 	cat static/foot.html
-}
+} >www/$name.html

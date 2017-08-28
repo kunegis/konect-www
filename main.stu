@@ -26,6 +26,8 @@
 	www/index.html
 	www/networks/index.html
 	www/networks/[dat/NETWORKS]/index.html
+	www/statistics/index.html
+	www/statistics/[dat/STATISTICS]/index.html
 	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(full small).png
 ;
 
@@ -67,7 +69,7 @@ dat-$name/ {
 # HTML
 #
 
->www/$name.html:
+www/$name.html:
 	sh/write-html
 	skeleton/$name.html  static/(head foot).html
 {
@@ -92,6 +94,19 @@ skeleton/index.html = static/index.html;
 	dat-www/plots-network.$network
 {
 	sh/write-network
+}
+
+>skeleton/statistics/index.html:
+	sh/write-statistics
+	-p skeleton/statistics/ dat/STATISTICS
+{
+	sh/write-statistics
+}
+
+>skeleton/statistics/$statistic/index.html:
+	sh/write-statistic -p skeleton/statistics/$statistic/ dat/
+{
+	sh/write-statistic
 }
 
 #

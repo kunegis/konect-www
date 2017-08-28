@@ -1,0 +1,19 @@
+#! /bin/sh
+
+cat <<EOF
+<A HREF="../../">KONECT</A> &gt; <A HREF="../">Statistics</A> &gt;
+<H1>$statistic</H1>
+<P>These are the values of the statistic '$statistic' for all networks.
+</P>
+<TABLE>
+EOF
+for file in dat/statistic."$statistic".* ; do
+	network=$(printf '%s' "$file" | sed -E -e 's,^.*\.([^.]+)$,\1,')
+	value=$(head -1 "$file")
+cat <<EOF
+<TR><TD>$network	<TD>$value
+EOF
+done
+cat <<EOF
+</TABLE>
+EOF
