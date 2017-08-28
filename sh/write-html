@@ -7,7 +7,10 @@
 #
 # INPUT FILES
 #	skeleton/$name.html
-#	static/(head foot).html 
+#	static/(head foot).html
+#
+# STDOUT
+#	The HTML (all ASCII) 
 #
 
 set -e 
@@ -21,7 +24,10 @@ fi
 
 mkdir -p "$(dirname www/"$name".html)"
 {
-	<static/head.html sed -E -e 's,\$\{title\},'"$title"','
+	title_escape=$(printf '%s' "$title" | sed -E -e 's|,|\\,|g')
+	<static/head.html sed -E -e 's,\$\{title\},'"$title_escape"','
+	echo
 	cat skeleton/"$name".html
+	echo 
 	cat static/foot.html
-} >www/"$name".html
+}

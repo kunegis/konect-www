@@ -1,0 +1,13 @@
+#! /bin/sh
+#
+# Read a field from a meta file.
+#
+# PARAMETERS
+#	$network
+#	$field
+#
+# STDOUT
+#	Content of the field
+#
+
+<uni/meta."$network" sed -E -e 's,^\s*'"$field"'\s*:\s*,,;t;d'

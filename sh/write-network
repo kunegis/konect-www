@@ -10,23 +10,23 @@
 #
 # INPUT FILES
 #	dat/STATISTICS
+#	dat-www/plots-network.$network 
 #
 
-cat <<EOF
-<H1>$network</H1>
-<P>
-	This is the network '$network'.
-</P>
-<P>
-EOF
+set -e
 
-<uni/meta."$network" sed -E -e 's,^\s*long-description\s*:\s*,,;t;d'
+meta_name=$(field=name sh/read-meta)
 
 cat <<EOF
+<A HREF="../../">KONECT</A> &gt; <A HREF="../">Networks</A> &gt;
+<H1>$meta_name</H1>
+<P>
+$(field=long-description sh/read-meta | recode utf8..html)
 </P>
 
 <H2>Metadata</H2>
 <TABLE>
+	<TR><TD>Name          <TD>$meta_name
 	<TR><TD>Internal name <TD>$network
 </TABLE>
 
@@ -44,4 +44,11 @@ done <dat/STATISTICS
 
 cat <<EOF
 </TABLE>
+
+<H2>Plots</H2>
 EOF
+
+for file in $(cat dat-www/plots-network."$network")
+do
+	echo "<A HREF=\"../../plot/$file.full.png\"><IMG SRC=\"../../plot/$file.small.png\"></A>"
+done

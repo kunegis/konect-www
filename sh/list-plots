@@ -1,0 +1,26 @@
+#! /bin/sh
+#
+# List all plots for $network.
+#
+# These are only basenames, without the .eps suffix
+#
+# Only existing files are output. 
+#
+
+{
+	
+	for x in a u v uv ; do
+		echo bidd."$x"."$network"
+	done
+	for x in a u v ; do
+		echo assortativity."$x"."$network"
+	done
+
+} | while IFS= read -r name ; do
+	[ -e plot/"$name".eps ] && {
+		size=$(stat -c%s plot/"$name".eps)
+		[ "$size" -gt 4096 ] && printf '%s\n' "$name"
+	}
+done
+
+exit 0

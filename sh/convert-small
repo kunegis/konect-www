@@ -1,0 +1,3 @@
+#! /bin/sh
+
+convert plot/$name.eps -resize x130 www/plot/$name.small.png
