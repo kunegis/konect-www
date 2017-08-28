@@ -26,8 +26,10 @@ $(field=long-description sh/read-meta | recode utf8..html)
 
 <H2>Metadata</H2>
 <TABLE>
-	<TR><TD>Name          <TD>$meta_name
-	<TR><TD>Internal name <TD>$network
+<TR><TD>Name          <TD>$meta_name
+<TR><TD>Code          <TD><CODE>$(field=code sh/read-meta)</CODE>
+<TR><TD>Internal name <TD><CODE>$network</CODE>
+<TR><TD>Category      <TD>$(field=category sh/read-meta)
 </TABLE>
 
 <H2>Statistics</H2>

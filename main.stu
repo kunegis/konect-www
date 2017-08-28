@@ -85,7 +85,7 @@ skeleton/index.html = static/index.html;
 }
 
 >skeleton/networks/$network/index.html:
-	sh/write-network
+	sh/write-network sh/read-meta 
 	-p skeleton/networks/$network/
 	dat/STATISTICS
 	uni/meta.$network
