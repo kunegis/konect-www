@@ -1,5 +1,8 @@
-== Website ==
 * Recreate most features of the old website
+* use recode -d utf8..html on the whole files
+* more plots
+* /plots/
+* /categories/
 
 == Public announcements ==
 * @network.convote
@@ -9,4 +12,3 @@
 * @network.arnetminer
 * @statistic.avgmult 
 * @network.dimacs9-*
-
