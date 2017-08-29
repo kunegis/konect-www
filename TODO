@@ -1,7 +1,9 @@
-* use recode -d utf8..html on the whole files
-* more plots
 * /plots/
 * /categories/
+* decomposition plots
+* distr plots
+* map plots
+* layout plots 
 
 == Public announcements ==
 * @network.convote

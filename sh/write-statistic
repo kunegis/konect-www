@@ -24,7 +24,7 @@ for network in $(cat dat/NETWORKS) ; do
 	[ -e "$filename" ] || continue
 	value=$(head -1 "$filename")
 	cat <<EOF
-<TR><TD><A HREF="../../networks/$network">$(field=name sh/read-meta)</A>	<TD>$value
+<TR><TD><A HREF="../../networks/$network/">$(field=name sh/read-meta)</A>	<TD>$value
 EOF
 done
 cat <<EOF

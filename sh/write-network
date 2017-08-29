@@ -41,7 +41,7 @@ do
 	if [ -e dat/statistic."$statistic"."$network" ] ; then
 		value=$(<dat/statistic."$statistic"."$network" head -1)
 		cat <<EOF
-<TR><TD><A HREF="../../statistics/$statistic">$statistic</A>	<TD>$value
+<TR><TD><A HREF="../../statistics/$statistic/">$statistic</A>	<TD>$value
 EOF
 	fi
 done <dat/STATISTICS

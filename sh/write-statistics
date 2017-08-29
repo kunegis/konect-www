@@ -29,7 +29,7 @@ statistics are not computed because the computations take too long.
 EOF
 for statistic in $(cat dat/STATISTICS) ; do
 	cat <<EOF
-<LI><A HREF="$statistic">$statistic</A>
+<LI><A HREF="$statistic/">$statistic</A>
 EOF
 done
 cat <<EOF
