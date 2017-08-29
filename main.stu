@@ -119,6 +119,7 @@ skeleton/index.html = static/index.html;
 >dat-www/plots-network.$network:
 	-p dat-www/ plot/
 	sh/list-plots
+	dat/DECOMPOSITIONS
 {
 	sh/list-plots
 }

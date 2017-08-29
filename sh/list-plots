@@ -4,11 +4,13 @@
 #
 # These are only basenames, without the .eps suffix
 #
-# Only existing files are output. 
+# Only existing files are output.
+#
+# INPUT FILES
+#	dat/DECOMPOSITIONS 
 #
 
 {
-	
 	for x in ax ux vx uv ; do
 		echo bidd."$x"."$network"
 	done
@@ -36,6 +38,11 @@
 	done
 	for x in a b c ; do
 		echo outin."$x"."$network"
+	done
+	for decomposition in $(cat dat/DECOMPOSITIONS) ; do
+		for x in a b d complex dedicom log cumul ; do
+			echo decomposition."$x"."$decomposition"."$network"
+		done
 	done
 	
 } | while IFS= read -r name ; do

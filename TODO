@@ -1,9 +1,9 @@
 * /plots/
 * /categories/
-* decomposition plots
 * distr plots
 * map plots
-* layout plots 
+* layout plots (PNG)
+* LYBL/Delaunay plots (PNG)
 
 == Public announcements ==
 * @network.convote
