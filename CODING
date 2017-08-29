@@ -1,0 +1,19 @@
+We use only simple HTML.
+
+Everything is static, so you can browse the website locally, or via any
+web server. 
+
+All pages are named 'index.html', and each has its own directory.  Links
+never include the 'index.html' part, but always include the trailing
+slash.
+
+HTML tags are in upper case to make them easier to read.
+
+We avoid all complex HTML tags.
+
+We don't set any font or style.
+
+Unicode is used.  This is encoded as UTF-8 everywhere, except in the
+final version in www/, where everything is converted to HTML encoding.
+(We can't trust in-HTML encoding declarations, since they may be
+overridden by badly configured web servers.) 
