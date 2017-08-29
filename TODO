@@ -1,9 +1,19 @@
+* each network page:  insert all available metadata
 * /plots/
 * /categories/
+* download of datasets
+* citation for datasets
+* URLs for datasets
 * distr plots
 * map plots
 * layout plots (PNG)
 * LYBL/Delaunay plots (PNG)
+* statistics:  show left and right node count (size)
+* statistics:  show symbols for all statistics
+* statistics everywhere:  show pretty names of statistics
+* tooltips everywhere
+* networks/:  show a few basic statistics and metadata
+* networks/ table:  make it sortable
 
 == Public announcements ==
 * @network.convote
