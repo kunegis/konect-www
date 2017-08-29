@@ -1,4 +1,3 @@
-* Recreate most features of the old website
 * use recode -d utf8..html on the whole files
 * more plots
 * /plots/

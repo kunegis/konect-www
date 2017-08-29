@@ -9,7 +9,7 @@
 
 {
 	
-	for x in a u v uv ; do
+	for x in ax ux vx uv ; do
 		echo bidd."$x"."$network"
 	done
 	for x in a u v ; do
@@ -18,7 +18,26 @@
 	for x in a u v ; do
 		echo assortativity."$x"."$network"
 	done
-
+	for x in a u v ; do
+		echo lorenz."$x"."$network"
+	done
+	for x in b c d ; do
+		echo weights."$x"."$network"
+	done
+	echo time_histogram."$network"
+	echo time_histogram_signed."$network"
+	echo diadens."$network"
+	echo cluscod."$network"
+	for x in a b c d e f g ; do
+		echo hopdistr."$x"."$network"
+	done
+	for x in a b c ; do
+		echo hopdistr_time.full."$x"."$network"
+	done
+	for x in a b c ; do
+		echo outin."$x"."$network"
+	done
+	
 } | while IFS= read -r name ; do
 	[ -e plot/"$name".eps ] && {
 		size=$(stat -c%s plot/"$name".eps)

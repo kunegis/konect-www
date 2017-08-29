@@ -15,12 +15,19 @@ set -e
 count=$(echo $(<dat/NETWORKS wc -l))
 
 cat <<EOF
-<A HREF="../">KONECT</A> &gt;
+<A HREF="../">KONECT</A> ‣
 <H1>Networks</H1>
 <P>KONECT has $count networks.</P>
-<UL>
+<TABLE>
 EOF
 while IFS= read -r network ; do
-	echo "<LI><A href=\"$network/\">$network</A>"
+	export network
+	name=$(field=name sh/read-meta)
+	category=$(field=category sh/read-meta)
+	cat <<EOF 
+<TR><TD><A href="$network/">$name</A>	<TD>$category
+EOF
 done <dat/NETWORKS
-echo "</UL>"
+cat <<EOF
+</TABLE>
+EOF

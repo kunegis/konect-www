@@ -18,10 +18,10 @@ set -e
 meta_name=$(field=name sh/read-meta)
 
 cat <<EOF
-<A HREF="../../">KONECT</A> &gt; <A HREF="../">Networks</A> &gt;
+<A HREF="../../">KONECT</A> ‣ <A HREF="../">Networks</A> ‣
 <H1>$meta_name</H1>
 <P>
-$(field=long-description sh/read-meta | recode utf8..html)
+$(field=long-description sh/read-meta)
 </P>
 
 <H2>Metadata</H2>
@@ -40,7 +40,9 @@ while IFS= read -r statistic
 do
 	if [ -e dat/statistic."$statistic"."$network" ] ; then
 		value=$(<dat/statistic."$statistic"."$network" head -1)
-		echo "<TR><TD>$statistic</TD><TD>$value</TD></TR>"
+		cat <<EOF
+<TR><TD><A HREF="../../statistics/$statistic">$statistic</A>	<TD>$value
+EOF
 	fi
 done <dat/STATISTICS
 
