@@ -35,9 +35,6 @@
 # Directories
 #
 
-# The directory in which the output is placed.  Can be created
-# automatically, but should better be a symlink to a persistent
-# location. 
 www/ { mkdir -p www ; }
 www/plot/ {mkdir -p www/plot ; }
 

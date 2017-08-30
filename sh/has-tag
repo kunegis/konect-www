@@ -1,0 +1,11 @@
+#! /bin/sh
+#
+# Wether a network has a given tag.
+#
+# PARAMETERS
+#	$network
+#	$tag
+#
+
+<uni/meta."$network" grep -q -E '#'"$tag"'($|\s)'
+
