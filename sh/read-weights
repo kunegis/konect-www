@@ -1,0 +1,15 @@
+#! /bin/sh
+#
+# Output the weights of a network as a string.
+#
+# PARAMETERS
+#	$network
+#
+
+[ "$network" ] || {
+	echo >&2 '*** Expected $network'
+	exit 1
+}
+
+head -1 uni/out."$network" |
+sed -E -e 's,^%\s*[a-z]+\s+([a-z]+)\s*$,\1,'

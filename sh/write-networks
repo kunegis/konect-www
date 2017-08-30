@@ -25,7 +25,7 @@ while IFS= read -r network ; do
 	name=$(field=name sh/read-meta)
 	category=$(field=category sh/read-meta)
 	cat <<EOF 
-<TR><TD><A href="$network/">$name</A>	<TD>$category
+<TR><TD><CODE>$(field=code sh/read-meta)</CODE><TD><A href="$network/">$name</A><TD>$category<TD>$(sh/read-format)<TD>$(sh/read-weights)
 EOF
 done <dat/NETWORKS
 cat <<EOF

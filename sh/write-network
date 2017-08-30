@@ -30,6 +30,8 @@ $(field=long-description sh/read-meta)
 <TR><TD>Code          <TD><CODE>$(field=code sh/read-meta)</CODE>
 <TR><TD>Internal name <TD><CODE>$network</CODE>
 <TR><TD>Category      <TD>$(field=category sh/read-meta)
+<TR><TD>Format        <TD>$(sh/read-format)
+<TR><TD>Weights       <TD>$(sh/read-weights)
 </TABLE>
 
 <H2>Statistics</H2>
