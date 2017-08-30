@@ -1,18 +1,27 @@
-* /plots/
-* /categories/
+* some plots are broken on plots/$plot/   
 * citation for datasets
 * download of datasets
-* URLs for datasets
+* cluscod plots 
+* zipf plots
+* rating_evolution plots
+* rating_evolution2 plots
+* degcc plots
 * distr plots
 * map plots
+* time_histogram plots
+* diadens plots
+* time_histogram_signed plots 
 * layout plots (PNG)
 * LYBL/Delaunay plots (PNG)
 * statistics:  show left and right node count (size)
 * statistics:  show symbols for all statistics
 * statistics everywhere:  show pretty names of statistics
+* number formatting 
+* /categories/
 * tooltips everywhere
 * networks/:  show a few basic statistics and metadata
 * networks/ table:  make it sortable
+* on each network page:  put links to the individual plot types
 
 == Public announcements ==
 * @network.convote

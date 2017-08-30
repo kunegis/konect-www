@@ -17,8 +17,6 @@ cat <<EOF
 <TABLE>
 EOF
 for network in $(cat dat/NETWORKS) ; do
-##for file in dat/statistic."$statistic".* ; do
-##	network=$(printf '%s' "$file" | sed -E -e 's,^.*\.([^.]+)$,\1,')
 	export network
 	filename=dat/statistic."$statistic"."$network"
 	[ -e "$filename" ] || continue

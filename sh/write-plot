@@ -1,0 +1,35 @@
+#! /bin/sh
+#
+# Write the page about one plot family.
+#
+# PARAMETERS
+#	$plot
+#
+# INPUT FILES
+#	dat/NETWORKS
+#	dat-www/plots-network.[dat/NETWORKS]
+#
+
+cat <<EOF
+<A HREF="../../">KONECT</A> ‣ <A HREF="../">Plots</A> ‣
+<H1>$plot</H1>
+<P>These are the plots of type '$plot' for all networks.
+</P>
+EOF
+
+# Generate subplot types
+while IFS= read -r network ; do
+	cat dat-www/plots-network."$network"
+done <dat/NETWORKS |
+sed -E -e 's,^'"$plot"'\.(.+)\.[^.]+$,\1,;t;d' |
+sort -u |
+while IFS= read -r type ; do
+	cat <<EOF
+<H3>$type</H3>
+EOF
+	for network in $(cat dat/NETWORKS) ; do
+		filename=plot/"$plot"."$type"."$network".eps
+		[ -e "$filename" ] || continue
+		echo "<A HREF=\"../../plot/$plot.$type.$network.full.png\"><IMG SRC=\"../../plot/$plot.$type.$network.small.png\"></A>"
+	done
+done

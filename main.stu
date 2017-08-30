@@ -28,6 +28,8 @@
 	www/networks/[dat/NETWORKS]/index.html
 	www/statistics/index.html
 	www/statistics/[dat/STATISTICS]/index.html
+	www/plots/index.html
+	www/plots/[dat/PLOTS]/index.html
 	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
 ;
 
@@ -105,6 +107,21 @@ skeleton/index.html = static/index.html;
 	dat/NETWORKS
 {
 	sh/write-statistic
+}
+
+>skeleton/plots/index.html:
+	sh/write-plots
+	-p skeleton/plots/ dat/PLOTS
+{
+	sh/write-plots
+}
+
+>skeleton/plots/$plot/index.html:
+	sh/write-plot -p skeleton/plots/$plot/ plot/
+	dat/NETWORKS
+	dat-www/plots-network.[dat/NETWORKS]
+{
+	sh/write-plot
 }
 
 #
