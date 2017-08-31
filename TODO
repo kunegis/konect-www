@@ -7,6 +7,7 @@
 * map plots
 * time_histogram plots
 * time_histogram_signed plots 
+* metadata:  add the information whether unit tests were run, and if yes whether they were run successfully 
 * layout plots (PNG)
 * LYBL/Delaunay plots (PNG)
 * statistics:  show left and right node count (size)
@@ -19,7 +20,6 @@
 * networks/ table:  make it sortable
 * on each network page:  put links to the individual plot types
 * README files within downloads:  make them beautiful 
-* include logo on each page 
 
 == Public announcements ==
 * @network.convote

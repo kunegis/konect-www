@@ -39,7 +39,7 @@ $(field=long-description sh/read-meta)
 <TR><TD>Internal name <TD><CODE>$network</CODE>
 EOF
 if [ "$extr" ] ; then
-	echo "<TR><TD>Network family<TD><CODE>$extr</CODE>"
+	echo "<TR><TD>Network family<TD><CODE><A HREF=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">$extr</A></CODE>"
 fi
 if [ "$url" ] ; then
 	echo "<TR><TD>URL<TD><A HREF=\"$url\">$url</A>"
@@ -153,8 +153,6 @@ if [ "$cite" ] ; then
 	echo '<H2>References</H2>'
 	dir=$(pwd)
 	cd "$(dirname "$tmpfile")"
-##	cat >&2 -- "$(basename "$tmpfile")"
-##	ls -l >&2 "$dir"/konect-extr/konect.bib
 	bibtex2html -q --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o - --no-header -w  "$dir"/konect-extr/konect.bib |
 		sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' |
 		sed -E -e 's,--,–,g'
