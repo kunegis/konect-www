@@ -31,6 +31,7 @@
 	www/plots/index.html
 	www/plots/[dat/PLOTS]/index.html
 	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
+	www/files/download.tsv.[dat-www/NETWORKS-DOWNLOAD].tar.bz2
 ;
 
 #
@@ -38,7 +39,7 @@
 #
 
 www/ { mkdir -p www ; }
-www/plot/ {mkdir -p www/plot ; }
+www/$name/ {mkdir -p www/"$name" ; }
 
 skeleton/$dir/:  { mkdir -p skeleton/"$dir" ; }
 
@@ -61,6 +62,11 @@ plot/ {
 
 dat-$name/ {
 	echo >&2 "*** dat-$name/ must be a symlink to the analysis/dat-$name/ directory of KONECT"
+	exit 1
+}
+
+konect-extr/ {
+	echo >&2 '*** konect-extr/ must be a symlink to the corresponding project directory'
 	exit 1
 }
 
@@ -87,7 +93,7 @@ skeleton/index.html = static/index.html;
 
 >skeleton/networks/$network/index.html:
 	sh/write-network sh/read-meta 
-	-p skeleton/networks/$network/
+	-p skeleton/networks/$network/ konect-extr/konect.bib dat/allowed_src.txt
 	dat/STATISTICS
 	uni/meta.$network
 	dat-www/plots-network.$network
@@ -148,4 +154,18 @@ www/plot/$name.full.png:
 	plot/$name.eps -p www/plot/ sh/convert-full 
 {
 	sh/convert-full
+}
+
+#
+# Files
+#
+
+>dat-www/NETWORKS-DOWNLOAD:  <dat/allowed_src.txt
+{
+	sed -E -e 's|^\s*([^, ]+)\s*,\s*matrix\s*$|\1|;t;d'
+}
+
+www/files/download.tsv.$network.tar.bz2: dat/download.tsv.$network.tar.bz2 -p www/files/
+{
+	cp dat/download.tsv.$network.tar.bz2 www/files/
 }

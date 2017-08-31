@@ -1,6 +1,4 @@
-* some plots are broken on plots/$plot/   
-* citation for datasets
-* download of datasets
+* favicon 
 * cluscod plots 
 * zipf plots
 * rating_evolution plots
@@ -22,6 +20,8 @@
 * networks/:  show a few basic statistics and metadata
 * networks/ table:  make it sortable
 * on each network page:  put links to the individual plot types
+* README files within downloads:  make them beautiful 
+* include logo on each page 
 
 == Public announcements ==
 * @network.convote

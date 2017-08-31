@@ -46,10 +46,9 @@
 	done
 	
 } | while IFS= read -r name ; do
-	[ -e plot/"$name".eps ] && {
-		size=$(stat -c%s plot/"$name".eps)
-		[ "$size" -gt 4096 ] && printf '%s\n' "$name"
-	}
+	sh/proper-plot plot/"$name".eps && 
+		printf '%s\n' "$name"
 done
 
 exit 0
+

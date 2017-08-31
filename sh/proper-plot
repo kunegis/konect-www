@@ -1,0 +1,24 @@
+#! /bin/sh
+# 
+# Some plots exist as files but we don't show them because they contain
+# errors--they are too small, and it is likely than Matlab crashed while
+# producing them. 
+#
+# INVOCATION
+#	$1	filename
+#
+
+filename="$1"
+
+[ "$filename" ] || exit 2
+
+if [ -e "$filename" ] ; then
+	size=$(stat -c%s "$filename")
+	if [ "$size" -gt 4096 ] ; then
+		exit 0
+	else
+		exit 1
+	fi
+else
+	exit 1
+fi

@@ -1,0 +1,5 @@
+Build everything with Stu.  The website will be generated in www/.
+
+== Requirements ==
+
+* bibtex2html

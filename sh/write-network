@@ -23,6 +23,7 @@ entity_names=$(field=entity-names sh/read-meta)
 relationship_names=$(field=relationship-names sh/read-meta)
 extr=$(field=extr sh/read-meta)
 timeiso=$(field=timeiso sh/read-meta)
+cite=$(field=cite sh/read-meta)
 
 cat <<EOF
 <A HREF="../../">KONECT</A> ‣ <A HREF="../">Networks</A> ‣
@@ -111,7 +112,6 @@ fi
 
 cat <<EOF
 </TABLE>
-
 <H2>Statistics</H2>
 <TABLE>
 EOF
@@ -136,3 +136,27 @@ for file in $(cat dat-www/plots-network."$network")
 do
 	echo "<A HREF=\"../../plot/$file.full.png\"><IMG SRC=\"../../plot/$file.small.png\"></A>"
 done
+
+if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
+	cat <<EOF
+<H2>Downloads</H2>
+<UL>
+  <LI><A HREF="../../files/download.tsv.$network.tar.bz2">Data as TSV</A> ($(stat -c%s dat/download.tsv.$network.tar.bz2) bytes)
+</UL>
+EOF
+fi
+
+if [ "$cite" ] ; then
+	tmpfile=$(mktemp)
+	printf '%s\n' "$cite" | sed -E -e 's|,|\
+|g' >"$tmpfile"
+	echo '<H2>References</H2>'
+	dir=$(pwd)
+	cd "$(dirname "$tmpfile")"
+##	cat >&2 -- "$(basename "$tmpfile")"
+##	ls -l >&2 "$dir"/konect-extr/konect.bib
+	bibtex2html -q --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o - --no-header -w  "$dir"/konect-extr/konect.bib |
+		sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' |
+		sed -E -e 's,--,–,g'
+	rm -f -- "$tmpfile" 
+fi
