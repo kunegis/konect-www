@@ -1,5 +1,4 @@
-* favicon 
-* cluscod plots 
+* metadata:  tell whether a network has timestamps 
 * zipf plots
 * rating_evolution plots
 * rating_evolution2 plots
@@ -7,7 +6,6 @@
 * distr plots
 * map plots
 * time_histogram plots
-* diadens plots
 * time_histogram_signed plots 
 * layout plots (PNG)
 * LYBL/Delaunay plots (PNG)

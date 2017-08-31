@@ -32,6 +32,7 @@
 	www/plots/[dat/PLOTS]/index.html
 	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
 	www/files/download.tsv.[dat-www/NETWORKS-DOWNLOAD].tar.bz2
+	www/favicon.ico
 ;
 
 #
@@ -169,3 +170,9 @@ www/files/download.tsv.$network.tar.bz2: dat/download.tsv.$network.tar.bz2 -p ww
 {
 	cp dat/download.tsv.$network.tar.bz2 www/files/
 }
+
+#
+# Design
+#
+
+www/favicon.ico = logo/;

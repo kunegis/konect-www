@@ -28,8 +28,8 @@
 	done
 	echo time_histogram."$network"
 	echo time_histogram_signed."$network"
-	echo diadens."$network"
-	echo cluscod."$network"
+	echo diadens.a."$network"
+	echo cluscod.a."$network"
 	for x in a b c d e f g ; do
 		echo hopdistr."$x"."$network"
 	done
