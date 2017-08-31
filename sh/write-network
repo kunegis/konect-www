@@ -49,6 +49,9 @@ cat <<EOF
 <TR><TD>Format        <TD>$format
 <TR><TD>Weights       <TD>$weights
 EOF
+if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
+	echo '<TR><TD>Timestamps <TD>Edges are annotated with timestamps'
+fi
 if [ "$entity_names" ] ; then
 	echo "<TR><TD>Node type(s) <TD>$entity_names"
 fi

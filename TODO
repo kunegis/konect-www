@@ -1,12 +1,4 @@
-* metadata:  tell whether a network has timestamps 
-* zipf plots
-* rating_evolution plots
-* rating_evolution2 plots
-* degcc plots
-* distr plots
-* map plots
-* time_histogram plots
-* time_histogram_signed plots 
+* time_histogram plots (rename the main one to 'a')
 * metadata:  add the information whether unit tests were run, and if yes whether they were run successfully 
 * layout plots (PNG)
 * LYBL/Delaunay plots (PNG)
@@ -20,6 +12,9 @@
 * networks/ table:  make it sortable
 * on each network page:  put links to the individual plot types
 * README files within downloads:  make them beautiful 
+* make updates be atomic
+* time_histogram_signed:  for movielens-100k_rating, we seem to fail to subtract the mean rating from all weights, resuling in no negative weights shown
+* time_histogram_signed:  remove all plots from plot/ that are not about signed networks. 
 
 == Public announcements ==
 * @network.convote
