@@ -48,9 +48,6 @@ $(field=long-description sh/read-meta)
 <TR><TD>Code          <TD><CODE>$(field=code sh/read-meta)</CODE>
 <TR><TD>Internal name <TD><CODE>$network</CODE>
 EOF
-if [ "$extr" ] ; then
-	echo "<TR><TD>Extraction code<TD><CODE><A HREF=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">$extr</A></CODE>"
-fi
 if [ "$url" ] ; then
 	echo "<TR><TD>URL<TD><A HREF=\"$url\">$url</A>"
 fi
@@ -135,7 +132,7 @@ do
 	if [ -e dat/statistic."$statistic"."$network" ] ; then
 		value=$(<dat/statistic."$statistic"."$network" head -1)
 		cat <<EOF
-<TR><TD><A HREF="../../statistics/$statistic/">$statistic</A>	<TD>$value
+<TR><TD><A HREF="../../statistics/$(printf '%s' $statistic | sed -E -e 's,\+.*$,,')/">$statistic</A>	<TD>$value
 EOF
 	fi
 done <dat/STATISTICS
@@ -156,6 +153,11 @@ if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
 <H2>Downloads</H2>
 <UL>
   <LI><A HREF="../../files/download.tsv.$network.tar.bz2">Data as TSV</A> ($(stat -c%s dat/download.tsv.$network.tar.bz2) bytes)
+EOF
+if [ "$extr" ] ; then
+	echo "<LI><A HREF=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">Extraction code</A> (GitHub)"
+fi
+cat <<EOF
 </UL>
 EOF
 fi

@@ -27,7 +27,7 @@
 	www/networks/index.html
 	www/networks/[dat/NETWORKS]/index.html
 	www/statistics/index.html
-	www/statistics/[dat/STATISTICS]/index.html
+	www/statistics/[dat-www/STATISTICS_MAIN]/index.html
 	www/plots/index.html
 	www/plots/[dat/PLOTS]/index.html
 	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
@@ -69,6 +69,16 @@ dat-$name/ {
 konect-extr/ {
 	echo >&2 '*** konect-extr/ must be a symlink to the corresponding project directory'
 	exit 1
+}
+
+#
+# Lists
+#
+
+# Only the main statistics, i.e., without substatistics
+>dat-www/STATISTICS_MAIN:  <dat/STATISTICS
+{
+	grep -F -v +
 }
 
 #
