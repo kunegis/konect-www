@@ -29,7 +29,9 @@
 	for x in a u v ; do
 		echo zipf."$x"."$network"
 	done
-	echo time_histogram."$network"
+	for x in a b ; do
+		echo time_histogram."$x"."$network"
+	done
 	echo time_histogram_signed.a."$network"
 	echo diadens.a."$network"
 	echo cluscod.a."$network"
