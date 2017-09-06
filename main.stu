@@ -16,7 +16,7 @@
 # The skeleton/ directory contains all HTML files, but without header
 # and footer, in UTF-8. 
 #
-# The static/ directory contains static content that is non generated,
+# The static/ directory contains static content that is not generated,
 # i.e., part of this package. 
 #
 
