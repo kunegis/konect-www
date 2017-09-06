@@ -93,7 +93,7 @@ skeleton/index.html = static/index.html;
 }
 
 >skeleton/networks/$network/index.html:
-	sh/write-network sh/read-meta 
+	sh/write-network sh/read-meta dat/ plot/
 	-p skeleton/networks/$network/ konect-extr/konect.bib dat/allowed_src.txt
 	dat/STATISTICS
 	uni/meta.$network
