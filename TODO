@@ -1,4 +1,3 @@
-* metadata:  add the information whether unit tests were run, and if yes whether they were run successfully 
 * layout plots (PNG)
 * LYBL/Delaunay plots (PNG)
 * statistics:  show left and right node count (size)

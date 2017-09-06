@@ -25,6 +25,16 @@ extr=$(field=extr sh/read-meta)
 timeiso=$(field=timeiso sh/read-meta)
 cite=$(field=cite sh/read-meta)
 
+if [ -e dat/check."$network" ] ; then
+	if grep -q -F 1 dat/check."$network" ; then
+		checkresult="Network passed all tests"
+	else
+		checkresult="Network failed tests:  $(head -1 dat/check_error."$network" | recode utf-8..html)"
+	fi
+else
+	checkresult="Check was not executed"
+fi
+
 cat <<EOF
 <A HREF="../../">KONECT</A> ‣ <A HREF="../">Networks</A> ‣
 <H1>$meta_name</H1>
@@ -45,6 +55,7 @@ if [ "$url" ] ; then
 	echo "<TR><TD>URL<TD><A HREF=\"$url\">$url</A>"
 fi
 cat <<EOF
+<TR><TD>Check         <TD>$checkresult
 <TR><TD>Category      <TD>$(field=category sh/read-meta)
 <TR><TD>Format        <TD>$format
 <TR><TD>Weights       <TD>$weights
