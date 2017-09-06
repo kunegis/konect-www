@@ -1,3 +1,12 @@
 #! /bin/sh
 
-convert plot/$name.eps -resize x600 www/plot/$name.full.png
+if [ -e plot/"$name".eps ] ; then
+	convert plot/"$name".eps -resize x600 www/plot/"$name".full.png
+elif [ -e plot/"$name".png ] ; then
+	cp plot/"$name".png www/plot/"$name".full.png
+else
+	echo >&2 "*** Expected one of 'plot/$name.eps' or 'plot/$name.png' to exist 'plot/$name.png'"
+	exit 1
+fi
+
+exit 0

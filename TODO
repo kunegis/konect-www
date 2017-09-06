@@ -1,9 +1,7 @@
-* layout plots (PNG)
-* LYBL/Delaunay plots (PNG)
 * statistics:  show left and right node count (size)
 * network pages:  show format and weights as pretty texts
-* statistics:  show symbols for all statistics
 * statistics everywhere:  show pretty names of statistics
+* statistics:  show symbols for all statistics
 * number formatting 
 * /categories/
 * tooltips everywhere
@@ -14,8 +12,9 @@
 * make updates be atomic
 * time_histogram_signed:  for movielens-100k_rating, we seem to fail to subtract the mean rating from all weights, resuling in no negative weights shown
 * time_histogram_signed:  remove all plots from plot/ that are not about signed networks. 
-* plots/$plot/ pages:  insert scatter plots 
 * reciprocity:  is often NaN.  why?
+* for each statistic:  distribution and cumulative distribution plot for that statistic.
+* for each statistic:  scatter plots of that statistic vs size
 
 == Public announcements ==
 * @network.convote

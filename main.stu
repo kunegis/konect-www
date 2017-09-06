@@ -146,13 +146,13 @@ skeleton/index.html = static/index.html;
 }
 
 www/plot/$name.small.png:
-	plot/$name.eps -p www/plot/ sh/convert-small
+	-o plot/$name.(eps png) -p www/plot/ sh/convert-small
 {
 	sh/convert-small
 }
 
 www/plot/$name.full.png:
-	plot/$name.eps -p www/plot/ sh/convert-full 
+	-o plot/$name.(eps png) -p www/plot/ sh/convert-full 
 {
 	sh/convert-full
 }

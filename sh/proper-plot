@@ -5,16 +5,23 @@
 # producing them. 
 #
 # INVOCATION
-#	$1	filename
+#	$1	filename without suffix
 #
 
 filename="$1"
 
 [ "$filename" ] || exit 2
 
-if [ -e "$filename" ] ; then
-	size=$(stat -c%s "$filename")
+if [ -e "$filename".eps ] ; then
+	size=$(stat -c%s "$filename".eps)
 	if [ "$size" -gt 4096 ] ; then
+		exit 0
+	else
+		exit 1
+	fi
+elif [ -e "$filename".png ] ; then
+	size=$(stat -c%s "$filename".png)
+	if [ "$size" -gt 0 ] ; then
 		exit 0
 	else
 		exit 1

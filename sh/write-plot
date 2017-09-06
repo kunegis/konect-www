@@ -28,9 +28,9 @@ while IFS= read -r type ; do
 <H3>$type</H3>
 EOF
 	for network in $(cat dat/NETWORKS) ; do
-		filename=plot/"$plot"."$type"."$network".eps
-		sh/proper-plot "$filename" &&
-		echo "<A HREF=\"../../plot/$plot.$type.$network.full.png\"><IMG SRC=\"../../plot/$plot.$type.$network.small.png\"></A>"
+		if sh/proper-plot plot/"$plot"."$type"."$network" ; then
+			echo "<A HREF=\"../../plot/$plot.$type.$network.full.png\"><IMG SRC=\"../../plot/$plot.$type.$network.small.png\"></A>"
+		fi
 	done
 done
 
