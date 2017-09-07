@@ -1,0 +1,5 @@
+#! /bin/sh
+
+weights_uc=$(printf %s "$weights" | tr a-z A-Z)
+
+<konect-toolbox/m/konect_consts.m sed -E -e 's,^\s*labels_weights\{consts\.'"$weights_uc"'\s*\}\s*=\s*'\''(.+)'\''\s*;\s*$,\1,;t;d'

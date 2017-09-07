@@ -15,6 +15,10 @@
 
 set -e
 
+#
+# Collect information 
+#
+
 meta_name=$(field=name sh/read-meta)
 format=$(sh/read-format)
 weights=$(sh/read-weights)
@@ -35,6 +39,10 @@ else
 	checkresult="Check was not executed"
 fi
 
+#
+# Head
+#
+
 cat <<EOF
 <A HREF="../../">KONECT</A> ‣ <A HREF="../">Networks</A> ‣
 <H1>$meta_name</H1>
@@ -44,33 +52,51 @@ $(field=long-description sh/read-meta)
 
 <H2>Metadata</H2>
 <TABLE>
-<TR><TD>Name          <TD>$meta_name
-<TR><TD>Code          <TD><CODE>$(field=code sh/read-meta)</CODE>
-<TR><TD>Internal name <TD><CODE>$network</CODE>
+EOF
+
+#
+# Identity
+#
+
+cat <<EOF
+<TR><TD>Code            <TD><CODE>$(field=code sh/read-meta)</CODE>
+<TR><TD>Internal name   <TD><CODE>$network</CODE>
+<TR><TD>Name            <TD>$meta_name
 EOF
 if [ "$url" ] ; then
-	echo "<TR><TD>URL<TD><A HREF=\"$url\">$url</A>"
+	cat <<EOF
+<TR><TD>URL             <TD><A HREF=\"$url\">$url</A>
+EOF
 fi
 cat <<EOF
-<TR><TD>Check         <TD>$checkresult
-<TR><TD>Category      <TD>$(field=category sh/read-meta)
-<TR><TD>Format        <TD>$format
-<TR><TD>Weights       <TD>$weights
+<TR><TD>Check           <TD>$checkresult
 EOF
-if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
-	echo '<TR><TD>Timestamps <TD>Edges are annotated with timestamps'
-fi
+
+#
+# Semantics
+#
+
+cat <<EOF
+<TR><TD>Category        <TD>$(field=category sh/read-meta)
+EOF
 if [ "$entity_names" ] ; then
-	echo "<TR><TD>Node type(s) <TD>$entity_names"
+	cat <<EOF
+<TR><TD>Node meaning    <TD>$entity_names
+EOF
 fi
 if [ "$relationship_names" ] ; then
-	echo "<TR><TD>Edge type(s) <TD>$relationship_names"
+	cat <<EOF
+<TR><TD>Edge meaning    <TD>$relationship_names
+EOF
 fi
-if [ "$timeiso" ] ; then
-	echo "<TR><TD>Timestamp <TD>$timeiso"
-fi
+cat <<EOF
+<TR><TD>Network format  <TD>$(format=$format sh/label-format)
+<TR><TD>Edge type       <TD>$(weights=$weights sh/label-weights) 
+EOF
 
-# Tags
+#
+# Structure
+#
 if [ "$format" = asym ] ; then
 	printf '%s' '<TR><TD>Reciprocal <TD>'
 	if tag=nonreciprocal sh/has-tag ; then
@@ -93,6 +119,26 @@ if [ "$format" != bip ] ; then
 		echo 'Does not contain loops'
 	fi
 fi
+if tag=tournament sh/has-tag ; then
+	printf '%s\n' '<TR><TD>Tournament <TD>The graph is a tournament:  all pairs of nodes are connected by a directed edge'
+fi
+if tag=trianglefree sh/has-tag ; then
+	printf '%s\n' '<TR><TD>Triangles <TD>Does not contain triangles'
+fi
+if tag=zeroweight sh/has-tag ; then
+	printf '%s\n' '<TR><TD>Zero weights <TD>Edges may have weight zero'
+fi
+
+if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
+	echo '<TR><TD>Timestamps <TD>Edges are annotated with timestamps'
+fi
+if [ "$timeiso" ] ; then
+	echo "<TR><TD>Timestamp <TD>$timeiso"
+fi
+
+#
+# Extraction 
+#
 if tag=incomplete sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Completeness <TD>This network is incomplete'
 fi
@@ -110,15 +156,6 @@ if tag=kcore sh/has-tag ; then
 fi
 if tag=lcc sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Largest connected component <TD>Only the largest connected component of the original data is included'
-fi
-if tag=tournament sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Tournament <TD>The graph is a tournament:  all pairs of nodes are connected by a directed edge'
-fi
-if tag=trianglefree sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Triangles <TD>Does not contain triangles'
-fi
-if tag=zeroweight sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Zero weights <TD>Edges may have weight zero'
 fi
 
 cat <<EOF

@@ -1,0 +1,5 @@
+#! /bin/sh
+
+format_uc=$(printf %s "$format" | tr a-z A-Z)
+
+<konect-toolbox/m/konect_consts.m sed -E -e 's,^\s*labels_format\{consts\.'"$format_uc"'\s*\}\s*=\s*'\''(.+)'\''\s*;\s*$,\1,;t;d'

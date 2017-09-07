@@ -108,6 +108,7 @@ skeleton/index.html = static/index.html;
 	dat/STATISTICS
 	uni/meta.$network
 	dat-www/plots-network.$network
+	konect-toolbox/m/konect_consts.m 
 {
 	sh/write-network
 }

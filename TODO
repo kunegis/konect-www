@@ -1,8 +1,6 @@
-* network pages:  show format and weights as pretty texts
 * statistics everywhere:  show pretty names of statistics
 * statistics:  show symbols for all statistics
 * number formatting 
-* /categories/
 * tooltips everywhere
 * networks/:  show a few basic statistics and metadata
 * networks/ table:  make it sortable
@@ -14,6 +12,8 @@
 * reciprocity:  is often NaN.  why?
 * for each statistic:  distribution and cumulative distribution plot for that statistic.
 * for each statistic:  scatter plots of that statistic vs size
+* labels for categories
+* /categories/
 
 == Public announcements ==
 * @network.convote
