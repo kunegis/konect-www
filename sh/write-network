@@ -65,7 +65,7 @@ cat <<EOF
 EOF
 if [ "$url" ] ; then
 	cat <<EOF
-<TR><TD>URL             <TD><A HREF=\"$url\">$url</A>
+<TR><TD>Source          <TD><A HREF=\"$url\">$url</A>
 EOF
 fi
 cat <<EOF
