@@ -28,8 +28,10 @@ statistics are not computed because the computations take too long.
 <UL>
 EOF
 for statistic in $(cat dat/STATISTICS) ; do
+	export statistic
+	name=$(sh/name-statistic)
 	cat <<EOF
-<LI><A HREF="$statistic/">$statistic</A>
+<LI><A HREF="$statistic/">$name</A>
 EOF
 done
 cat <<EOF

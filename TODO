@@ -1,4 +1,5 @@
-* statistics everywhere:  show pretty names of statistics
+* /statistics/size+2/:   not found
+
 * statistics:  show symbols for all statistics
 * number formatting 
 * tooltips everywhere
@@ -14,6 +15,7 @@
 * for each statistic:  scatter plots of that statistic vs size
 * labels for categories
 * /categories/
+* plots:  decomposition, decomposition_time
 
 == Public announcements ==
 * @network.convote

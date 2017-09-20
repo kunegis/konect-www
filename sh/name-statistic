@@ -1,0 +1,21 @@
+#! /bin/sh
+#
+# Output the name of $statistic.
+#
+
+statistic_esc=$(printf '%s' "$statistic" | sed -E -e 's|\+|\\\+|g')
+
+ret=$(
+<konect-toolbox/m/konect_label_statistic.m sed -E -e '
+s|^.*if\s+strcmp\(statistic,\s*'\'''"$statistic_esc"''\''\s*\).*'\''([^('\'']+)[('\''].*$|\1|;t;d
+' |
+	sed -E -e 's,\s*$,,')
+
+[ "$ret" ] || {
+	echo >&2 "*** $0:  Empty name for statistic='$statistic'"
+	exit 1
+}
+
+echo "$ret"
+
+

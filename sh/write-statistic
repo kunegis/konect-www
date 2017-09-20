@@ -9,10 +9,14 @@
 #	dat/NETWORKS
 #
 
+name=$(sh/name-statistic)
+name_lc=$(printf '%s' "$name" | sed -E -e 'h;s,^(.).*$,\1,;y,ABCDEFGHIJKLMNOPQRSTUVWXYZ,abcdefghijklmnopqrstuvwxyz,;G;s,\
+.,,')
+
 cat <<EOF
 <A HREF="../../">KONECT</A> ‣ <A HREF="../">Statistics</A> ‣
-<H1>$statistic</H1>
-<P>These are the values of the statistic '$statistic' for all networks.
+<H1>$name</H1>
+<P>These are the values of the <B>$name_lc</B> for all networks.
 </P>
 <TABLE>
 EOF

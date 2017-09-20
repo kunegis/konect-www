@@ -167,10 +167,13 @@ EOF
 
 while IFS= read -r statistic
 do
+	export statistic
 	if [ -e dat/statistic."$statistic"."$network" ] ; then
+
+		name=$(sh/name-statistic)
 		value=$(<dat/statistic."$statistic"."$network" head -1)
 		cat <<EOF
-<TR><TD><A HREF="../../statistics/$(printf '%s' $statistic | sed -E -e 's,\+.*$,,')/">$statistic</A>	<TD>$value
+<TR><TD><A HREF="../../statistics/$(printf '%s' $statistic | sed -E -e 's,\+.*$,,')/">$name</A>	<TD>$value
 EOF
 	fi
 done <dat/STATISTICS
