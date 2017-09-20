@@ -24,6 +24,7 @@
 
 @all:
 	www/index.html
+	www/about/index.html
 	www/networks/index.html
 	www/networks/[dat/NETWORKS]/index.html
 	www/statistics/index.html
@@ -93,6 +94,10 @@ www/$name.html:
 }
 
 skeleton/index.html = static/index.html;
+skeleton/about/index.html: static/about.html -p skeleton/about/
+{
+	cp static/about.html skeleton/about/index.html
+}
 
 >skeleton/networks/index.html:
 	-p skeleton/networks/

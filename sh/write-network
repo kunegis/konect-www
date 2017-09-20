@@ -47,7 +47,7 @@ cat <<EOF
 <A HREF="../../">KONECT</A> ‣ <A HREF="../">Networks</A> ‣
 <H1>$meta_name</H1>
 <P>
-$(field=long-description sh/read-meta)
+$(field=long-description sh/read-meta | fold -b -s)
 </P>
 
 <H2>Metadata</H2>
@@ -65,7 +65,7 @@ cat <<EOF
 EOF
 if [ "$url" ] ; then
 	cat <<EOF
-<TR><TD>Source          <TD><A HREF=\"$url\">$url</A>
+<TR><TD>Source          <TD><A HREF="$url">$url</A>
 EOF
 fi
 cat <<EOF
@@ -160,6 +160,7 @@ fi
 
 cat <<EOF
 </TABLE>
+
 <H2>Statistics</H2>
 <TABLE>
 EOF
@@ -187,6 +188,7 @@ done
 
 if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
 	cat <<EOF
+
 <H2>Downloads</H2>
 <UL>
   <LI><A HREF="../../files/download.tsv.$network.tar.bz2">Data as TSV</A> ($(stat -c%s dat/download.tsv.$network.tar.bz2) bytes)
@@ -203,6 +205,7 @@ if [ "$cite" ] ; then
 	tmpfile=$(mktemp)
 	printf '%s\n' "$cite" | sed -E -e 's|,|\
 |g' >"$tmpfile"
+	echo
 	echo '<H2>References</H2>'
 	dir=$(pwd)
 	cd "$(dirname "$tmpfile")"
