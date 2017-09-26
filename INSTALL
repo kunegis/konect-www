@@ -1,4 +1,5 @@
-Build everything with Stu.  The website will be generated in www/.
+Build everything with Stu (see 'main.stu').  The website will be
+generated in www/. 
 
 == Requirements ==
 

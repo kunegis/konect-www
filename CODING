@@ -5,7 +5,8 @@ web server.
 
 All pages are named 'index.html', and each has its own directory.  Links
 never include the 'index.html' part, but always include the trailing
-slash.
+slash.  Links *are* allowed to start with a slash, pointing to the root
+directory of the KONECT website. 
 
 HTML tags are in upper case to make them easier to read.
 

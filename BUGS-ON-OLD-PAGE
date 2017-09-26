@@ -11,6 +11,6 @@ the Univ. of Koblenz-Landau (Germany):
   references, as well as certain parts of the tables, have encoding
   errors.   
 * The largest networks have no plots and statistics, because the server
-  in Koblenz did not have sufficient memory.
+  in Koblenz did not have sufficient memory to compute those.
 * On the ca-cit-* networks, the category is wrong:  It should be
   Cocitation rather than Coauthorship
