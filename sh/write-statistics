@@ -27,7 +27,7 @@ statistics are not computed because the computations take too long.
 </P>
 <UL>
 EOF
-for statistic in $(cat dat/STATISTICS) ; do
+for statistic in $(cat dat-www/STATISTICS_MAIN) ; do
 	export statistic
 	name=$(sh/name-statistic)
 	cat <<EOF
@@ -37,4 +37,3 @@ done
 cat <<EOF
 </UL>
 EOF
-

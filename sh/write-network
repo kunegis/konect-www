@@ -145,6 +145,9 @@ fi
 if tag=join sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Join <TD>This network is the join of an underlying network'
 fi
+if tag=path sh/has-tag ; then
+	printf '%s\n' '<TR><TD>Path <TD>This edges in this network form paths'
+fi
 if tag=missingorientation sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Orientation <TD>The network is not directed, but the underlying data is'
 fi

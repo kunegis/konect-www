@@ -1,6 +1,3 @@
-* /statistics/size+2/:   not found
-* http://konect.math.fundp.ac.be/networks/edit-chwiktionary/:  Section "Download" is missing
-
 * statistics:  show symbols for all statistics
 * number formatting 
 * tooltips everywhere
@@ -17,6 +14,8 @@
 * labels for categories
 * /categories/
 * plots:  decomposition, decomposition_time
+* each statistic page:  also include the non-main statistics in the table, e.g., the left and right size. 
+* make more datasets available 
 
 == Public announcements ==
 * @network.convote

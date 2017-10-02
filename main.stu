@@ -121,7 +121,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 >skeleton/statistics/index.html:
 	sh/write-statistics
-	-p skeleton/statistics/ dat/STATISTICS
+	-p skeleton/statistics/ dat-www/STATISTICS_MAIN
 	konect-toolbox/m/konect_label_statistic.m 
 {
 	sh/write-statistics
