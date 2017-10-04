@@ -16,6 +16,7 @@
 * plots:  decomposition, decomposition_time
 * each statistic page:  also include the non-main statistics in the table, e.g., the left and right size. 
 * make more datasets available 
+* main page:  show three example graphs for each group:  3 statistics, 3 plots, 3 networks, etc. 
 
 == Public announcements ==
 * @network.convote
