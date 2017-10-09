@@ -1,7 +1,4 @@
-* all statistics:  show spaces after groups of three digits after the decimal point
-* integer statistics:  show them always in non-exponential notation 
-* statistics that can get negative:  always show the '+' sign for them
-* statistics:  show symbols for all statistics (needs MathJax?)
+* statistics:  show symbols for all statistics (either MathJax, or simple HTML representation)
 * tooltips everywhere
 * networks/:  show a few basic statistics and metadata
 * networks/ table:  make it sortable
