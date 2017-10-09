@@ -74,6 +74,14 @@ konect-extr/ {
 }
 
 #
+# Octave
+#
+
+octave = -o konect-analysis/ ; 
+
+>MATLABPATH:  sh/mkmatlabpath { sh/mkmatlabpath ; }
+
+#
 # Lists
 #
 
@@ -111,10 +119,10 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 >skeleton/networks/$network/index.html:
 	sh/write-network sh/read-meta dat/ plot/
 	-p skeleton/networks/$network/ konect-extr/konect.bib dat/allowed_src.txt
-	dat/STATISTICS
 	uni/meta.$network
 	dat-www/plots-network.$network
-	konect-toolbox/m/konect_consts.m 
+	konect-toolbox/m/konect_consts.m
+	skeleton/networks/$network/statistics.html
 {
 	sh/write-network
 }
@@ -128,9 +136,10 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 }
 
 >skeleton/statistics/$statistic/index.html:
-	sh/write-statistic -p skeleton/statistics/$statistic/ dat/
-	dat/NETWORKS
+	sh/write-statistic -p skeleton/statistics/$statistic/ 
+##	dat/NETWORKS
 	konect-toolbox/m/konect_label_statistic.m
+	skeleton/statistics/$statistic/table.html
 {
 	sh/write-statistic
 }
@@ -148,6 +157,21 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 	dat-www/plots-network.[dat/NETWORKS]
 {
 	sh/write-plot
+}
+
+skeleton/networks/$network/statistics.html:
+	-t octave $[-t MATLABPATH] m/www_table_statistics.m m/www_format_statistic.m 
+	dat/STATISTICS dat/ konect-toolbox/m/konect_label_statistic.m 
+{
+	./octave m/www_table_statistics.m 
+}
+
+skeleton/statistics/$statistic/table.html:
+	-t octave $[-t MATLABPATH]
+	m/www_table_statistic.m m/www_format_statistic.m 
+	dat/NETWORKS dat/
+{
+	./octave m/www_table_statistic.m 
 }
 
 #

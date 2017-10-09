@@ -6,7 +6,7 @@
 #	$statistic
 #
 # INPUT FILES
-#	dat/NETWORKS
+#	skeleton/statistics/$statistic/table.html
 #
 
 name=$(sh/name-statistic)
@@ -18,17 +18,22 @@ cat <<EOF
 <H1>$name</H1>
 <P>These are the values of the <B>$name_lc</B> for all networks.
 </P>
-<TABLE>
 EOF
-for network in $(cat dat/NETWORKS) ; do
-	export network
-	filename=dat/statistic."$statistic"."$network"
-	[ -e "$filename" ] || continue
-	value=$(head -1 "$filename")
-	cat <<EOF
-<TR><TD><A HREF="../../networks/$network/">$(field=name sh/read-meta)</A>	<TD>$value
-EOF
-done
-cat <<EOF
-</TABLE>
-EOF
+
+cat skeleton/statistics/"$statistic"/table.html
+
+##<TABLE>
+##EOF
+##for network in $(cat dat/NETWORKS) ; do
+##	export network
+##	filename=dat/statistic."$statistic"."$network"
+##	[ -e "$filename" ] || continue
+##	value=$(head -1 "$filename")
+##	cat <<EOF
+##<TR><TD><A HREF="../../networks/$network/">$(field=name sh/read-meta)</A>	<TD>$value
+##EOF
+##done
+##cat <<EOF
+##</TABLE>
+
+##EOF

@@ -9,8 +9,8 @@
 #	Content is written here
 #
 # INPUT FILES
-#	dat/STATISTICS
-#	dat-www/plots-network.$network 
+#	dat-www/plots-network.$network
+#	skeleton/networks/$network/statistics.html
 #
 
 set -e
@@ -165,25 +165,27 @@ cat <<EOF
 </TABLE>
 
 <H2>Statistics</H2>
-<TABLE>
 EOF
 
-while IFS= read -r statistic
-do
-	export statistic
-	if [ -e dat/statistic."$statistic"."$network" ] ; then
+cat skeleton/networks/"$network"/statistics.html
 
-		name=$(sh/name-statistic)
-		value=$(<dat/statistic."$statistic"."$network" head -1)
-		cat <<EOF
-<TR><TD><A HREF="../../statistics/$(printf '%s' $statistic | sed -E -e 's,\+.*$,,')/">$name</A>	<TD>$value
-EOF
-	fi
-done <dat/STATISTICS
+## while IFS= read -r statistic
+## do
+## 	export statistic
+## 	if [ -e dat/statistic."$statistic"."$network" ] ; then
+
+## 		name=$(sh/name-statistic)
+## 		value=$(<dat/statistic."$statistic"."$network" head -1)
+## 		cat <<EOF
+## <TR><TD><A HREF="../../statistics/$(printf '%s' $statistic | sed -E -e 's,\+.*$,,')/">$name</A>	<TD>$value
+## EOF
+## 	fi
+## done <dat/STATISTICS
+
+## cat <<EOF
+## </TABLE>
 
 cat <<EOF
-</TABLE>
-
 <H2>Plots</H2>
 EOF
 
