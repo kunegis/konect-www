@@ -30,21 +30,12 @@ while ~((statistic = fgetl(STATISTICS)) == -1)
   if 2 ~= ret_exist,  continue;  end;
   values = read_statistic(statistic, network); 
   value = values(1); 
-%%  IN = fopen(filename_in, 'r');
-%%  if IN < 0,  error(filename_in);  end;
-%%  text = fgetl(IN);
-%%  if text == -1,  error(filename_in);  end; 
-%%  value = str2double(text);
-%%  if isnan(value),
-%%    fprintf(2, 'Statistic %s for network %s is not a number:  %s\n', statistic, network, text); 
-%%    exit(1);
-%%  end
   statistic_base = regexprep(statistic, '\+.*$', '');
   text_statistic = konect_label_statistic(statistic, 'html-name');
+  text_symbol = konect_label_statistic(statistic, 'html-short'); 
   text_value = www_format_statistic(statistic, value); 
-%%  text_value = sprintf('%g', value);
-  fprintf(OUT, '<TR><TD><A HREF="../../statistics/%s/">%s</A>\n<TD>%s\n', ...
-	  statistic_base, text_statistic, text_value); 
+  fprintf(OUT, '<TR><TD><A HREF="../../statistics/%s/">%s</A>\t<TD align="right">%s =<TD>%s\n', ...
+	  statistic_base, text_statistic, text_symbol, text_value); 
 end
 
 fprintf(OUT, '</TABLE>\n'); 
