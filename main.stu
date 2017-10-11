@@ -119,6 +119,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 	-p skeleton/networks/
 	dat/NETWORKS
 	sh/write-networks
+	skeleton/networks/table.html
 {
 	sh/write-networks
 }
@@ -189,6 +190,14 @@ skeleton/statistics/table.html:
 	dat-www/STATISTICS_MAIN
 {
 	./octave m/www_table_all_statistics.m 
+}
+
+skeleton/networks/table.html:
+	-t octave $[-t MATLABPATH]
+	m/www_table_networks.m
+	dat/NETWORKS
+{
+	./octave m/www_table_networks.m
 }
 
 #
