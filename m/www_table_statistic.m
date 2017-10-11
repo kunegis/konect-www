@@ -30,10 +30,11 @@ while ~((network = fgetl(NETWORKS)) == -1)
   if 2 ~= ret_exist,  continue;  end;
   values = read_statistic(statistic, network); 
   value = values(1); 
-  text_value = www_format_statistic(statistic, value); 
   meta= read_meta(network); 
   name= meta.name;
-  fprintf(OUT, '<TR><TD><A HREF="../../networks/%s/">%s</A>\t<TD>%s\n', network, name, text_value);
+  text_value = www_format_statistic(statistic, value); 
+  fprintf(OUT, '<TR><TD><A HREF="../../networks/%s/">%s</A><TD>%s\n', ...
+	  network, name, text_value);
 end
 
 fprintf(OUT, '</TABLE>\n'); 

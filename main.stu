@@ -82,13 +82,20 @@ octave = -o konect-analysis/ ;
 >MATLABPATH:  sh/mkmatlabpath { sh/mkmatlabpath ; }
 
 #
-# Lists
+# Stuff in dat-www/
 #
 
 # Only the main statistics, i.e., without substatistics
 >dat-www/STATISTICS_MAIN:  <dat/STATISTICS
 {
 	grep -F -v +
+}
+
+dat-www/html-symbol.$statistic:
+	-t octave $[-t MATLABPATH]
+	m/www_html_symbol.m 
+{
+	./octave m/www_html_symbol.m 
 }
 
 #
@@ -129,17 +136,19 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 >skeleton/statistics/index.html:
 	sh/write-statistics
-	-p skeleton/statistics/ dat-www/STATISTICS_MAIN
-	konect-toolbox/m/konect_label_statistic.m 
+	-p skeleton/statistics/
+	## dat-www/STATISTICS_MAIN
+	## konect-toolbox/m/konect_label_statistic.m
+	skeleton/statistics/table.html
 {
 	sh/write-statistics
 }
 
 >skeleton/statistics/$statistic/index.html:
 	sh/write-statistic -p skeleton/statistics/$statistic/ 
-##	dat/NETWORKS
 	konect-toolbox/m/konect_label_statistic.m
 	skeleton/statistics/$statistic/table.html
+	dat-www/html-symbol.$statistic
 {
 	sh/write-statistic
 }
@@ -172,6 +181,14 @@ skeleton/statistics/$statistic/table.html:
 	dat/NETWORKS dat/
 {
 	./octave m/www_table_statistic.m 
+}
+
+skeleton/statistics/table.html:
+	-t octave $[-t MATLABPATH]
+	m/www_table_all_statistics.m konect-toolbox/m/konect_label_statistic.m
+	dat-www/STATISTICS_MAIN
+{
+	./octave m/www_table_all_statistics.m 
 }
 
 #

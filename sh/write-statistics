@@ -1,4 +1,13 @@
 #! /bin/sh
+#
+# Create the "all statistics" page.
+#
+# INPUT FILES
+#	skeleton/statistics/table.html
+#
+# STDOUT
+#	The skeleton of the "all statistics" page
+#
 
 set -e
 
@@ -25,15 +34,18 @@ to certain kinds of networks (e.g., the clustering coefficient only
 applies to unipartite networks). For very large networks, some
 statistics are not computed because the computations take too long.  
 </P>
-<UL>
 EOF
-for statistic in $(cat dat-www/STATISTICS_MAIN) ; do
-	export statistic
-	name=$(sh/name-statistic)
-	cat <<EOF
-<LI><A HREF="$statistic/">$name</A>
-EOF
-done
-cat <<EOF
-</UL>
-EOF
+
+cat skeleton/statistics/table.html
+
+##<UL>
+##for statistic in $(cat dat-www/STATISTICS_MAIN) ; do
+##	export statistic
+##	name=$(sh/name-statistic)
+##	cat <<EOF
+##<LI><A HREF="$statistic/">$name</A>
+##EOF
+##done
+##cat <<EOF
+##</UL>
+##EOF

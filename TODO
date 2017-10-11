@@ -1,5 +1,3 @@
-* page with list of all statistics:  show all symbols for all statistics
-* page for each statistic:  show the statistic symbol in the intro text
 * tooltips everywhere
 * networks/:  show a few basic statistics and metadata
 * networks/ table:  make it sortable
