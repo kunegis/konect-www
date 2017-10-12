@@ -15,7 +15,7 @@
 
 set -e 
 
-title=$(<skeleton/"$name".html sed -E -e 's|^.*<H1>(.*)</H1>.*$|\1|;t;d')
+title=$(<skeleton/"$name".html sed -E -e 's|^.*<H1[^>]*>(.*)</H1>.*$|\1|;t;d')
 
 if [ -z "$title" ] ; then
 	echo >&2 "*** Expected a title, but found none"
@@ -26,7 +26,9 @@ mkdir -p "$(dirname www/"$name".html)"
 {
 	title_escape=$(printf '%s' "$title" | sh/escape-sed)
 	root_escape=
-	nav_escape=$(sed -E -e 's,^#nav:,,;t;d' skeleton/"$name".html | sh/escape-sed)
+	nav_line=$(sed -E -e 's,^#nav:,,;t;d' skeleton/"$name".html)
+	nav_replaced=$(printf '%s' "$nav_line" | sed -E -e 's,\$\{root\},'"$root_escape"',g')
+	nav_escape=$(printf '%s' "$nav_replaced" | sh/escape-sed)
 	<static/head.html sed -E -e 's,\$\{title\},'"$title_escape"',g;s,\$\{root\},'"$root_escape"',g;s,\$\{nav\},'"$nav_escape"',g'
 	echo
 	<skeleton/"$name".html sed -E -e '/^\#nav:/d'

@@ -1,5 +1,6 @@
 * icons everywhere
 * on each network page:  put links to the individual plot types
+* Show pretty names for plot- and subplot types
 * for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot)
 * for each statistic:  distribution and cumulative distribution plot for that statistic.
 
