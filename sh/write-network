@@ -44,7 +44,7 @@ fi
 #
 
 cat <<EOF
-<A HREF="../../">KONECT</A> ‣ <A HREF="../">Networks</A> ‣
+#nav:<A HREF="../../">KONECT</A> ‣ <A HREF="../">Networks</A> ‣
 <H1>$meta_name</H1>
 <P>
 $(field=long-description sh/read-meta | fold -b -s)
@@ -168,22 +168,6 @@ cat <<EOF
 EOF
 
 cat skeleton/networks/"$network"/statistics.html
-
-## while IFS= read -r statistic
-## do
-## 	export statistic
-## 	if [ -e dat/statistic."$statistic"."$network" ] ; then
-
-## 		name=$(sh/name-statistic)
-## 		value=$(<dat/statistic."$statistic"."$network" head -1)
-## 		cat <<EOF
-## <TR><TD><A HREF="../../statistics/$(printf '%s' $statistic | sed -E -e 's,\+.*$,,')/">$name</A>	<TD>$value
-## EOF
-## 	fi
-## done <dat/STATISTICS
-
-## cat <<EOF
-## </TABLE>
 
 cat <<EOF
 <H2>Plots</H2>

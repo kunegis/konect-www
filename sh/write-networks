@@ -16,26 +16,8 @@ set -e
 count=$(echo $(<dat/NETWORKS wc -l))
 
 cat <<EOF
-<A HREF="../">KONECT</A> ‣
+#nav:<A HREF="../">KONECT</A> ‣
 <H1>Networks</H1>
 <P>KONECT has $count networks.</P>
 EOF
 cat skeleton/networks/table.html
-##<TABLE>
-##<TR><TD><TD><B>Name</B><TD><B>Category</B><TD><TD><TD align="right"><B>n</B><TD align="right"><B>m</B>
-##EOF
-##while IFS= read -r network ; do
-##	export network
-##	name=$(field=name sh/read-meta)
-##	category=$(field=category sh/read-meta)
-##	format=$(sh/read-format)
-##	weights=$(sh/read-weights)
-##	size=$(head -1 dat/statistic.size."$network")
-##	volume=$(head -1 dat/statistic.volume."$network")
-##	cat <<EOF 
-##<TR><TD><CODE>$(field=code sh/read-meta)</CODE><TD><A href="$network/">$name</A><TD>$category<TD>$format<TD>$weights<TD align="right">$size<TD align="right">$volume
-##EOF
-##done <dat/NETWORKS
-##cat <<EOF
-##</TABLE>
-##EOF

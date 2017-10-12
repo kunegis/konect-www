@@ -1,22 +1,23 @@
+* icons everywhere
 * on each network page:  put links to the individual plot types
-* README files within downloads:  make them beautiful 
-* time_histogram_signed:  for movielens-100k_rating, we seem to fail to subtract the mean rating from all weights, resuling in no negative weights shown
-* time_histogram_signed:  remove all plots from plot/ that are not about signed networks. 
 * for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot)
 * for each statistic:  distribution and cumulative distribution plot for that statistic.
+
+* time_histogram_signed:  for movielens-100k_rating, we seem to fail to subtract the mean rating from all weights, resuling in no negative weights shown
+* time_histogram_signed:  remove all plots from plot/ that are not about signed networks. 
+
+* README files within downloads:  make them beautiful 
 * labels for categories
-* /categories/
 * plots:  decomposition, decomposition_time
 * statistics:  average left and right degrees
 * statistics:  maximum left and right degrees
-
+* /categories/
 * tooltips everywhere
-* networks/ table:  make it sortable
+* networks/ table and other tables:  make it sortable
 * make updates be atomic
 * each statistic page:  also include the non-main statistics in the table, e.g., the left and right size. 
 * make more datasets available 
 * main page:  show three example graphs for each group:  3 statistics, 3 plots, 3 networks, etc. 
-* list of networks:  show icons for all metadata and tags
 
 == Public announcements ==
 * @network.convote

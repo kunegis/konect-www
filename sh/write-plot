@@ -11,7 +11,7 @@
 #
 
 cat <<EOF
-<A HREF="../../">KONECT</A> ‣ <A HREF="../">Plots</A> ‣
+#nav:<A HREF="../../">KONECT</A> ‣ <A HREF="../">Plots</A> ‣
 <H1>$plot</H1>
 <P>These are the plots of type '$plot' for all networks.
 </P>

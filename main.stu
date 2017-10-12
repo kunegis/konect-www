@@ -27,14 +27,14 @@
 	www/index.html
 	www/about/index.html
 	www/networks/index.html
-	www/networks/[dat/NETWORKS]/index.html
+	www/( main.css favicon.ico konect256.png )
 	www/statistics/index.html
-	www/statistics/[dat-www/STATISTICS_MAIN]/index.html
 	www/plots/index.html
-	www/plots/[dat/PLOTS]/index.html
-	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
 	www/files/download.tsv.[dat-www/NETWORKS-DOWNLOAD].tar.bz2
-	www/favicon.ico
+	www/statistics/[dat-www/STATISTICS_MAIN]/index.html
+	www/plots/[dat/PLOTS]/index.html
+	www/networks/[dat/NETWORKS]/index.html
+	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
 ;
 
 #
@@ -245,3 +245,5 @@ www/files/download.tsv.$network.tar.bz2: dat/download.tsv.$network.tar.bz2 -p ww
 #
 
 www/favicon.ico = logo/;
+www/konect256.png = logo/;
+www/main.css = static/;

@@ -1,0 +1,7 @@
+#! /bin/sh
+#
+# Escape a text so that it can be used as the second arg of an 's' 
+# command in sed(1), when delimited by ','. 
+#
+
+sed -E -e 's|,|\\,|g'

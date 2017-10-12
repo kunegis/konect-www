@@ -16,7 +16,7 @@ name_lc=$(printf '%s' "$name" | sed -E -e 'h;s,^(.).*$,\1,;y,ABCDEFGHIJKLMNOPQRS
 .,,')
 
 cat <<EOF
-<A HREF="../../">KONECT</A> ‣ <A HREF="../">Statistics</A> ‣
+#nav:<A HREF="../../">KONECT</A> ‣ <A HREF="../">Statistics</A> ‣
 <H1>$name</H1>
 <P>These are the values of the <B>$name_lc</B> ($symbol) for all networks.
 </P>

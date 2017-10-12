@@ -12,7 +12,7 @@
 set -e
 
 cat <<EOF
-<A HREF="../">KONECT</A> ‣
+#nav:<A HREF="../">KONECT</A> ‣
 <H1>Statistics</H1>
 <P>A network statistic is a numerical value that characterizes a
 network. Examples of network statistics are the number of nodes and the
@@ -37,15 +37,3 @@ statistics are not computed because the computations take too long.
 EOF
 
 cat skeleton/statistics/table.html
-
-##<UL>
-##for statistic in $(cat dat-www/STATISTICS_MAIN) ; do
-##	export statistic
-##	name=$(sh/name-statistic)
-##	cat <<EOF
-##<LI><A HREF="$statistic/">$name</A>
-##EOF
-##done
-##cat <<EOF
-##</UL>
-##EOF

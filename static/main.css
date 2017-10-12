@@ -1,0 +1,29 @@
+html {
+    background-color:	black;
+    font-family:	sans-serif;
+}
+
+.bod {
+    margin:		0;
+    display:		block;
+    background-color:	white;
+}
+
+#nav {
+    background-color:	black;
+    color: 		white;
+    vertical-align:	middle;
+    margin:		0;
+}
+
+#nav a:link, #nav a:visited {
+    color:		white;
+    font-weight:	bold;
+    text-decoration:	none;
+}
+
+#nav a:hover, #nav a:active {
+    color:		white;
+    font-weight:	bold;
+    text-decoration:	underline;
+}

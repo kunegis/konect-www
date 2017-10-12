@@ -7,7 +7,7 @@
 set -e
 
 cat <<EOF
-<A HREF="../">KONECT</A> ‣
+#nav:<A HREF="../">KONECT</A> ‣
 <H1>Plots</H1>
 <P>A plot is a figure that visualizes a certain aspect of a network. 
 </P>

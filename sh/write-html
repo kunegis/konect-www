@@ -24,10 +24,12 @@ fi
 
 mkdir -p "$(dirname www/"$name".html)"
 {
-	title_escape=$(printf '%s' "$title" | sed -E -e 's|,|\\,|g')
-	<static/head.html sed -E -e 's,\$\{title\},'"$title_escape"','
+	title_escape=$(printf '%s' "$title" | sh/escape-sed)
+	root_escape=
+	nav_escape=$(sed -E -e 's,^#nav:,,;t;d' skeleton/"$name".html | sh/escape-sed)
+	<static/head.html sed -E -e 's,\$\{title\},'"$title_escape"',g;s,\$\{root\},'"$root_escape"',g;s,\$\{nav\},'"$nav_escape"',g'
 	echo
-	cat skeleton/"$name".html
+	<skeleton/"$name".html sed -E -e '/^\#nav:/d'
 	echo 
-	cat static/foot.html
+	<static/foot.html sed -E -e 's,\$\{root\},'"$root_escape"',g'
 } | recode -d utf-8..html >www/$name.html
