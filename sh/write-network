@@ -130,7 +130,7 @@ if tag=zeroweight sh/has-tag ; then
 fi
 
 if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
-	echo '<TR><TD>Timestamps <TD><TD>Edges are annotated with timestamps'
+	echo '<TR><TD>Timestamps <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-timestamps.png"><TD>Edges are annotated with timestamps'
 fi
 if [ "$timeiso" ] ; then
 	echo "<TR><TD>Timestamp <TD><TD>$timeiso"
