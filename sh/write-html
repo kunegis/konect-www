@@ -31,7 +31,7 @@ mkdir -p "$(dirname www/"$name".html)"
 	nav_escape=$(printf '%s' "$nav_replaced" | sh/escape-sed)
 	<static/head.html sed -E -e 's,\$\{title\},'"$title_escape"',g;s,\$\{root\},'"$root_escape"',g;s,\$\{nav\},'"$nav_escape"',g'
 	echo
-	<skeleton/"$name".html sed -E -e '/^\#nav:/d'
+	<skeleton/"$name".html sed -E -e '/^\#nav:/d;s,\$\{root\},'"$root_escape"',g'
 	echo 
 	<static/foot.html sed -E -e 's,\$\{root\},'"$root_escape"',g'
 } | recode -d utf-8..html >www/$name.html

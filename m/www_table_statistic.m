@@ -33,7 +33,7 @@ while ~((network = fgetl(NETWORKS)) == -1)
   meta= read_meta(network); 
   name= meta.name;
   text_value = www_format_statistic(statistic, value); 
-  fprintf(OUT, '<TR><TD><A HREF="../../networks/%s/">%s</A><TD>%s\n', ...
+  fprintf(OUT, '<TR><TD><A href="../../networks/%s/">%s</A><TD class="padleft">%s\n', ...
 	  network, name, text_value);
 end
 

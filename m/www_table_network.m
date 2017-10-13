@@ -34,7 +34,7 @@ while ~((statistic = fgetl(STATISTICS)) == -1)
   text_statistic = konect_label_statistic(statistic, 'html-name');
   text_symbol = konect_label_statistic(statistic, 'html-short'); 
   text_value = www_format_statistic(statistic, value); 
-  fprintf(OUT, '<TR><TD><A HREF="../../statistics/%s/">%s</A>\t<TD align="right">%s =<TD>%s\n', ...
+  fprintf(OUT, '<TR><TD><A href="../../statistics/%s/">%s</A>\t<TD class="padleft" align="right">%s =<TD>%s\n', ...
 	  statistic_base, text_statistic, text_symbol, text_value); 
 end
 

@@ -41,3 +41,12 @@ html {
 h1 {
     text-align:		center; 
 }
+
+.icon {
+    width:		1em;
+    height:		1em;
+}
+
+td.padleft {
+    padding-left:	1em;
+}

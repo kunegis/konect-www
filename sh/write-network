@@ -59,17 +59,17 @@ EOF
 #
 
 cat <<EOF
-<TR><TD>Code            <TD><CODE>$(field=code sh/read-meta)</CODE>
-<TR><TD>Internal name   <TD><CODE>$network</CODE>
-<TR><TD>Name            <TD>$meta_name
+<TR><TD>Code            <TD class="padleft"><TD><CODE>$(field=code sh/read-meta)</CODE>
+<TR><TD>Internal name   <TD><TD><CODE>$network</CODE>
+<TR><TD>Name            <TD><TD>$meta_name
 EOF
 if [ "$url" ] ; then
 	cat <<EOF
-<TR><TD>Source          <TD><A href="$url">$url</A>
+<TR><TD>Source          <TD><TD><A href="$url">$url</A>
 EOF
 fi
 cat <<EOF
-<TR><TD>Check           <TD>$checkresult
+<TR><TD>Check           <TD><TD>$checkresult
 EOF
 
 #
@@ -77,34 +77,34 @@ EOF
 #
 
 cat <<EOF
-<TR><TD>Category        <TD>$(field=category sh/read-meta)
+<TR><TD>Category        <TD><TD>$(field=category sh/read-meta)
 EOF
 if [ "$entity_names" ] ; then
 	cat <<EOF
-<TR><TD>Node meaning    <TD>$entity_names
+<TR><TD>Node meaning    <TD><TD>$entity_names
 EOF
 fi
 if [ "$relationship_names" ] ; then
 	cat <<EOF
-<TR><TD>Edge meaning    <TD>$relationship_names
+<TR><TD>Edge meaning    <TD><TD>$relationship_names
 EOF
 fi
 cat <<EOF
-<TR><TD>Network format  <TD>$(format=$format sh/label-format)
-<TR><TD>Edge type       <TD>$(weights=$weights sh/label-weights) 
+<TR><TD>Network format  <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-format-$format.png"><TD>$(format=$format sh/label-format)
+<TR><TD>Edge type       <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-weights-$weights.png"><TD>$(weights=$weights sh/label-weights) 
 EOF
 
 #
 # Structure
 #
 if [ "$format" = asym ] ; then
-	printf '%s' '<TR><TD>Reciprocal <TD>'
+	printf '%s' '<TR><TD>Reciprocal <TD><TD>'
 	if tag=nonreciprocal sh/has-tag ; then
 		echo 'Does not contain reciprocal edges'
 	else
 		echo 'Contains reciprocal edges'
 	fi
-	printf '%s' '<TR><TD>Directed cycles <TD>'
+	printf '%s' '<TR><TD>Directed cycles <TD><TD>'
 	if tag=acyclic sh/has-tag ; then
 		echo 'Does not contain directed cycles'
 	else
@@ -112,7 +112,7 @@ if [ "$format" = asym ] ; then
 	fi
 fi
 if [ "$format" != bip ] ; then
-	printf '%s' '<TR><TD>Loops <TD>'
+	printf '%s' '<TR><TD>Loops <TD><TD>'
 	if tag=loop sh/has-tag ; then
 		echo 'Contains loops'
 	else
@@ -120,45 +120,45 @@ if [ "$format" != bip ] ; then
 	fi
 fi
 if tag=tournament sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Tournament <TD>The graph is a tournament:  all pairs of nodes are connected by a directed edge'
+	printf '%s\n' '<TR><TD>Tournament <TD><TD>The graph is a tournament:  all pairs of nodes are connected by a directed edge'
 fi
 if tag=trianglefree sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Triangles <TD>Does not contain triangles'
+	printf '%s\n' '<TR><TD>Triangles <TD><TD>Does not contain triangles'
 fi
 if tag=zeroweight sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Zero weights <TD>Edges may have weight zero'
+	printf '%s\n' '<TR><TD>Zero weights <TD><TD>Edges may have weight zero'
 fi
 
 if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
-	echo '<TR><TD>Timestamps <TD>Edges are annotated with timestamps'
+	echo '<TR><TD>Timestamps <TD><TD>Edges are annotated with timestamps'
 fi
 if [ "$timeiso" ] ; then
-	echo "<TR><TD>Timestamp <TD>$timeiso"
+	echo "<TR><TD>Timestamp <TD><TD>$timeiso"
 fi
 
 #
 # Extraction 
 #
 if tag=incomplete sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Completeness <TD>This network is incomplete'
+	printf '%s\n' '<TR><TD>Completeness <TD><TD>This network is incomplete'
 fi
 if tag=join sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Join <TD>This network is the join of an underlying network'
+	printf '%s\n' '<TR><TD>Join <TD><TD>This network is the join of an underlying network'
 fi
 if tag=path sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Path <TD>This edges in this network form paths'
+	printf '%s\n' '<TR><TD>Path <TD><TD>This edges in this network form paths'
 fi
 if tag=missingorientation sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Orientation <TD>The network is not directed, but the underlying data is'
+	printf '%s\n' '<TR><TD>Orientation <TD><TD>The network is not directed, but the underlying data is'
 fi
 if tag=missingmultiplicity sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Multiplicity <TD>The network does not have multiple edges, but the underlying data has'
+	printf '%s\n' '<TR><TD>Multiplicity <TD><TD>The network does not have multiple edges, but the underlying data has'
 fi
 if tag=kcore sh/has-tag ; then
-	printf '%s\n' '<TR><TD><I>k</I>-core <TD>Only nodes with degree &gt;&nbsp;<I>k</I> are included'
+	printf '%s\n' '<TR><TD><I>k</I>-core <TD><TD>Only nodes with degree &gt;&nbsp;<I>k</I> are included'
 fi
 if tag=lcc sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Largest connected component <TD>Only the largest connected component of the original data is included'
+	printf '%s\n' '<TR><TD>Largest connected component <TD><TD>Only the largest connected component of the original data is included'
 fi
 
 cat <<EOF
