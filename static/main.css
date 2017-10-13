@@ -50,3 +50,7 @@ h1 {
 td.padleft {
     padding-left:	1em;
 }
+
+td {
+    vertical-align:	top; 
+}
