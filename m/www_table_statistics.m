@@ -18,7 +18,7 @@ fprintf(OUT, '<TABLE>\n');
 while ~((statistic = fgetl(STATISTICS)) == -1)
   text_symbol = konect_label_statistic(statistic, 'html-short'); 
   text_statistic = konect_label_statistic(statistic, 'html-name');
-  fprintf(OUT, '<TR><TD align="right">%s:<TD><A HREF="%s/">%s</A>\n', ...
+  fprintf(OUT, '<TR><TD align="right">%s =<TD><A HREF="%s/">%s</A>\n', ...
 	 text_symbol, statistic, text_statistic);
 end
 

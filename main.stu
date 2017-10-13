@@ -187,10 +187,10 @@ skeleton/statistics/$statistic/table.html:
 
 skeleton/statistics/table.html:
 	-t octave $[-t MATLABPATH]
-	m/www_table_all_statistics.m konect-toolbox/m/konect_label_statistic.m
+	m/www_table_statistics.m konect-toolbox/m/konect_label_statistic.m
 	dat-www/STATISTICS_MAIN
 {
-	./octave m/www_table_all_statistics.m 
+	./octave m/www_table_statistics.m 
 }
 
 skeleton/networks/table.html:
