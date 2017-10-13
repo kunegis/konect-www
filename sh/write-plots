@@ -7,7 +7,7 @@
 set -e
 
 cat <<EOF
-#nav:<A HREF="../">KONECT</A> ‣
+#nav:<A href="../">KONECT</A> ‣
 <H1>Plots</H1>
 <P>A plot is a figure that visualizes a certain aspect of a network. 
 </P>
@@ -15,7 +15,7 @@ cat <<EOF
 EOF
 for plot in $(cat dat/PLOTS) ; do
 	cat <<EOF
-<LI><A HREF="$plot/">$plot</A>
+<LI><A href="$plot/">$plot</A>
 EOF
 done
 cat <<EOF

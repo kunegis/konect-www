@@ -44,7 +44,7 @@ fi
 #
 
 cat <<EOF
-#nav:<A HREF="../../">KONECT</A> ‣ <A HREF="../">Networks</A> ‣
+#nav:<A href="../../">KONECT</A> ‣ <A href="../">Networks</A> ‣
 <H1>$meta_name</H1>
 <P>
 $(field=long-description sh/read-meta | fold -b -s)
@@ -65,7 +65,7 @@ cat <<EOF
 EOF
 if [ "$url" ] ; then
 	cat <<EOF
-<TR><TD>Source          <TD><A HREF="$url">$url</A>
+<TR><TD>Source          <TD><A href="$url">$url</A>
 EOF
 fi
 cat <<EOF
@@ -175,7 +175,7 @@ EOF
 
 for file in $(cat dat-www/plots-network."$network")
 do
-	echo "<A HREF=\"../../plot/$file.full.png\"><IMG SRC=\"../../plot/$file.small.png\"></A>"
+	echo "<A href=\"../../plot/$file.full.png\"><IMG SRC=\"../../plot/$file.small.png\"></A>"
 done
 
 if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
@@ -183,10 +183,10 @@ if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
 
 <H2>Downloads</H2>
 <UL>
-  <LI><A HREF="../../files/download.tsv.$network.tar.bz2">Data as TSV</A> ($(stat -c%s dat/download.tsv.$network.tar.bz2 | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta') bytes)
+  <LI><A href="../../files/download.tsv.$network.tar.bz2">Data as TSV</A> ($(stat -c%s dat/download.tsv.$network.tar.bz2 | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta') bytes)
 EOF
 if [ "$extr" ] ; then
-	echo "<LI><A HREF=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">Extraction code</A> (GitHub)"
+	echo "<LI><A href=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">Extraction code</A> (GitHub)"
 fi
 cat <<EOF
 </UL>

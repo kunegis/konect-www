@@ -16,7 +16,7 @@ set -e
 count=$(echo $(<dat/NETWORKS wc -l))
 
 cat <<EOF
-#nav:<A HREF="../">KONECT</A> ‣
+#nav:<A href="../">KONECT</A> ‣
 <H1>Networks</H1>
 <P>KONECT has $count networks.</P>
 EOF

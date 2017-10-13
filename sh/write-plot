@@ -11,7 +11,7 @@
 #
 
 cat <<EOF
-#nav:<A HREF="../../">KONECT</A> ‣ <A HREF="../">Plots</A> ‣
+#nav:<A href="../../">KONECT</A> ‣ <A href="../">Plots</A> ‣
 <H1>$plot</H1>
 <P>These are the plots of type '$plot' for all networks.
 </P>
@@ -29,7 +29,7 @@ while IFS= read -r type ; do
 EOF
 	for network in $(cat dat/NETWORKS) ; do
 		if sh/proper-plot plot/"$plot"."$type"."$network" ; then
-			echo "<A HREF=\"../../plot/$plot.$type.$network.full.png\"><IMG SRC=\"../../plot/$plot.$type.$network.small.png\"></A>"
+			echo "<A href=\"../../plot/$plot.$type.$network.full.png\"><IMG SRC=\"../../plot/$plot.$type.$network.small.png\"></A>"
 		fi
 	done
 done
