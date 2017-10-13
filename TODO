@@ -1,6 +1,5 @@
 * icons everywhere
-** make icons beautiful 
-** tags 
+** tags:  show and make beautiful 
 ** check:  success / failed / not-performed
 ** color circle for Category
 
@@ -14,6 +13,7 @@
 
 * time_histogram_signed:  for movielens-100k_rating, we seem to fail to subtract the mean rating from all weights, resuling in no negative weights shown
 * time_histogram_signed:  remove all plots from plot/ that are not about signed networks. 
+* clusco:  some networks still have a clusco show, even though they are bipartite 
 
 * README files within downloads:  make them beautiful 
 * labels for categories
