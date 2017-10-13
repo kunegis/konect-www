@@ -3,6 +3,7 @@
 ** check:  success / failed / not-performed
 ** color circle for Category
 
+* black background on main page also on Chromium 
 * on each network page:  put links to the individual plot types (need good layout)
 * Show pretty names for plot- and subplot types
 * plots:  show sample plot for each plot type
@@ -14,6 +15,7 @@
 * time_histogram_signed:  for movielens-100k_rating, we seem to fail to subtract the mean rating from all weights, resuling in no negative weights shown
 * time_histogram_signed:  remove all plots from plot/ that are not about signed networks. 
 * clusco:  some networks still have a clusco show, even though they are bipartite 
+* slashdot-zoo:  include a dataset timestamp, and show the correct reference 
 
 * README files within downloads:  make them beautiful 
 * labels for categories
