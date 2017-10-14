@@ -252,7 +252,7 @@ www/main.css = static/;
 # Note about icons:  We don't use the "icons/" directory name because it
 # is special to Apache. 
 
->dat-www/ICONS
+>dat-www/ICONS:  ic
 {
 	cd ic/
 	ls -1U | grep -E '\.png$'
