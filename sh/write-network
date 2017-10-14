@@ -104,19 +104,19 @@ if [ "$format" = asym ] ; then
 	else
 		echo 'Contains reciprocal edges'
 	fi
-	printf '%s' '<TR><TD>Directed cycles <TD><TD>'
+	printf '%s' '<TR><TD>Directed cycles'
 	if tag=acyclic sh/has-tag ; then
-		echo 'Does not contain directed cycles'
+		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-acyclic.png"><TD>Does not contain directed cycles'
 	else
-		echo 'Contains directed cycles'
+		echo '<TD><TD>Contains directed cycles'
 	fi
 fi
 if [ "$format" != bip ] ; then
-	printf '%s' '<TR><TD>Loops <TD><TD>'
+	printf '%s' '<TR><TD>Loops'
 	if tag=loop sh/has-tag ; then
-		echo 'Contains loops'
+		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-loop.png"><TD>Contains loops'
 	else
-		echo 'Does not contain loops'
+		echo '<TD><TD>Does not contain loops'
 	fi
 fi
 if tag=tournament sh/has-tag ; then
@@ -126,7 +126,7 @@ if tag=trianglefree sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Triangles <TD><TD>Does not contain triangles'
 fi
 if tag=zeroweight sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Zero weights <TD><TD>Edges may have weight zero'
+	printf '%s\n' '<TR><TD>Zero weights <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-zeroweight.png"><TD>Edges may have weight zero'
 fi
 
 if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
@@ -140,7 +140,7 @@ fi
 # Extraction 
 #
 if tag=incomplete sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Completeness <TD><TD>This network is incomplete'
+	printf '%s\n' '<TR><TD>Completeness <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-incomplete.png"><TD>This network is incomplete'
 fi
 if tag=join sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Join <TD><TD>This network is the join of an underlying network'
@@ -149,7 +149,7 @@ if tag=path sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Path <TD><TD>This edges in this network form paths'
 fi
 if tag=missingorientation sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Orientation <TD><TD>The network is not directed, but the underlying data is'
+	printf '%s\n' '<TR><TD>Orientation <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-missingorientation.png"><TD>The network is not directed, but the underlying data is'
 fi
 if tag=missingmultiplicity sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Multiplicity <TD><TD>The network does not have multiple edges, but the underlying data has'

@@ -1,7 +1,8 @@
 * icons everywhere
-** tags:  show and make beautiful 
 ** check:  success / failed / not-performed
 ** color circle for Category
+** tags:  nonreciprocal, tournament, trianglefree, join, path, missingmultiplicity, kcore, lcc
+* networks:  show all icons
 * on each network page:  put links to the individual plot types (need good layout)
 * Show pretty names for plot- and subplot types
 * plots:  show sample plot for each plot type
