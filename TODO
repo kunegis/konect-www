@@ -1,6 +1,6 @@
 * icons everywhere
-** include an "empty icon" for where we don't show an icon
 ** tags:  path, missingmultiplicity, kcore, lcc.
+** include an "empty icon" for where we don't show an icon
 ** color circle for Category
 ** networks:  show all icons and color circle for category 
 * on each network page:  put links to the individual plot types (need good layout)
@@ -13,6 +13,7 @@
 * time_histogram_signed:  for movielens-100k_rating, we seem to fail to subtract the mean rating from all weights, resuling in no negative weights shown
 * time_histogram_signed:  remove all plots from plot/ that are not about signed networks. 
 * clusco:  some networks still have a clusco shown, even though they are bipartite 
+* degree and bidd plots:  include in the axis labels whether the plot in question is for in- or outdegree
 * labels for categories
 
 * README files within downloads:  make them beautiful 
