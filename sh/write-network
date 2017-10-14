@@ -101,11 +101,11 @@ EOF
 # Structure
 #
 if [ "$format" = asym ] ; then
-	printf '%s' '<TR><TD>Reciprocal <TD><TD>'
+	printf '%s' '<TR><TD>Reciprocal '
 	if tag=nonreciprocal sh/has-tag ; then
-		echo 'Does not contain reciprocal edges'
+		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-nonreciprocal.png"><TD>Does not contain reciprocal edges'
 	else
-		echo 'Contains reciprocal edges'
+		echo '<TD><TD>Contains reciprocal edges'
 	fi
 	printf '%s' '<TR><TD>Directed cycles'
 	if tag=acyclic sh/has-tag ; then
@@ -123,10 +123,10 @@ if [ "$format" != bip ] ; then
 	fi
 fi
 if tag=tournament sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Tournament <TD><TD>The graph is a tournament:  all pairs of nodes are connected by a directed edge'
+	printf '%s\n' '<TR><TD>Tournament <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-tournament.png"><TD>The graph is a tournament:  all pairs of nodes are connected by a directed edge'
 fi
 if tag=trianglefree sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Triangles <TD><TD>Does not contain triangles'
+	printf '%s\n' '<TR><TD>Triangles <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-trianglefree.png"><TD>Does not contain triangles'
 fi
 if tag=zeroweight sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Zero weights <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-zeroweight.png"><TD>Edges may have weight zero'
@@ -146,7 +146,7 @@ if tag=incomplete sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Completeness <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-incomplete.png"><TD>This network is incomplete'
 fi
 if tag=join sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Join <TD><TD>This network is the join of an underlying network'
+	printf '%s\n' '<TR><TD>Join <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-join.png"><TD>This network is the join of an underlying network'
 fi
 if tag=path sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Path <TD><TD>This edges in this network form paths'
