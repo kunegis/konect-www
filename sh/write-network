@@ -39,7 +39,7 @@ if [ -e dat/check."$network" ] ; then
 	fi
 else
 	checkresult="Check was not executed"
-	checkimg=
+	checkimg='<IMG class="icon" src="${root}/ic/icon-unknown.png">'
 fi
 
 #
@@ -82,6 +82,9 @@ EOF
 cat <<EOF
 <TR><TD>Category        <TD><TD>$(field=category sh/read-meta)
 EOF
+if [ "$timeiso" ] ; then
+	echo "<TR><TD>Dataset timestamp <TD><TD>$(printf '%s\n' "$timeiso" | sed -E -e 's,/, ⋯ ,')"
+fi
 if [ "$entity_names" ] ; then
 	cat <<EOF
 <TR><TD>Node meaning    <TD><TD>$entity_names
@@ -97,6 +100,9 @@ cat <<EOF
 <TR><TD>Edge type       <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-weights-$weights.png"><TD>$(weights=$weights sh/label-weights) 
 EOF
 
+if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
+	echo '<TR><TD>Temporal data <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-timestamps.png"><TD>Edges are annotated with timestamps'
+fi
 #
 # Structure
 #
@@ -105,13 +111,13 @@ if [ "$format" = asym ] ; then
 	if tag=nonreciprocal sh/has-tag ; then
 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-nonreciprocal.png"><TD>Does not contain reciprocal edges'
 	else
-		echo '<TD><TD>Contains reciprocal edges'
+		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-no.png"><TD>Contains reciprocal edges'
 	fi
 	printf '%s' '<TR><TD>Directed cycles'
 	if tag=acyclic sh/has-tag ; then
 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-acyclic.png"><TD>Does not contain directed cycles'
 	else
-		echo '<TD><TD>Contains directed cycles'
+		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-no.png"><TD>Contains directed cycles'
 	fi
 fi
 if [ "$format" != bip ] ; then
@@ -119,7 +125,7 @@ if [ "$format" != bip ] ; then
 	if tag=loop sh/has-tag ; then
 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-loop.png"><TD>Contains loops'
 	else
-		echo '<TD><TD>Does not contain loops'
+		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-no.png"><TD>Does not contain loops'
 	fi
 fi
 if tag=tournament sh/has-tag ; then
@@ -132,13 +138,6 @@ if tag=zeroweight sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Zero weights <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-zeroweight.png"><TD>Edges may have weight zero'
 fi
 
-if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
-	echo '<TR><TD>Temporal data <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-timestamps.png"><TD>Edges are annotated with timestamps'
-fi
-if [ "$timeiso" ] ; then
-	echo "<TR><TD>Dataset timestamp <TD><TD>$(printf '%s\n' "$timeiso" | sed -E -e 's,/, ⋯ ,')"
-fi
-
 #
 # Extraction 
 #
@@ -149,19 +148,19 @@ if tag=join sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Join <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-join.png"><TD>This network is the join of an underlying network'
 fi
 if tag=path sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Path <TD><TD>This edges in this network form paths'
+	printf '%s\n' '<TR><TD>Path <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-path.png"><TD>The edges in this network form paths'
 fi
 if tag=missingorientation sh/has-tag ; then
 	printf '%s\n' '<TR><TD>Orientation <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-missingorientation.png"><TD>The network is not directed, but the underlying data is'
 fi
 if tag=missingmultiplicity sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Multiplicity <TD><TD>The network does not have multiple edges, but the underlying data has'
+	printf '%s\n' '<TR><TD>Multiplicity <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-missingmultiplicity.png"><TD>The network does not have multiple edges, but the underlying data has'
 fi
 if tag=kcore sh/has-tag ; then
-	printf '%s\n' '<TR><TD><I>k</I>-core <TD><TD>Only nodes with degree &gt;&nbsp;<I>k</I> are included'
+	printf '%s\n' '<TR><TD><I>k</I>-core <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-kcore.png"><TD>Only nodes with degree &gt;&nbsp;<I>k</I> are included'
 fi
 if tag=lcc sh/has-tag ; then
-	printf '%s\n' '<TR><TD>Largest connected component <TD><TD>Only the largest connected component of the original data is included'
+	printf '%s\n' '<TR><TD>Largest connected component <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-lcc.png"><TD>Only the largest connected component of the original data is included'
 fi
 
 cat <<EOF

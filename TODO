@@ -1,6 +1,4 @@
-* icons everywhere
-** tags:  path, missingmultiplicity, kcore, lcc.
-** include an "empty icon" for where we don't show an icon
+* icons 
 ** color circle for Category
 ** networks:  show all icons and color circle for category 
 * on each network page:  put links to the individual plot types (need good layout)
