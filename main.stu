@@ -131,7 +131,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 	uni/meta.$network
 	dat-www/plots-network.$network
 	konect-toolbox/m/konect_consts.m
-	skeleton/networks/$network/statistics.html
+	skeleton/networks/$network/(metadata statistics).html
 {
 	sh/write-network
 }
@@ -171,10 +171,18 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 }
 
 skeleton/networks/$network/statistics.html:
-	-t octave $[-t MATLABPATH] m/www_table_network.m m/www_format_statistic.m 
+	-t octave $[-t MATLABPATH] m/www_table_network_statistics.m m/www_format_statistic.m 
 	dat/STATISTICS dat/ konect-toolbox/m/konect_label_statistic.m 
 {
-	./octave m/www_table_network.m 
+	./octave m/www_table_network_statistics.m 
+}
+
+skeleton/networks/$network/metadata.html:
+	-t octave $[-t MATLABPATH] m/www_table_network_metadata.m 
+	m/www_icon_category.m m/www_icon_check.m 
+	dat/ uni/meta.$network
+{
+	./octave m/www_table_network_metadata.m 
 }
 
 skeleton/statistics/$statistic/table.html:
@@ -195,8 +203,9 @@ skeleton/statistics/table.html:
 
 skeleton/networks/table.html:
 	-t octave $[-t MATLABPATH]
-	m/www_table_networks.m konect-toolbox/m/konect_data_category.m
-	dat/NETWORKS
+	m/www_table_networks.m
+	konect-toolbox/m/konect_data_(category tag).m 
+	dat/NETWORKS uni/meta.[dat/NETWORKS]
 {
 	./octave m/www_table_networks.m
 }
