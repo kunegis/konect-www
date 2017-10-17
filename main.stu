@@ -25,10 +25,10 @@
 
 @all:
 	www/index.html
-	www/about/index.html
 	www/networks/index.html
 	www/statistics/index.html
 	www/plots/index.html
+	www/about/index.html
 	www/( main.css favicon.ico konect256.png )
 	www/ic/[dat-www/ICONS]
 	www/files/download.tsv.[dat-www/NETWORKS-DOWNLOAD].tar.bz2
@@ -195,7 +195,7 @@ skeleton/statistics/table.html:
 
 skeleton/networks/table.html:
 	-t octave $[-t MATLABPATH]
-	m/www_table_networks.m
+	m/www_table_networks.m konect-toolbox/m/konect_data_category.m
 	dat/NETWORKS
 {
 	./octave m/www_table_networks.m

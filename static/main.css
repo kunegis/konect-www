@@ -46,6 +46,13 @@ h1 {
     height:		1em;
 }
 
+.category-circle {
+    display:		inline-block; 
+    border-radius: 	50%;
+    width:		1em;
+    height:		1em;
+}
+
 td.padleft {
     padding-left:	1em;
 }

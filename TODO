@@ -1,6 +1,8 @@
 * icons 
-** color circle for Category
-** networks:  show all icons and color circle for category 
+** networks:  show all icons for category 
+** network:  color circle for Category
+* remove CollegeMsg
+* smallest networks:  streamline their names
 * on each network page:  put links to the individual plot types (need good layout)
 * Show pretty names for plot- and subplot types
 * plots:  show sample plot for each plot type
@@ -14,12 +16,12 @@
 * degree and bidd plots:  include in the axis labels whether the plot in question is for in- or outdegree
 * labels for categories
 
+* tooltips everywhere
 * README files within downloads:  make them beautiful 
 * plots:  decomposition, decomposition_time
 * statistics:  average left and right degrees
 * statistics:  maximum left and right degrees
 * /categories/
-* tooltips everywhere
 * networks/ table and other tables:  make it sortable
 * make updates be atomic
 * each statistic page:  also include the non-main statistics in the table, e.g., the left and right size. 
