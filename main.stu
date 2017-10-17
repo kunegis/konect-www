@@ -180,7 +180,7 @@ skeleton/networks/$network/statistics.html:
 skeleton/networks/$network/metadata.html:
 	-t octave $[-t MATLABPATH] m/www_table_network_metadata.m 
 	m/www_icon_category.m m/www_icon_check.m 
-	dat/ uni/meta.$network
+	dat/ uni/meta.$network -o dat/check.$network
 {
 	./octave m/www_table_network_metadata.m 
 }

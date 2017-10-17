@@ -26,9 +26,9 @@ meta_name=$(field=name sh/read-meta)
 ## url=$(field=url sh/read-meta)
 ## entity_names=$(field=entity-names sh/read-meta)
 ## relationship_names=$(field=relationship-names sh/read-meta)
-## extr=$(field=extr sh/read-meta)
+extr=$(field=extr sh/read-meta)
 ## timeiso=$(field=timeiso sh/read-meta)
-## cite=$(field=cite sh/read-meta)
+cite=$(field=cite sh/read-meta)
 
 ## if [ -e dat/check."$network" ] ; then
 ## 	if grep -q -F 1 dat/check."$network" ; then
