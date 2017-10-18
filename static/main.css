@@ -58,7 +58,7 @@ td.padleft {
 }
 
 td {
-    vertical-align:	top; 
+/*  vertical-align:	top;  */
 }
 
 td.bibtexnumber {

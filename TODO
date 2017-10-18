@@ -1,3 +1,7 @@
+* 'edit'
+** building everything
+** updating all meta.* files 
+
 * on each network page:  put links to the individual plot types (need good layout)
 * Show pretty names for plot- and subplot types
 * plots:  show sample plot for each plot type
@@ -8,7 +12,6 @@
 * time_histogram_signed:  remove all plots from plot/ that are not about signed networks. 
 * clusco:  some networks still have a clusco shown, even though they are bipartite 
 * degree and bidd plots:  include in the axis labels whether the plot in question is for in- or outdegree
-* labels for categories
 * Correctly typeset the node and edge meaning 
 
 == Later ==

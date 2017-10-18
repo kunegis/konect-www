@@ -18,7 +18,8 @@ OUT = fopen(filename, 'w');
 if OUT < 0,  error(sprintf('fopen "%s"', filename));  end;
 
 [consts symbols_format symbols_weights labels_format labels_weights int_format int_weights] = konect_consts();
-[tag_list tag_text tag_name] = konect_data_tag(); 
+[tag_list tag_text tag_name] = konect_data_tag();
+[cat_colors cat_vertices cat_edges cat_markers cat_letters cat_longname] = konect_data_category(); 
 
 meta = read_meta(network); 
 tags = get_tags(meta); 
@@ -46,7 +47,7 @@ fprintf(OUT, '<TR><TD>Consistency check<TD class="padleft">%s<TD>%s\n', check_ic
 % Semantics
 %
 
-fprintf(OUT, '<TR><TD>Category<TD class="padleft">%s<TD>%s\n', www_icon_category(meta.category), meta.category); 
+fprintf(OUT, '<TR><TD>Category<TD class="padleft">%s<TD>%s\n', www_icon_category(meta.category), cat_longname.(meta.category)); 
 if isfield(meta, 'timeiso')
   text_timeiso = regexprep(meta.timeiso, '/', ' ⋯ '); 
   fprintf(OUT, '<TR><TD>Dataset timestamp <TD><TD>%s\n', text_timeiso); 
