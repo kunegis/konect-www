@@ -60,3 +60,7 @@ td.padleft {
 td {
     vertical-align:	top; 
 }
+
+td.bibtexnumber {
+    padding-right:	0.5em;
+}

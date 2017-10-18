@@ -21,6 +21,7 @@ fprintf(OUT, '<TR><TD><TD><B>Name</B><TD><B>Attributes</B><TD align="right" titl
 [consts symbols_format symbols_weights labels_format labels_weights int_format int_weights] = konect_consts(); 
 
 while ~((network = fgetl(NETWORKS)) == -1)
+  network
   meta = read_meta(network); 
   tags = get_tags(meta); 
   code= meta.code;

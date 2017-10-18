@@ -1,5 +1,3 @@
-* network:  When there are no references, omit the "References" section
-
 * on each network page:  put links to the individual plot types (need good layout)
 * Show pretty names for plot- and subplot types
 * plots:  show sample plot for each plot type
@@ -11,6 +9,7 @@
 * clusco:  some networks still have a clusco shown, even though they are bipartite 
 * degree and bidd plots:  include in the axis labels whether the plot in question is for in- or outdegree
 * labels for categories
+* Correctly typeset the node and edge meaning 
 
 == Later ==
 * README files within downloads:  make them beautiful 
@@ -24,6 +23,8 @@
 * main page:  show three example graphs for each group:  3 statistics, 3 plots, 3 networks, etc. 
 * metadata:  add a line stating whether the network is connected or not 
 * make the TSV downloadable for more datasets 
+* add the #incomplete tag to many more networks 
+* statistics/diameter:  right align the diameter column.  (same for all number columns with similar semantics)
 
 == Public announcements ==
 * @network.convote

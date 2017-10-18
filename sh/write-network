@@ -21,27 +21,8 @@ set -e
 #
 
 meta_name=$(field=name sh/read-meta)
-## format=$(sh/read-format)
-## weights=$(sh/read-weights)
-## url=$(field=url sh/read-meta)
-## entity_names=$(field=entity-names sh/read-meta)
-## relationship_names=$(field=relationship-names sh/read-meta)
 extr=$(field=extr sh/read-meta)
-## timeiso=$(field=timeiso sh/read-meta)
 cite=$(field=cite sh/read-meta)
-
-## if [ -e dat/check."$network" ] ; then
-## 	if grep -q -F 1 dat/check."$network" ; then
-## 		checkresult="Dataset passed all tests"
-## 		checkimg='<IMG class="icon" src="${root}/ic/icon-check-success.png">'
-## 	else
-## 		checkresult="Dataset failed tests:  <CODE>$(head -1 dat/check_error."$network" | recode utf-8..html)</CODE>"
-## 		checkimg='<IMG class="icon" src="${root}/ic/icon-check-failure.png">'
-## 	fi
-## else
-## 	checkresult="Check was not executed"
-## 	checkimg='<IMG class="icon" src="${root}/ic/icon-unknown.png">'
-## fi
 
 #
 # Head
@@ -61,118 +42,6 @@ EOF
 # Metadata
 #
 cat skeleton/networks/"$network"/metadata.html
-
-## <TABLE>
-## EOF
-
-## #
-## # Identity
-## #
-
-## cat <<EOF
-## <TR><TD>Code            <TD class="padleft"><TD><CODE>$(field=code sh/read-meta)</CODE>
-## <TR><TD>Internal name   <TD><TD><CODE>$network</CODE>
-## <TR><TD>Name            <TD><TD>$meta_name
-## EOF
-## if [ "$url" ] ; then
-## 	cat <<EOF
-##<TR><TD>Source          <TD><TD><A href="$url">$url</A>
-##EOF
-##fi
-##cat <<EOF
-##<TR><TD>Consistency check<TD class="padleft">$checkimg<TD>$checkresult
-##EOF
-##
-## #
-## # Semantics
-## #
-
-## cat <<EOF
-## <TR><TD>Category        <TD><TD>$(field=category sh/read-meta)
-## EOF
-## if [ "$timeiso" ] ; then
-## 	echo "<TR><TD>Dataset timestamp <TD><TD>$(printf '%s\n' "$timeiso" | sed -E -e 's,/, ⋯ ,')"
-## fi
-## if [ "$entity_names" ] ; then
-## 	cat <<EOF
-## <TR><TD>Node meaning    <TD><TD>$entity_names
-## EOF
-## fi
-## if [ "$relationship_names" ] ; then
-## 	cat <<EOF
-## <TR><TD>Edge meaning    <TD><TD>$relationship_names
-## EOF
-## fi
-## cat <<EOF
-## <TR><TD>Network format  <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-format-$format.png"><TD>$(format=$format sh/label-format)
-## <TR><TD>Edge type       <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-weights-$weights.png"><TD>$(weights=$weights sh/label-weights) 
-## EOF
-
-## if [ "$(head uni/out."$network" | tail -1 | wc -w)" -gt 3 ] ; then
-## 	echo '<TR><TD>Temporal data <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-timestamps.png"><TD>Edges are annotated with timestamps'
-## fi
-## #
-## # Structure
-## #
-## if [ "$format" = asym ] ; then
-## 	printf '%s' '<TR><TD>Reciprocal '
-## 	if tag=nonreciprocal sh/has-tag ; then
-## 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-nonreciprocal.png"><TD>Does not contain reciprocal edges'
-## 	else
-## 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-no.png"><TD>Contains reciprocal edges'
-## 	fi
-## 	printf '%s' '<TR><TD>Directed cycles'
-## 	if tag=acyclic sh/has-tag ; then
-## 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-acyclic.png"><TD>Does not contain directed cycles'
-## 	else
-## 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-no.png"><TD>Contains directed cycles'
-## 	fi
-## fi
-## if [ "$format" != bip ] ; then
-## 	printf '%s' '<TR><TD>Loops'
-## 	if tag=loop sh/has-tag ; then
-## 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-loop.png"><TD>Contains loops'
-## 	else
-## 		echo '<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-no.png"><TD>Does not contain loops'
-## 	fi
-## fi
-## if tag=tournament sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Tournament <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-tournament.png"><TD>The graph is a tournament:  all pairs of nodes are connected by a directed edge'
-## fi
-## if tag=trianglefree sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Triangles <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-trianglefree.png"><TD>Does not contain triangles'
-## fi
-## if tag=zeroweight sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Zero weights <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-zeroweight.png"><TD>Edges may have weight zero'
-## fi
-
-## #
-## # Extraction 
-## #
-## if tag=incomplete sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Completeness <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-incomplete.png"><TD>This network is incomplete'
-## fi
-## if tag=join sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Join <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-join.png"><TD>This network is the join of an underlying network'
-## fi
-## if tag=path sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Path <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-path.png"><TD>The edges in this network form paths'
-## fi
-## if tag=missingorientation sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Orientation <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-missingorientation.png"><TD>The network is not directed, but the underlying data is'
-## fi
-## if tag=missingmultiplicity sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Multiplicity <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-missingmultiplicity.png"><TD>The network does not have multiple edges, but the underlying data has'
-## fi
-## if tag=kcore sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD><I>k</I>-core <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-kcore.png"><TD>Only nodes with degree &gt;&nbsp;<I>k</I> are included'
-## fi
-## if tag=lcc sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Largest connected component <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-lcc.png"><TD>Only the largest connected component of the original data is included'
-## fi
-
-## cat <<EOF
-## </TABLE>
 
 cat <<EOF
 <H2>Statistics</H2>
@@ -204,16 +73,36 @@ cat <<EOF
 EOF
 fi
 
-if [ "$cite" ] ; then
+#
+# References
+#
+##if [ "$cite" ] ; then
+
+	# Make sure they all exist, because Bibtex2Html does *not*
+	# return a non-zero exit status when references are missing. 
+
+	for bibkey in $(echo "$cite" | tr ',' ' ') ; do
+		grep -q -E '\{\s*'"$bibkey"'\s*,\s*$' konect-extr/konect.bib || {
+			echo >&2 "*** Bibtex reference '$bibkey' used by network '$network' expected in 'konect-extr/konect.bib', but not found"
+			exit 1
+		}
+	done
+	
 	tmpfile=$(mktemp)
-	printf '%s\n' "$cite" | sed -E -e 's|,|\
-|g' >"$tmpfile"
+	{ printf '%s\n' "$cite" | sed -E -e 's|,|\
+|g' ; echo konect ; } >"$tmpfile"
 	echo
 	echo '<H2>References</H2>'
 	dir=$(pwd)
 	cd "$(dirname "$tmpfile")"
-	bibtex2html -q --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o - --no-header -w  "$dir"/konect-extr/konect.bib |
-		sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' |
-		sed -E -e 's,--,–,g'
-	rm -f -- "$tmpfile" 
-fi
+	tmpfile2=$(mktemp)
+	bibtex2html -q -w --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o - --no-header "$dir"/konect-extr/konect.bib >"$tmpfile2" || {
+		echo >&2 "*** Error running Bibtex"
+		echo >&2 "Content of citefile:"
+		cat >&2 -- "$tmpfile"
+		exit 1
+	}
+	exitstatus=$?
+	<"$tmpfile2" sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' | sed -E -e 's,--,–,g'
+	rm -f -- "$tmpfile" "$tmpfile2"
+##fi
