@@ -1,7 +1,8 @@
 #! /bin/sh
 #
 # INPUT FILES 
-#	dat/PLOTS
+#//	dat/PLOTS
+#	skeleton/plots/table.html
 #
 
 set -e
@@ -11,13 +12,17 @@ cat <<EOF
 <H1>Plots</H1>
 <P>A plot is a figure that visualizes a certain aspect of a network. 
 </P>
-<UL>
 EOF
-for plot in $(cat dat/PLOTS) ; do
-	cat <<EOF
-<LI><A href="$plot/">$plot</A>
-EOF
-done
-cat <<EOF
-</UL>
-EOF
+
+cat skeleton/plots/table.html
+
+##<UL>
+##EOF
+## for plot in $(cat dat/PLOTS) ; do
+## 	cat <<EOF
+## <LI><A href="$plot/">$plot</A>
+## EOF
+## done
+## cat <<EOF
+## </UL>
+## EOF

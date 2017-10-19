@@ -8,12 +8,18 @@
 # INPUT FILES
 #	dat/NETWORKS
 #	dat-www/plots-network.[dat/NETWORKS]
+#	konect-toolbox/m/konect_data_plot.m
 #
+
+plot_index=$(echo "$plot" | sed -E -e 's,-,__,g;s,\.,___,g')
+label_plot=$(<konect-toolbox/m/konect_data_plot.m sed -E -e 's,^\s*labels_plot\s*\.\s*'"$plot_index"'\s*=\s*'\''(.*)'\''\s*;\s*$,\1,;t;d')
+label_plot_uc=$(echo "$label_plot" | sed -E -e 's,^(.).*$,\1,' | tr a-z A-Z)$(echo "$label_plot" | sed -E -e 's,^.(.*)$,\1,')
 
 cat <<EOF
 #nav:<A href="../../">KONECT</A> ‣ <A href="../">Plots</A> ‣
-<H1>$plot</H1>
-<P>These are the plots of type '$plot' for all networks.
+<H1>$label_plot_uc</H1>
+<P>These are the plot of type <B>$label_plot</B> for all networks to
+which it applies and for which it was computed. 
 </P>
 EOF
 

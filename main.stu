@@ -118,7 +118,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 >skeleton/networks/index.html:
 	-p skeleton/networks/
-	dat/NETWORKS
+##	dat/NETWORKS
 	sh/write-networks
 	skeleton/networks/table.html
 {
@@ -157,7 +157,8 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 >skeleton/plots/index.html:
 	sh/write-plots
-	-p skeleton/plots/ dat/PLOTS
+	-p skeleton/plots/ 
+	skeleton/plots/table.html
 {
 	sh/write-plots
 }
@@ -166,6 +167,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 	sh/write-plot -p skeleton/plots/$plot/ plot/
 	dat/NETWORKS
 	dat-www/plots-network.[dat/NETWORKS]
+	konect-toolbox/m/konect_data_plot.m
 {
 	sh/write-plot
 }
@@ -188,7 +190,7 @@ skeleton/networks/$network/metadata.html:
 skeleton/statistics/$statistic/table.html:
 	-t octave $[-t MATLABPATH]
 	m/www_table_statistic.m m/www_format_statistic.m 
-	dat/NETWORKS dat/
+	dat/NETWORKS dat/ uni/meta.[dat/NETWORKS]
 {
 	./octave m/www_table_statistic.m 
 }
@@ -208,6 +210,14 @@ skeleton/networks/table.html:
 	dat/NETWORKS uni/meta.[dat/NETWORKS] -o dat/check.[dat/NETWORKS]
 {
 	./octave m/www_table_networks.m
+}
+
+skeleton/plots/table.html:
+	-t octave $[-t MATLABPATH]
+	m/www_table_plots.m konect-toolbox/m/konect_data_plot.m 
+	dat/PLOTS
+{
+	./octave m/www_table_plots.m
 }
 
 #

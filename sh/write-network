@@ -49,60 +49,71 @@ EOF
 
 cat skeleton/networks/"$network"/statistics.html
 
-cat <<EOF
+if [ -s dat-www/plots-network."$network" ] ; then
+	cat <<EOF
 <H2>Plots</H2>
 EOF
 
-for file in $(cat dat-www/plots-network."$network")
-do
-	echo "<A href=\"../../plot/$file.full.png\"><IMG SRC=\"../../plot/$file.small.png\"></A>"
-done
+	for file in $(cat dat-www/plots-network."$network")
+	do
+		echo "<A href=\"../../plot/$file.full.png\"><IMG SRC=\"../../plot/$file.small.png\"></A>"
+	done
+fi
 
 if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
+	show_tsv=1
+else
+	show_tsv=
+fi
+if [ "$extr" ] ; then
+	show_extr=1
+else
+	show_extr=
+fi
+if [ "$show_tsv$show_extr" ] ; then
 	cat <<EOF
-
 <H2>Downloads</H2>
 <UL>
-  <LI><A href="../../files/download.tsv.$network.tar.bz2">Data as TSV</A> ($(stat -c%s dat/download.tsv.$network.tar.bz2 | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta') bytes)
 EOF
-if [ "$extr" ] ; then
-	echo "<LI><A href=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">Extraction code</A> (GitHub)"
-fi
-cat <<EOF
-</UL>
+	if [ "$show_tsv" ] ; then
+		cat <<EOF
+<LI><A href="../../files/download.tsv.$network.tar.bz2">Data as TSV</A> ($(stat -c%s dat/download.tsv.$network.tar.bz2 | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta') bytes)
 EOF
+	fi
+	if [ "$show_extr" ] ; then
+		echo "<LI><A href=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">Extraction code</A> (GitHub)"
+	fi
+	echo '</UL>'
 fi
 
 #
 # References
 #
-##if [ "$cite" ] ; then
 
-	# Make sure they all exist, because Bibtex2Html does *not*
-	# return a non-zero exit status when references are missing. 
+# Make sure they all exist, because Bibtex2Html does *not*
+# return a non-zero exit status when references are missing. 
 
-	for bibkey in $(echo "$cite" | tr ',' ' ') ; do
-		grep -q -E '\{\s*'"$bibkey"'\s*,\s*$' konect-extr/konect.bib || {
-			echo >&2 "*** Bibtex reference '$bibkey' used by network '$network' expected in 'konect-extr/konect.bib', but not found"
-			exit 1
-		}
-	done
-	
-	tmpfile=$(mktemp)
-	{ printf '%s\n' "$cite" | sed -E -e 's|,|\
-|g' ; echo konect ; } >"$tmpfile"
-	echo
-	echo '<H2>References</H2>'
-	dir=$(pwd)
-	cd "$(dirname "$tmpfile")"
-	tmpfile2=$(mktemp)
-	bibtex2html -q -w --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o - --no-header "$dir"/konect-extr/konect.bib >"$tmpfile2" || {
-		echo >&2 "*** Error running Bibtex"
-		echo >&2 "Content of citefile:"
-		cat >&2 -- "$tmpfile"
+for bibkey in $(echo "$cite" | tr ',' ' ') ; do
+	grep -q -E '\{\s*'"$bibkey"'\s*,\s*$' konect-extr/konect.bib || {
+		echo >&2 "*** Bibtex reference '$bibkey' used by network '$network' expected in 'konect-extr/konect.bib', but not found"
 		exit 1
 	}
-	exitstatus=$?
-	<"$tmpfile2" sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' | sed -E -e 's,--,–,g'
-	rm -f -- "$tmpfile" "$tmpfile2"
-##fi
+done
+	
+echo
+echo '<H2>References</H2>'
+tmpfile=$(mktemp)
+{ printf '%s\n' "$cite" | sed -E -e 's|,|\
+|g' ; echo konect ; } >"$tmpfile"
+dir=$(pwd)
+cd "$(dirname "$tmpfile")"
+tmpfile2=$(mktemp)
+bibtex2html -q -w --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o - --no-header "$dir"/konect-extr/konect.bib >"$tmpfile2" || {
+	echo >&2 "*** Error running Bibtex"
+	echo >&2 "Content of citefile:"
+	cat >&2 -- "$tmpfile"
+	exit 1
+}
+exitstatus=$?
+<"$tmpfile2" sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' | sed -E -e 's,--,–,g'
+rm -f -- "$tmpfile" "$tmpfile2"
