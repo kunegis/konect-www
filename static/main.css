@@ -6,7 +6,7 @@ html {
 .bod {
     margin:		0;
     display:		block;
-    background-color:	white;
+    background-color:	black;
 }
 
 #nav {
@@ -31,10 +31,10 @@ html {
 
 #page {
     background-color:	white;
-    margin-left:	2.4em;
-    margin-right:	2.4em;
-    margin-top:		1em;
-    margin-bottom:	2.0em;
+    padding-left:	2.4em;
+    padding-right:	2.4em;
+    padding-top:	1em;
+    padding-bottom:	2.0em;
 }
 
 h1 {

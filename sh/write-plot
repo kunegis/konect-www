@@ -18,7 +18,7 @@ label_plot_uc=$(echo "$label_plot" | sed -E -e 's,^(.).*$,\1,' | tr a-z A-Z)$(ec
 cat <<EOF
 #nav:<A href="../../">KONECT</A> ‣ <A href="../">Plots</A> ‣
 <H1>$label_plot_uc</H1>
-<P>These are the plot of type <B>$label_plot</B> for all networks to
+<P>This page shows the <B>$label_plot</B> for all networks to
 which it applies and for which it was computed. 
 </P>
 EOF

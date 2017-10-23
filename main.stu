@@ -139,8 +139,6 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 >skeleton/statistics/index.html:
 	sh/write-statistics
 	-p skeleton/statistics/
-	## dat-www/STATISTICS_MAIN
-	## konect-toolbox/m/konect_label_statistic.m
 	skeleton/statistics/table.html
 {
 	sh/write-statistics
@@ -149,7 +147,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 >skeleton/statistics/$statistic/index.html:
 	sh/write-statistic -p skeleton/statistics/$statistic/ 
 	konect-toolbox/m/konect_label_statistic.m
-	skeleton/statistics/$statistic/table.html
+	skeleton/statistics/$statistic/(table.html count)
 	dat-www/html-symbol.$statistic
 {
 	sh/write-statistic
@@ -181,13 +179,13 @@ skeleton/networks/$network/statistics.html:
 
 skeleton/networks/$network/metadata.html:
 	-t octave $[-t MATLABPATH] m/www_table_network_metadata.m 
-	m/www_icon_category.m m/www_icon_check.m 
+	m/www_icon_category.m m/www_icon_check.m  konect-toolbox/m/konect_data_tag.m 
 	dat/ uni/meta.$network -o dat/check.$network
 {
 	./octave m/www_table_network_metadata.m 
 }
 
-skeleton/statistics/$statistic/table.html:
+skeleton/statistics/$statistic/table.html skeleton/statistics/$statistic/count:
 	-t octave $[-t MATLABPATH]
 	m/www_table_statistic.m m/www_format_statistic.m 
 	dat/NETWORKS dat/ uni/meta.[dat/NETWORKS]

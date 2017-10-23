@@ -53,10 +53,22 @@ if isfield(meta, 'timeiso')
   fprintf(OUT, '<TR><TD>Dataset timestamp <TD><TD>%s\n', text_timeiso); 
 end
 if isfield(meta, 'entity_names')
-  fprintf(OUT, '<TR><TD>Node meaning<TD><TD>%s\n', meta.entity_names); 
+  en= meta.entity_names;
+  en= regexprep(en, ',', ', '); 
+  en= regexprep(en, '^\s*', '');
+  if length(en) >= 1 && en(1) >= 'a' && en(1) <= 'z'
+    en(1) = en(1) + ('A' - 'a'); 
+  end
+  fprintf(OUT, '<TR><TD>Node meaning<TD><TD>%s\n', en); 
 end
 if isfield(meta, 'relationship_names')
-  fprintf(OUT, '<TR><TD>Edge meaning<TD><TD>%s\n', meta.relationship_names); 
+  en= meta.relationship_names;
+  en= regexprep(en, ',', ', '); 
+  en= regexprep(en, '^\s*', '');
+  if length(en) >= 1 && en(1) >= 'a' && en(1) <= 'z'
+    en(1) = en(1) + ('A' - 'a'); 
+  end
+  fprintf(OUT, '<TR><TD>Edge meaning<TD><TD>%s\n', en); 
 end
 fprintf(OUT, '<TR><TD>Network format<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-format-%s.png"><TD>%s\n', ...
 	int_format{format}, labels_format{format}); 
@@ -109,42 +121,6 @@ for i = 1 : length(tag_list)
 	    text_name, tag, text_explanation); 
   end
 end
-
-## if tag=tournament sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Tournament <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-tournament.png"><TD>The graph is a tournament:  all pairs of nodes are connected by a directed edge'
-## fi
-## if tag=trianglefree sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Triangles <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-trianglefree.png"><TD>Does not contain triangles'
-## fi
-## if tag=zeroweight sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Zero weights <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-zeroweight.png"><TD>Edges may have weight zero'
-## fi
-
-## #
-## # Extraction 
-## #
-
-## if tag=incomplete sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Completeness <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-incomplete.png"><TD>This network is incomplete'
-## fi
-## if tag=join sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Join <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-join.png"><TD>This network is the join of an underlying network'
-## fi
-## if tag=path sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Path <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-path.png"><TD>The edges in this network form paths'
-## fi
-## if tag=missingorientation sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Orientation <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-missingorientation.png"><TD>The network is not directed, but the underlying data is'
-## fi
-## if tag=missingmultiplicity sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Multiplicity <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-missingmultiplicity.png"><TD>The network does not have multiple edges, but the underlying data has'
-## fi
-## if tag=kcore sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD><I>k</I>-core <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-kcore.png"><TD>Only nodes with degree &gt;&nbsp;<I>k</I> are included'
-## fi
-## if tag=lcc sh/has-tag ; then
-## 	printf '%s\n' '<TR><TD>Largest connected component <TD class="padleft"><IMG class="icon" src="${root}/ic/icon-tag-lcc.png"><TD>Only the largest connected component of the original data is included'
-## fi
 
 fprintf(OUT, '</TABLE>\n'); 
 
