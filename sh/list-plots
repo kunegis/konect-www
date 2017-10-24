@@ -42,7 +42,7 @@
 	for x in a b c ; do
 		echo outin."$x"
 	done
-	for decomposition in $(cat dat/DECOMPOSITIONS) ; do
+	for decomposition in $(cat dat/DECOMPOSITIONS dat/DECOMPOSITIONS_ASYM) ; do
 		for x in a b d complex dedicom log cumul ; do
 			echo decomposition."$x"."$decomposition"
 		done

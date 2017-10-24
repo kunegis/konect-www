@@ -17,9 +17,9 @@ if inte
   end
 else
   if nega
-    text = sprintf('%+g', value);
+    text = sprintf('%+#g', value);
   else
-    text = sprintf('%g', value);
+    text = sprintf('%#g', value);
   end
 end
   
@@ -59,3 +59,4 @@ if sum(find(text == 'e'))
   text = regexprep(text, 'e', ' × 10<SUP>');
   text = [text '</SUP>']; 
 end
+

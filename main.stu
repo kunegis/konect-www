@@ -94,7 +94,7 @@ octave = -o konect-analysis/ ;
 
 dat-www/html-symbol.$statistic:
 	-t octave $[-t MATLABPATH]
-	m/www_html_symbol.m 
+	m/www_html_symbol.m konect-toolbox/m/konect_label_statistic.m 
 {
 	./octave m/www_html_symbol.m 
 }
@@ -172,7 +172,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 skeleton/networks/$network/statistics.html:
 	-t octave $[-t MATLABPATH] m/www_table_network_statistics.m m/www_format_statistic.m 
-	dat/STATISTICS dat/ konect-toolbox/m/konect_label_statistic.m 
+	dat/STATISTICS dat/ konect-toolbox/m/konect_(label data)_statistic.m 
 {
 	./octave m/www_table_network_statistics.m 
 }
