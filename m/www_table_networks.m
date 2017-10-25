@@ -51,8 +51,8 @@ while ~((network = fgetl(NETWORKS)) == -1)
     end
   end
 
-  fprintf(OUT, '<TR><TD><CODE>%s</CODE><TD><A href="%s/">%s</A><TD>%s %s <IMG class="icon" src="${root}/ic/icon-format-%s.png" title="%s"> <IMG class="icon" src="${root}/ic/icon-weights-%s.png" title="%s"> %s<TD align="right">%s<TD align="right">%s\n', ...
-	  code, network, name, check_result, icon_category, text_format, title_format, text_weights, title_weights, text_icons, text_size, text_volume); 
+  fprintf(OUT, '<TR><TD><CODE>%s</CODE><TD><A href="%s/">%s</A><TD>%s <A href="${root}/categories/%s">%s</A> <IMG class="icon" src="${root}/ic/icon-format-%s.png" title="%s"> <IMG class="icon" src="${root}/ic/icon-weights-%s.png" title="%s"> %s<TD align="right">%s<TD align="right">%s\n', ...
+	  code, network, name, check_result, meta.category, icon_category, text_format, title_format, text_weights, title_weights, text_icons, text_size, text_volume); 
 end
 
 fprintf(OUT, '</TABLE>\n'); 

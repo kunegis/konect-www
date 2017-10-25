@@ -28,13 +28,15 @@
 	www/networks/index.html
 	www/statistics/index.html
 	www/plots/index.html
+	www/categories/index.html
 	www/about/index.html
 	www/( main.css favicon.ico konect256.png )
 	www/ic/[dat-www/ICONS]
-	www/files/download.tsv.[dat-www/NETWORKS-DOWNLOAD].tar.bz2
 	www/statistics/[dat-www/STATISTICS_MAIN]/index.html
-	www/plots/[dat/PLOTS]/index.html
 	www/networks/[dat/NETWORKS]/index.html
+	www/categories/[dat/CATEGORIES]/index.html
+	www/plots/[dat/PLOTS]/index.html
+	www/files/download.tsv.[dat-www/NETWORKS-DOWNLOAD].tar.bz2
 	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
 ;
 
@@ -118,7 +120,6 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 >skeleton/networks/index.html:
 	-p skeleton/networks/
-##	dat/NETWORKS
 	sh/write-networks
 	skeleton/networks/table.html
 {
@@ -130,7 +131,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 	-p skeleton/networks/$network/ konect-extr/konect.bib dat/allowed_src.txt
 	uni/meta.$network
 	dat-www/plots-network.$network
-	konect-toolbox/m/konect_consts.m
+	konect-toolbox/m/konect_(consts data_plot).m
 	skeleton/networks/$network/(metadata statistics).html
 {
 	sh/write-network
@@ -159,6 +160,14 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 	skeleton/plots/table.html
 {
 	sh/write-plots
+}
+
+>skeleton/categories/index.html:
+	sh/write-categories
+	-p skeleton/categories/
+	skeleton/categories/table.html
+{
+	sh/write-categories
 }
 
 >skeleton/plots/$plot/index.html:
@@ -193,6 +202,12 @@ skeleton/statistics/$statistic/table.html skeleton/statistics/$statistic/count:
 	./octave m/www_table_statistic.m 
 }
 
+>skeleton/categories/$category/index.html:
+	sh/write-category -p skeleton/categories/$category/
+{
+	sh/write-category
+}
+
 skeleton/statistics/table.html:
 	-t octave $[-t MATLABPATH]
 	m/www_table_statistics.m konect-toolbox/m/konect_label_statistic.m
@@ -218,6 +233,14 @@ skeleton/plots/table.html:
 	./octave m/www_table_plots.m
 }
 
+skeleton/categories/table.html:
+	-t octave $[-t MATLABPATH]
+	m/www_table_categories.m
+	dat/CATEGORIES
+{
+	./octave m/www_table_categories.m 
+}
+
 #
 # Plots
 #
@@ -227,7 +250,7 @@ skeleton/plots/table.html:
 >dat-www/plots-network.$network:
 	-p dat-www/ plot/
 	sh/list-plots
-	dat/DECOMPOSITIONS
+	dat/PLOTS dat/DECOMPOSITIONS
 {
 	sh/list-plots
 }

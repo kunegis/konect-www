@@ -43,23 +43,49 @@ EOF
 #
 cat skeleton/networks/"$network"/metadata.html
 
+#
+# Statistics
+#
 cat <<EOF
 <H2>Statistics</H2>
 EOF
 
 cat skeleton/networks/"$network"/statistics.html
 
+#
+# Plots 
+#
 if [ -s dat-www/plots-network."$network" ] ; then
 	cat <<EOF
 <H2>Plots</H2>
 EOF
 
+	plot_last=''
 	for file in $(cat dat-www/plots-network."$network")
 	do
+		if echo "$file" | grep -q -E '^decomposition\.' ; then
+			plot=decomposition
+		else
+			plot=$(echo "$file" | sed -E -e 's,^(.*)\.[^.]+\.[^.]+$,\1,')
+		fi
+		if [ "$plot" != "$plot_last" ] ; then
+			if [ "$plot" = decomposition ] ; then
+				echo "<H3>Matrix decompositions plots</H3>"
+			else
+				plot_index=$(echo "$plot" | sed -E -e 's,-,__,g;s,\.,___,g')
+				label_plot=$(<konect-toolbox/m/konect_data_plot.m sed -E -e 's,^\s*labels_plot\s*\.\s*'"$plot_index"'\s*=\s*'\''(.*)'\''\s*;\s*$,\1,;t;d')
+				label_plot_uc=$(echo "$label_plot" | sed -E -e 's,^(.).*$,\1,' | tr a-z A-Z)$(echo "$label_plot" | sed -E -e 's,^.(.*)$,\1,')
+				echo '<H3><A href="${root}/plots/'"$plot"'/">'"$label_plot_uc"'</A></H3>'
+			fi
+		fi
+		plot_last="$plot"
 		echo "<A href=\"../../plot/$file.full.png\"><IMG SRC=\"../../plot/$file.small.png\"></A>"
 	done
 fi
 
+#
+# Downloads 
+#
 if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
 	show_tsv=1
 else

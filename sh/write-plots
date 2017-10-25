@@ -1,28 +1,21 @@
 #! /bin/sh
 #
+# Generate skeleton of the "plots" page. 
+#
+# STDOUT
+#	Skeleton of page 
+#
 # INPUT FILES 
-#//	dat/PLOTS
 #	skeleton/plots/table.html
 #
 
 set -e
 
 cat <<EOF
-#nav:<A href="../">KONECT</A> ‣
+#nav:<A href="${root}/">KONECT</A> ‣
 <H1>Plots</H1>
-<P>A plot is a figure that visualizes a certain aspect of a network. 
+<P>A <B>plot</B> is a figure that visualizes a certain aspect of a network. 
 </P>
 EOF
 
 cat skeleton/plots/table.html
-
-##<UL>
-##EOF
-## for plot in $(cat dat/PLOTS) ; do
-## 	cat <<EOF
-## <LI><A href="$plot/">$plot</A>
-## EOF
-## done
-## cat <<EOF
-## </UL>
-## EOF

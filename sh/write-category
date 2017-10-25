@@ -1,0 +1,20 @@
+#! /bin/sh
+#
+# Generate the "category" page.
+#
+# PARAMETERS
+#	$category	Internal name of category 
+#
+# STDOUT
+#	The skeleton of the page
+#
+
+set -e
+
+cat <<EOF
+#nav:<A href="../../">KONECT</A> ‣ <A href="../">Categories</A> ‣
+<H1>$category</H1>
+<P>
+  The is the category <B><CODE>$category</CODE></B>.
+</P>
+EOF

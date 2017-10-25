@@ -1,24 +1,32 @@
-* on each network page:  put links to the individual plot types (need good layout)
-** need to harmonize the pots shown on each network page, and that have an own page
-* plots:  show sample plot for each plot type
-* for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot)
-* for each statistic:  distribution and cumulative distribution plot for that statistic.
+* categories
+** category:  list of networks
+** category:  pretty title 
+** Interaction category:  make sure all networks are bipartite, and move eventual unipartite networks to OnlineContact.
+
+* make @feature.ft work again 
+* statistics:  average left and right degrees
+* statistics:  maximum left and right degrees
+
+* www-specific plots:
+** plots:  show sample plot for each plot type
+** for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot) (also, add to konect-analysis/@www)
+** for each statistic:  distribution and cumulative distribution plot for that statistic (also, add to konect-analysis/@www)
+
+* plot:   pretty names of subplots 
+* each statistic page:  also include the non-main statistics in the table, e.g., the left and right size. 
 
 == Later ==
 * README files within downloads:  make them beautiful 
 * plots:  decomposition, decomposition_time
-* statistics:  average left and right degrees
-* statistics:  maximum left and right degrees
-* /categories/
 * networks/ table and other tables:  make it sortable
 * make updates be atomic
-* each statistic page:  also include the non-main statistics in the table, e.g., the left and right size. 
 * main page:  show three example graphs for each group:  3 statistics, 3 plots, 3 networks, etc. 
 * metadata:  add a line stating whether the network is connected or not 
 * add the #incomplete tag to many more networks 
 * make the TSV downloadable for more datasets 
 * statistics/diameter:  right align the diameter column.  (same for all number columns with similar semantics)
 * short explanation for each statistic
+* category:  explanatory text for the category 
 
 == Public announcements ==
 * @network.convote
