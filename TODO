@@ -32,6 +32,8 @@
 * category:  show entity names and relationship names 
 
 == Public announcements ==
+* konect.cc -- twitter
+* konect.cc -- gplus
 * @network.convote
 * @network.bag-{kos,nips,enron,nytimes,pubmed}
 * @network.wikilens
@@ -39,3 +41,4 @@
 * @network.arnetminer
 * @statistic.avgmult 
 * @network.dimacs9-*
+* @network.twin
