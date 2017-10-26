@@ -56,8 +56,8 @@ end
 
 fprintf(OUT, '</TABLE>\n'); 
 
-if fclose(OUT) < 0,  error(filename_out);  end;
 if fclose(NETWORKS) < 0,  error(filename_networks);  end;
+if fclose(OUT) < 0,  error(filename_out);  end;
 
 filename_count = sprintf('skeleton/statistics/%s/count', statistic);
 COUNT = fopen(filename_count, 'w');

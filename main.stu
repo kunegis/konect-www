@@ -33,8 +33,8 @@
 	www/( main.css favicon.ico konect256.png )
 	www/ic/[dat-www/ICONS]
 	www/statistics/[dat-www/STATISTICS_MAIN]/index.html
-	www/networks/[dat/NETWORKS]/index.html
 	www/categories/[dat/CATEGORIES]/index.html
+	www/networks/[dat/NETWORKS]/index.html
 	www/plots/[dat/PLOTS]/index.html
 	www/files/download.tsv.[dat-www/NETWORKS-DOWNLOAD].tar.bz2
 	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
@@ -203,9 +203,13 @@ skeleton/statistics/$statistic/table.html skeleton/statistics/$statistic/count:
 }
 
 >skeleton/categories/$category/index.html:
-	sh/write-category -p skeleton/categories/$category/
+	-t octave $[-t MATLABPATH]
+	m/www_category.m
+	-p skeleton/categories/$category/
+	dat/NETWORKS_CATEGORY_$category
+	dat-www/COUNT_CATEGORY_$category
 {
-	sh/write-category
+	./octave m/www_category.m 
 }
 
 skeleton/statistics/table.html:
@@ -236,9 +240,28 @@ skeleton/plots/table.html:
 skeleton/categories/table.html:
 	-t octave $[-t MATLABPATH]
 	m/www_table_categories.m
-	dat/CATEGORIES
+	dat-www/CATEGORIES.sorted
+	dat-www/COUNT_CATEGORY_[dat/CATEGORIES]
 {
 	./octave m/www_table_categories.m 
+}
+
+#
+# Helper content in dat-www/ 
+#
+
+>dat-www/COUNT_CATEGORY_$category:  <dat/NETWORKS_CATEGORY_$category
+{
+	wc -l
+}
+
+>dat-www/CATEGORIES.sorted:  <dat/CATEGORIES
+{
+	while IFS= read -r category ; do
+		<konect-toolbox/m/konect_data_category.m sed -E -e 's,^\s*longname\s*\.\s*('"$category"')\s*=\s*'"'"'(.*)'"'"'\s*;\s*$,\2;\1,;t;d' 
+	done |
+	sort |
+	sed -E -e 's,^.*;,,'
 }
 
 #

@@ -47,7 +47,7 @@ fprintf(OUT, '<TR><TD>Consistency check<TD class="padleft">%s<TD>%s\n', check_ic
 % Semantics
 %
 
-fprintf(OUT, '<TR><TD><A href="${root}/categories/">Category</A><TD class="padleft"><A href="${root}/categories/%s">%s</A><TD><A href="${root}/categories/%s/">%s</A>\n', meta.category, www_icon_category(meta.category), meta.category, cat_longname.(meta.category)); 
+fprintf(OUT, '<TR><TD><A href="${root}/categories/">Category</A><TD class="padleft"><A href="${root}/categories/%s/">%s</A><TD><A href="${root}/categories/%s/">%s</A>\n', meta.category, www_icon_category(meta.category), meta.category, cat_longname.(meta.category)); 
 if isfield(meta, 'timeiso')
   text_timeiso = regexprep(meta.timeiso, '/', ' ⋯ '); 
   fprintf(OUT, '<TR><TD>Dataset timestamp <TD><TD>%s\n', text_timeiso); 

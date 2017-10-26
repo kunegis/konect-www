@@ -15,8 +15,8 @@ cat <<EOF
 #nav:<A href="${root}/">KONECT</A> ‣
 <H1>Categories</H1>
 <P>
-  In KONECT, each belongs to a <B>category</B> which denotes the
-  semantics of the network.  Examples of categories are social networks,
+  In KONECT, each network belongs to a <B>category</B> which denotes its
+  semantics.  Examples of categories are social networks,
   road networks, and citation networks. 
 </P>
 EOF

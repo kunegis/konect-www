@@ -1,7 +1,7 @@
 * categories
-** category:  list of networks
-** category:  pretty title 
-** Interaction category:  make sure all networks are bipartite, and move eventual unipartite networks to OnlineContact.
+** Interaction category
+*** clean up the category 
+*** lkml_person-thread:  move to Communication 
 
 * make @feature.ft work again 
 * statistics:  average left and right degrees
@@ -27,6 +27,9 @@
 * statistics/diameter:  right align the diameter column.  (same for all number columns with similar semantics)
 * short explanation for each statistic
 * category:  explanatory text for the category 
+* category:  tags for each network 
+* category:  size and volume of each network 
+* category:  show entity names and relationship names 
 
 == Public announcements ==
 * @network.convote
