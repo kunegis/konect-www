@@ -2,18 +2,15 @@ KONECT-WWW
 ==========
 
 This is the code to generate the website of the KONECT project, by
-Jérôme Kunegis at the University of Namur.  
+Jérôme Kunegis at the University of Namur, as made available at:
+
+http://konect.cc/
 
 KONECT is a project in the area of network science with the goal to
 collect and analyse network datasets.  The KONECT website shows all
 network datasets in KONECT, as well as all computed network statistics,
 network plots, and other analyses.  It also allows downloading of
 datasets. 
-
-This website is not yet online.  An archaic version of it is maintained
-by the University of Koblenz-Landau (Germany) at
-
-http://konect.uni-koblenz.de/
 
 Overview
 --------
