@@ -41,6 +41,7 @@ while ~((statistic_full = fgetl(STATISTICS)) == -1)
   values = read_statistic(statistic_base, network)
   if length(values) < index_statistic,  continue,  end; 
   value = values(index_statistic)
+  if isnan(value),  continue;  end; 
   text_statistic = konect_label_statistic(statistic_full, 'html-name');
   text_symbol = konect_label_statistic(statistic_full, 'html-short'); 
   text_value = www_format_statistic(statistic_full, value); 

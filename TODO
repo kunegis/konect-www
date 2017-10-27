@@ -1,19 +1,14 @@
-* categories
-** Interaction category
-*** clean up the category 
-*** lkml_person-thread:  move to Communication 
-
-* make @feature.ft work again 
 * statistics:  average left and right degrees
-* statistics:  maximum left and right degrees
+* make @feature.ft work again 
+
+* plot:   pretty names of subplots 
+* each statistic page:  also include the non-main statistics in the table, e.g., the left and right size. 
 
 * www-specific plots:
 ** plots:  show sample plot for each plot type
 ** for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot) (also, add to konect-analysis/@www)
 ** for each statistic:  distribution and cumulative distribution plot for that statistic (also, add to konect-analysis/@www)
 
-* plot:   pretty names of subplots 
-* each statistic page:  also include the non-main statistics in the table, e.g., the left and right size. 
 
 == Later ==
 * README files within downloads:  make them beautiful 
