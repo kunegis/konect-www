@@ -60,3 +60,6 @@ if sum(find(text == 'e'))
   text = [text '</SUP>']; 
 end
 
+% Remove trailing decimal point (which may be left due to the '#' in the
+% '%#g' format
+text = regexprep(text, '\.$', '');

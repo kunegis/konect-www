@@ -16,6 +16,7 @@
 statistic = getenv('statistic');
 
 [consts symbols_format symbols_weights labels_format labels_weights int_format int_weights] = konect_consts(); 
+[logarithmic integer percent negative] = konect_data_statistic();
 
 filename_out = sprintf('skeleton/statistics/%s/table.html', statistic); 
 OUT = fopen(filename_out, 'w');
@@ -26,7 +27,15 @@ NETWORKS = fopen(filename_networks, 'r');
 if NETWORKS < 0,  error(filename_networks);  end; 
 
 symbol= konect_label_statistic(statistic, 'html-short');
-align = 'right'; 
+
+% Determine whether to left- or right-align the column 
+if integer.(statistic)
+  align = 'right';
+elseif percent.(statistic)
+  align = 'left'; 
+else
+  align = 'right'; 
+end
 
 fprintf(OUT, '<TABLE>\n'); 
 fprintf(OUT, '<TR><TD><B>Name</B><TD class="padleft"><B>Attributes</B><TD class="padleft" align="%s"><B>%s</B>\n', ...
