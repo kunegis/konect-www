@@ -45,7 +45,7 @@
 #
 
 www/ { mkdir -p www ; }
-www/$name/ {mkdir -p www/"$name" ; }
+www/$name/ { mkdir -p www/"$name" ; }
 
 skeleton/$dir/:  { mkdir -p skeleton/"$dir" ; }
 
