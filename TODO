@@ -18,6 +18,7 @@
 * category:  tags for each network 
 * category:  size and volume of each network 
 * category:  show entity names and relationship names 
+* network:  for each statistic, show the percentile of the network for that statistic
 * statistics:  average left and right degrees
 * include measures of bipartivity
 * plots:  decomposition, decomposition_time
@@ -37,3 +38,7 @@
 * @statistic.avgmult 
 * @network.dimacs9-*
 * @network.twin
+* http://konect.cc/networks/ucidata-zachary/
+* http://konect.cc/networks/slashdot-zoo/
+* http://konect.cc/networks/twitter/
+* http://konect.cc/categories/Citation/
