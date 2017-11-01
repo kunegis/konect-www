@@ -1,0 +1,60 @@
+#! /bin/sh
+#
+# Extract a category description from the Handbook and convert it to
+# HTML.
+#
+# PARAMETERS
+#	$category	Internal name of the category
+#	$verbose	When non-empty, output verbose output on stderr
+#
+# STDOUT	The HTML of the description.
+# STDIN		The file konect-handbook/konect-handbook.tex
+#
+# INPUT FILES
+#	konect-toolbox/m/konect_data_category.m 
+#
+
+[ "$verbose" ] && exec 4>&2 || exec 4>/dev/null 
+
+longname=$(<konect-toolbox/m/konect_data_category.m sed -E -e 's,^\s*longname\s*\.\s*'"$category"'\s*=\s*'"'"'([^'"'"']+)'"'"'\s*;\s*$,\1,;t;d')
+
+echo >&4 "longname[$category] = '$longname'"
+
+inside=
+while IFS= read -r line ; do
+	if [ "$inside" ] ; then
+		if printf '%s\n' "$line" | grep -q -E '^\s*($|\\item|\\end)' ; then
+			echo >&4 'LEAVING'
+			inside=
+		else
+			printf '%s\n' "$line"
+		fi
+	else
+		if printf '%s\n' "$line" | grep -q -E '^\s*\\item\['"$longname"'s\]' ; then
+			echo >&4 'ENTERING'
+			inside=1
+			printf '%s\n' "$line"
+		else
+			continue 
+		fi
+		   
+	fi
+done <konect-handbook/konect-handbook.tex |
+sed -E -e '
+
+s,\\item\[([^]]+)\],\1,
+s,\\marginpar\{\\texttt\{[^}]+\}\},,
+s,\\textsf\{([^}]+)\},<CODE>\1</CODE>,g
+s,\\texttt\{([^}]+)\},<CODE>\1</CODE>,g
+s,\\emph\{([^}]+)\},<EM>\1</EM>,g
+s,\\href\{([^}]+)\}\{([^}]+)\},<A href="\1">\2</A>,g
+
+s,--,–,g
+s,``,",g
+s,'',",g
+
+s,http://konect\.cc/,${root}/,
+/^\s*$/d
+s,^\s*,,
+'
+

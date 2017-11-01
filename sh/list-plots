@@ -7,6 +7,8 @@
 # INPUT FILES
 #	dat/PLOTS
 #	dat/DECOMPOSITIONS 
+#	dat/DECOMPOSITIONS_ASYM
+#	SUBPLOTS
 #
 
 {
@@ -24,58 +26,6 @@
 		done
 	done
 
-	## for x in b c d ; do
-	## 	echo weights."$x"
-	## done
-	## for x in ax ux vx uvx ; do
-	## 	echo bidd."$x"
-	## done
-	## for x in a u v ; do
-	## 	echo degree."$x"
-	## done
-	## for x in a u v ; do
-	## 	echo assortativity."$x"
-	## done
-	## for x in a u v ; do
-	## 	echo lorenz."$x"
-	## done
-	## for x in a u v ; do
-	## 	echo zipf."$x"
-	## done
-	## for x in a b ; do
-	## 	echo time_histogram."$x"
-	## done
-	## echo time_histogram_signed.a
-	## echo diadens.a
-	## echo cluscod.a
-	## for x in a b c d e f g ; do
-	## 	echo hopdistr."$x"
-	## done
-	## for x in a b c ; do
-	## 	echo hopdistr_time.full."$x"
-	## done
-	## for x in a b c ; do
-	## 	echo outin."$x"
-	## done
-	## for x in a b ; do
-	## 	echo rating_evolution."$x"
-	## done
-	## echo rating_evolution2.c
-	## echo degcc.a
-	## for decomposition in sym sym-n lap ; do
-	## 	echo distr."$decomposition".f
-	## done
-	## for decomposition in sym lap stoch ; do
-	## 	echo map."$decomposition".a
-	## done
-	## echo layout.a
-	## for x in a b ; do
-	## 	echo lybl."$x"
-	## done
-	## for x in a b f g ; do
-	## 	echo delaunay."$x"
-	## done
-	
 	for decomposition in $(cat dat/DECOMPOSITIONS dat/DECOMPOSITIONS_ASYM) ; do
 		for x in a b d complex dedicom log cumul ; do
 			echo decomposition."$x"."$decomposition"

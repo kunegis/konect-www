@@ -21,7 +21,7 @@ cat <<EOF
 <H1>$name</H1>
 <P>These are the values of the <B>$name_lc</B> ($symbol) for all
 networks to which the statistic applies and for which it was computed. 
-In total, it has been computed for $(cat skeleton/statistics/"$statistic"/count) networks. 
+In total, it has been computed for <B>$(cat skeleton/statistics/"$statistic"/count | sh/format-int)</B> networks. 
 </P>
 EOF
 

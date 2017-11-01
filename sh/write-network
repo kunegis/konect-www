@@ -143,3 +143,4 @@ bibtex2html -q -w --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o -
 exitstatus=$?
 <"$tmpfile2" sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' | sed -E -e 's,--,–,g'
 rm -f -- "$tmpfile" "$tmpfile2"
+

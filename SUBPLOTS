@@ -5,7 +5,7 @@ assortativity:		a u v
 lorenz:			a u v
 zipf:			a u v
 time_histogram:		a b
-hopdistr:		a b c d e f g
+hopdistr:		a b e f g
 hopdistr_time.full:  	a b c
 outin:			a b c
 rating_evolution:	a b

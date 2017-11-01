@@ -76,6 +76,12 @@ konect-extr/ {
 	exit 1
 }
 
+konect-handbook/$name: -p konect-handbook/;
+konect-handbook/ {
+	echo >&2 '*** konect-handbook/ must be a symlink to the corresponding project directory'
+	exit 1
+}
+
 #
 # Octave
 #
@@ -112,7 +118,15 @@ www/$name.html:
 	sh/write-html
 }
 
-skeleton/index.html = static/index.html;
+>skeleton/index.html:
+	sh/write-index sh/format-int
+	dat/NETWORKS dat/CATEGORIES
+	dat-www/COUNT_(STATISTICS PLOTS)
+{
+	sh/write-index
+}
+
+##skeleton/index.html = static/index.html;
 skeleton/about/index.html: static/about.html -p skeleton/about/
 {
 	cp static/about.html skeleton/about/index.html
@@ -146,7 +160,8 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 }
 
 >skeleton/statistics/$statistic/index.html:
-	sh/write-statistic -p skeleton/statistics/$statistic/ 
+	sh/write-statistic sh/format-int 
+	-p skeleton/statistics/$statistic/ 
 	konect-toolbox/m/konect_label_statistic.m
 	skeleton/statistics/$statistic/(table.html count)
 	dat-www/html-symbol.$statistic
@@ -172,14 +187,14 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 >skeleton/plots/$plot/index.html:
 	sh/write-plot -p skeleton/plots/$plot/ plot/
-	dat/NETWORKS
+	dat/NETWORKS 
 	dat-www/plots-network.[dat/NETWORKS]
-	konect-toolbox/m/konect_data_plot.m
+	konect-toolbox/m/konect_data_plot.m 
 {
 	sh/write-plot
 }
 
-skeleton/networks/$network/statistics.html:
+skeleton/networks/$network/statistics.html dat-www/COUNT_STATISTICS_$network:
 	-t octave $[-t MATLABPATH] m/www_table_network_statistics.m m/www_format_statistic.m 
 	dat/STATISTICS dat/ konect-toolbox/m/konect_(label data)_statistic.m 
 {
@@ -203,6 +218,13 @@ skeleton/statistics/$statistic/table.html skeleton/statistics/$statistic/count:
 }
 
 >skeleton/categories/$category/index.html:
+	<skeleton/categories/$category/base.html  sh/write-category
+	skeleton/categories/$category/content.html
+{
+	sh/write-category
+}
+
+skeleton/categories/$category/base.html:
 	-t octave $[-t MATLABPATH]
 	m/www_category.m
 	-p skeleton/categories/$category/
@@ -210,6 +232,14 @@ skeleton/statistics/$statistic/table.html skeleton/statistics/$statistic/count:
 	dat-www/COUNT_CATEGORY_$category
 {
 	./octave m/www_category.m 
+}
+
+>skeleton/categories/$category/content.html:
+	sh/handbook-category
+	<konect-handbook/konect-handbook.tex
+	konect-toolbox/m/konect_data_category.m 
+{
+	sh/handbook-category 
 }
 
 skeleton/statistics/table.html:
@@ -264,6 +294,18 @@ skeleton/categories/table.html:
 	sed -E -e 's,^.*;,,'
 }
 
+>dat-www/COUNT_STATISTICS:
+	dat-www/COUNT_STATISTICS_[dat/NETWORKS]
+{
+	<dat/NETWORKS sed -E -e 's,^,dat-www/COUNT_STATISTICS_,' | xargs cat | wc -l 
+}
+
+>dat-www/COUNT_PLOTS:
+	dat-www/plots-network.[dat/NETWORKS]
+{
+	<dat/NETWORKS sed -E -e 's,^,dat-www/plots-network.,' | xargs cat | wc -l
+}
+
 #
 # Plots
 #
@@ -273,7 +315,7 @@ skeleton/categories/table.html:
 >dat-www/plots-network.$network:
 	-p dat-www/ plot/
 	sh/list-plots
-	dat/PLOTS dat/DECOMPOSITIONS
+	dat/PLOTS dat/DECOMPOSITIONS dat/DECOMPOSITIONS_ASYM SUBPLOTS 
 {
 	sh/list-plots
 }

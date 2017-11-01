@@ -4,12 +4,17 @@
 #
 # PARAMETERS
 #	$plot
+#	$verbose	Enable verbose output on stderr if non-empty
 #
 # INPUT FILES
 #	dat/NETWORKS
 #	dat-www/plots-network.[dat/NETWORKS]
 #	konect-toolbox/m/konect_data_plot.m
 #
+
+set -e
+
+[ "$verbose" ] && exec 4>&2 || exec 4>/dev/null 
 
 plot_index=$(echo "$plot" | sed -E -e 's,-,__,g;s,\.,___,g')
 label_plot=$(<konect-toolbox/m/konect_data_plot.m sed -E -e 's,^\s*labels_plot\s*\.\s*'"$plot_index"'\s*=\s*'\''(.*)'\''\s*;\s*$,\1,;t;d')
@@ -24,20 +29,34 @@ which it applies and for which it was computed.
 EOF
 
 # Generate subplot types
+
+tmpfile=$(mktemp)
 while IFS= read -r network ; do
 	cat dat-www/plots-network."$network"
 done <dat/NETWORKS |
 sed -E -e 's,^'"$plot"'\.(.+)\.[^.]+$,\1,;t;d' |
-sort -u |
-while IFS= read -r type ; do
-	cat <<EOF
-<H3>$type</H3>
-EOF
+sort -u >"$tmpfile"
+
+count=$(echo $(wc -l <"$tmpfile"))
+echo >&4 "count=$count"
+
+cat "$tmpfile" |
+while IFS= read -r subplot ; do
+	if [ "$count" != 1 ] ; then
+		ind=$(echo "$plot"."$subplot" | sed -E -e 's,\.,___,g')
+		echo >&4 "Index for '$plot.$subplot' is '$ind'"
+		text_subplot=$(<konect-toolbox/m/konect_data_plot.m sed -E -e 's,^\s*labels_plot\s*\.\s*'"$ind"'\s*=\s*'"'"'([^'"'"']+)'"'"'\s*;\s*$,\1,;t;d')
+		text_subplot=$(echo "$text_subplot" | sed -E -e 's,^(.).*$,\1,' | tr a-z A-Z)$(echo "$text_subplot" | sed -E -e 's,^.,,')
+		[ -z "$text_subplot" ] && { echo >&2 "*** Missing label for '$plot.$subplot'" ; exit 1 ; }
+		echo "<H3>$text_subplot</H3>"
+	fi
 	for network in $(cat dat/NETWORKS) ; do
-		if sh/proper-plot plot/"$plot"."$type"."$network" ; then
-			echo "<A href=\"../../plot/$plot.$type.$network.full.png\"><IMG SRC=\"../../plot/$plot.$type.$network.small.png\"></A>"
+		if sh/proper-plot plot/"$plot"."$subplot"."$network" ; then
+			echo "<A href=\"../../plot/$plot.$subplot.$network.full.png\"><IMG SRC=\"../../plot/$plot.$subplot.$network.small.png\"></A>"
 		fi
 	done
 done
+
+rm -f "$tmpfile"
 
 exit 0

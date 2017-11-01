@@ -1,3 +1,7 @@
+#! /bin/sh
+# -*-html-*-
+
+cat <<EOF
 #nav:<A href="${root}/networks/">Networks</A> • <A href="${root}/statistics/">Statistics</A> • <A href="${root}/plots/">Plots</A> • <A href="${root}/categories/">Categories</A> • <A href="https://github.com/kunegis/konect-handbook/raw/master/konect-handbook.pdf">Handbook</A>
 
 <H1>The KONECT Project</H1>
@@ -8,18 +12,24 @@
   This is the KONECT project, a project in the area of <EM>network
   science</EM> with the goal to collect network datasets,
   analyse them, and make available all analyses online.
-  <I>KONECT</I> stands for <I><U>Ko</U>blenz <U>Ne</U>twork <U>C</U>ollec<U>t</U>ion</I>, as the
-  project has roots at the University of Koblenz–Landau in
-  Germany.
-  All source code
-  is made available as Free Software, and includes a network analysis
-  toolbox for GNU Octave, a network extraction library, as well as code to generate
-  these web pages, including all statistics and plots. 
-  KONECT is run 
-  by the research group around <A href="https://directory.unamur.be/staff/jkunegis?_LOCALE_=en">Jérôme
+  <I>KONECT</I> stands
+  for <I><U>Ko</U>blenz <U>Ne</U>twork <U>C</U>ollec<U>t</U>ion</I>, as
+  the project has roots at the University of Koblenz–Landau in Germany.
+  All source code is made available as Free Software, and includes a
+  network analysis toolbox for GNU Octave, a network extraction library,
+  as well as code to generate these web pages, including all statistics
+  and plots.  KONECT is run by the research group
+  around <A href="https://directory.unamur.be/staff/jkunegis?_LOCALE_=en">Jérôme
   Kunegis</A> at the <A href="https://www.unamur.be/en">University of
   Namur</A>, in the <A href="http://www.naxys.be/">Namur Center for
   Complex Networks</A>.
+</P>
+<P>
+  The KONECT project has
+  <B>$(<dat/NETWORKS wc -l | sh/format-int)</B> network datasets
+  in <B>$(<dat/CATEGORIES wc -l | sh/format-int)</B> categories. 
+  We have computed <B>$(<dat-www/COUNT_STATISTICS sh/format-int)</B> graph statistics
+  and generated <B>$(<dat-www/COUNT_PLOTS sh/format-int)</B> plots. 
 </P>
 <P>
   For a general overview, see
@@ -35,7 +45,7 @@
   <LI><B><A href="categories/">Categories</A></B>:  <A href="categories/Social/">Online social networks</A> • <A href="categories/Citation/">Citation networks</A> • <A href="categories/Hyperlink/">Hyperlink networks</A>  • <A href="categories/">more…</A> 
 </UL>
 
-<H2>Source Code</H2>
+<H2>Source code</H2>
 <P>
   The sources of KONECT are available as free software, under the GNU
   General Public License (GPL) version 3.  They are hosted on GitHub. 
@@ -47,3 +57,4 @@
   <LI><A href="https://github.com/kunegis/konect-toolbox">Toolbox</A> – Octave toolbox for network analysis
   <LI><A href="https://github.com/kunegis/konect-handbook">Handbook</A> – The KONECT Handbook
 </UL>
+EOF

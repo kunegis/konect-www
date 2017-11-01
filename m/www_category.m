@@ -5,7 +5,7 @@
 %	$category	Internal name of the category
 %
 % OUTPUT FILES
-%	skeleton/categories/$category/index.html
+%	skeleton/categories/$category/base.html
 %
 % INPUT FILES
 %	dat/NETWORKS_CATEGORY_$category
@@ -17,7 +17,7 @@ category = getenv('category')
 [consts symbols_format symbols_weights labels_format labels_weights int_format int_weights] = konect_consts(); 
 [colors vertices edges markers letters longname] = konect_data_category(); 
 
-filename_out = sprintf('skeleton/categories/%s/index.html', category); 
+filename_out = sprintf('skeleton/categories/%s/base.html', category); 
 OUT = fopen(filename_out, 'w');
 if OUT < 0,  error(filename_out);  end;
 
@@ -34,7 +34,7 @@ count = load(sprintf('dat-www/COUNT_CATEGORY_%s', category));
 
 fprintf(OUT, '#nav:<A href="../../">KONECT</A> ‣ <A href="../">Categories</A> ‣\n'); 
 fprintf(OUT, '<H1>%s</H1>\n', label_category); 
-fprintf(OUT, '<P>The is the category <B>%s</B>.  It contains %u networks.</P>\n', label_category_lc, count); 
+fprintf(OUT, '<P>This is the category <B>%s</B>.  It contains <B>%u</B> networks. ${description}</P>\n', label_category_lc, count); 
 fprintf(OUT, '<TABLE>\n'); 
 fprintf(OUT, '<TR><TD><B>Name</B><TD class="padleft"><B>Attributes</B>\n'); 
 

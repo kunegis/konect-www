@@ -1,0 +1,30 @@
+#! /bin/sh
+#
+# Replace ${description} by the description of the given category in
+# HTML, as retrieved from the Handbook. 
+#
+# PARAMETERS
+#	$category	Internal name of the category
+#	$verbose	If non-empty, output verbose output on stderr
+#
+# INPUT FILES
+#	skeleton/categories/$category/content.html
+#
+
+[ "$verbose" ] && exec 4>&2 || exec 4>/dev/null 
+
+if [ "$(echo $(<skeleton/categories/"$category"/content.html wc -l))" = 0 ] ; then
+	echo >&2 "*** $0: The file 'skeleton/categories/$category/content.html' must not be empty"
+	exit 1
+fi
+
+content=$(cat skeleton/categories/"$category"/content.html)
+echo >&4 "content=$content"
+content_esc=$(printf '%s\n' "$content" | sed -E -e 's,\\,\\\\,g;s,\$,\\\$,g' | tr '\n' ' ')
+echo >&4 "content_esc=$content_esc"
+
+command='s|\$\{description\}|'"$content_esc"'|'
+echo >&4 "command=$command"
+
+sed -E -e "$command"
+
