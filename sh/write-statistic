@@ -3,18 +3,26 @@
 # Write the page about one statistic. 
 #
 # PARAMETERS
-#	$statistic
+#	$statistic	Internal name of the statistic
+#	$verbose	When non-empty, write verbose output to stderr
 #
 # INPUT FILES
 #	skeleton/statistics/$statistic/table.html
 #	skeleton/statistics/$statistic/count
 #	dat-www/html-symbol.$statistic
+#	TEXTS-STATISTIC 
 #
+
+set -e 
+
+[ "$verbose" ] && exec 4>&2 || exec 4>/dev/null 
 
 symbol=$(cat dat-www/html-symbol."$statistic")
 name=$(sh/name-statistic)
-name_lc=$(printf '%s' "$name" | sed -E -e 'h;s,^(.).*$,\1,;y,ABCDEFGHIJKLMNOPQRSTUVWXYZ,abcdefghijklmnopqrstuvwxyz,;G;s,\
-.,,')
+name_lc=$(echo "$name" | sed -E -e 's,^([^A-Z]*[A-Z]).*$,\1,' | tr A-Z a-z )$(echo "$name" | sed -E -e 's,^[^A-Z]*[A-Z](.*)$,\1,')
+## name_lc=$(printf '%s' "$name" | sed -E -e 'h;s,^(.).*$,\1,;y,ABCDEFGHIJKLMNOPQRSTUVWXYZ,abcdefghijklmnopqrstuvwxyz,;G;s,\
+##.,,')
+echo >&4 "name_lc=$name_lc"
 
 cat <<EOF
 #nav:<A href="../../">KONECT</A> ‣ <A href="../">Statistics</A> ‣
@@ -22,6 +30,22 @@ cat <<EOF
 <P>These are the values of the <B>$name_lc</B> ($symbol) for all
 networks to which the statistic applies and for which it was computed. 
 In total, it has been computed for <B>$(cat skeleton/statistics/"$statistic"/count | sh/format-int)</B> networks. 
+</P>
+EOF
+
+text=$(<TEXTS-STATISTIC sed -E -e 's,^\s*'"$statistic"'\s*:\s*(.*)\s*$,\1,;t;d')
+echo >&4 "text=$text"
+
+if [ "$text" ] ; then
+	printf '<P>%s</P>\n' "$text"
+fi
+
+cat <<EOF
+<P>
+  The full definition of the $name_lc as well as its properties and
+  relationships to other graph statistics can be found in the <A
+  href="https://github.com/kunegis/konect-handbook/raw/master/konect-handbook.pdf">KONECT
+  handbook</A>.   
 </P>
 EOF
 

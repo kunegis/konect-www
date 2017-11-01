@@ -1,0 +1,64 @@
+# This is the text shown for each statistic.
+# Each text is on a single line.  It may contain HTML.
+# The entries in this file are sorted alphabetically by the internal name of the statistic.
+
+alcon:  The algebraic connectivity (a) of a network is the second smallest eigenvalue of the Laplacian matrix of the network, the smallest eigenvalue being zero.  Only the network's largest connected component is considered, and all edge weights, directions, and multiplicities are ignored.  
+
+assortativity:  The degree assortativity (ρ) in a network is defined as the Pearson correlation coefficient of the degree of connected nodes, measured over the set of all edges.  We additionally give the <I>p</I>-value (p<SUB>ρ</SUB>) associated with it.  This calculation does not take into account loops, edge multiplicites, edge directions or edge weights. 
+
+avgdegree:  The average degree (d) is the average number of edges incident to a node in the network.  In networks without multiple edges, this equals the average number of neighbors of nodes in the network.
+
+avgmult:  The average edge multiplicity (m̃) is calculated for networks in which multiple edges are allowed.  For one node pair, the edge multiplicity is the number of edges connecting these two nodes, taking into account the direction of edges in directed networks.  This statistic equals the maximal value of the edge multiplicity attained over any node pair. 
+
+coco:  The size of LCC (N) refers to the size of the largest connected component (LCC) of the graph, i.e., the size of the largest set of nodes in the graph such that there are paths from any node to any other node in the set.  In directed networks, this statistics does not take into account edge directions.  We additionally show the relative size of the LCC (N<SUP>rel</SUP>), which equals N divided by the total number of nodes.  Taking into account edge directions leads to the <A href="../cocos/">size of the LSCC</A>. 
+
+cocos:  The size of LSCC (N<SUB>s</SUB>) refers to the size of the largest strongly connected component (LSCC) of a given graph. It is defined only for directed graphs and equals the size of the largest set of nodes such that there is a directed path from any node in the set to any other node in the same set.  We additionally show the relative size of the LSCC (N<SUP>rel</SUP><SUB>s</SUB>), which equals N<SUB>s</SUB> divided by the total number of nodes.  Not taking into account edge directions gives instead the <A href="../coco/">size of the LCC</A>.
+
+clusco:  The clustering coefficient (c) equals the probability that a random chosen wedge (i.e., 2-star) is completed by a third edge to form a triangle.  Multiple edges, edge directions and loops are not taken into account.  
+
+dentropyn:  The relative edge distribution entropy (H<SUB>er</SUB>) measures the skewness of the degree distribution.  It is zero if all degrees are zero except for one node, and larger of the degree values are distributed over more nodes.  This statistic equals the value of the entropy divided by the maximal attainable value of the given number of nodes. 
+
+diam:  The diameter (δ) of a network is the maximal distance between any two nodes, where the distance between two nodes is defined as the number of edges in the shortest path from one node to another.  Edge directions are not taken into account.  In networks that are not connected, the diameter of the largest connected component is reported. 
+
+diameff50:  The 50-percentile effective diameter (δ<SUB>0.5</SUB>) equals the minimal distance such that 50% of nodes pairs are at most at that distance from each other.  Same-node pairs are included in the calculation, and the exact value is interpolated linearly between the two neighboring integers.    Edge directions are not taken into account.  In networks that are not connected, only the largest connected component is considered.  
+
+diameff90:  The 90-percentile effective diameter (δ<SUB>0.9</SUB>) equals the minimal distance such that 90% of nodes pairs are at most at that distance from each other.  Same-node pairs are included in the calculation, and the exact value is interpolated linearly between the two neighboring integers.  Edge directions are not taken into account.  In networks that are not connected, only the largest connected component is considered. 
+
+threestars:  The number of claws (z) equals the number of times a claw appears as a subgraph of the given graph.  A claw consists of a central node connected to three other nodes, and is also known as a 3-star. 
+
+fill:  The fill (p) of a network the probability that two randomly chosen edges are connected.  This takes into account the type of network, i.e., whether the network is directed or undirected, and whether loops are allowed.  The fill equals one when all possible edges are present.
+
+fourstars:  The number of crosses (x) counts the number of times a cross appears as a subgraph of a given graph.  A cross is a pattern consisting of a central node connected to four other nodes, and is also known as a 4-star. 
+
+gini:  The Gini coefficient (G) measures the skewness of the degree distribution.  It is a value between zero and one, and equals zero if all degrees are equal, and is larger when the degree distribution is more skewed. 
+
+inoutassort:  In directed networks, the in/outdegree correlation (ρ<SUP>±</SUP>) is defined as the Pearson correlation coefficient between the indegree and outdegree of nodes, measured over the total set of nodes. 
+
+maxdegree:   The maximum degree (d<SUB>max</SUB>) of a network is the maximum number of edges incident to any individual node.  This takes into account multiple edges when they are present. In directed networks, we additionally calculate the maximum outdegree (d<SUP>+</SUP><SUB>max</SUB>) and the maximum indegree (d<SUP>−</SUP><SUB>max</SUB>).  In bipartite networks, we also calculate the separate maximum degree for left nodes (d<SUP>1</SUP><SUB>max</SUB>) and for right nodes (d<SUP>2</SUP><SUB>max</SUB>).
+
+meandist:  The mean distance (δ<SUB>m</SUB>) equals the average distance between any two nodes, where the distance is defined as the number of edges in the shortest path between the two nodes.  Same-node pairs are included in the calculation.  Only the network's largest connected component is considered. 
+
+negativity:  In networks with negative edges, the negativity (ζ) is the fraction of edges that are negative.  For rating networks, an edge is counted as negative if its rating value is below the global average.  The value lies between zero and one.
+
+power:  The power law exponent (γ) measures the slope of the degree distribution, assuming that it is a power law.  This value is computed by taking into account the complete degree distribution. 
+
+power2:  The power law exponent (γ<SUB>t</SUB>) measures the slope of the degree distribution, assuming that it is a power law.  This value is computed by taking into account only the tail of the degree distribution.  
+
+reciprocity:  In directed networks, the reciprocity (y) equals the proportion of edges for which a reciprocal edge exists, i.e., for which another directed edge connects the two connected nodes in opposite direction. 
+
+size:   The size (n) of a network is the number of nodes it contains.  For bipartite networks, we also give the number of left nodes (n<SUB>1</SUB>) and the number of right nodes (n<SUB>2</SUB>).
+
+snorm:  The spectral norm (‖A‖<SUB>2</SUB>) of a network is the largest absolute eigenvalue of a network's adjacency matrix A. 
+
+squares:  The square count (q) counts the number of times a square appears as a subgraph of the given network.  This does not take into account multiple edges. 
+
+tour4:  The 4-tour count (T<SUB>4</SUB>) counts the number of 4-tours in the graph.  A 4-tour is defined as a walk of length four that ends at its starting node, and that is allowed to take the same node or edge twice. 
+
+triangles:  The number of triangles (t) counts the number of times that a triangle appears as a subgraph in the network, i.e., the number of groups of tree nodes that are all connected to each other.  Multiple edges and edge weights, as well as loops, are ignored for the calculation.  This statistic is not shown for bipartite networks, as it would be zero for them. 
+
+twostars:  The number of wedges (s) counts the number of times a wedge appears as a subgraph of the given network, not taking into account multiple edges.  A wedge consists of three nodes, two of which are connected, and is also known as a 2-star, 2-path, or cherry. 
+
+uniquevolume:  The unique edge count (m̿) of a network is the number of edges it contains, not taking into account multiple edges.  In other words, it is the number of node pairs that are connected by at least one edge. This statistic is only computed for networks in which multiple edges are allowed.
+
+volume:  The volume (m) of a network is the number of edges it contains.  This does take into account multiple edges, if they are present.
+

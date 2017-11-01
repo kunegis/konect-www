@@ -1,5 +1,3 @@
-* short explanation for each statistic
-
 == Later ==
 * www-specific plots:
 ** plots:  show sample plot for each plot type
@@ -9,9 +7,9 @@
 * category:  tags for each network 
 * category:  size and volume of each network 
 * category:  show entity names and relationship names 
-* network:  for each statistic, show the percentile of the network for that statistic
 * statistics:  average left and right degrees
 * include measures of bipartivity
+* network:  for each statistic, show the percentile of the network for that statistic
 * plots:  decomposition, decomposition_time
 * networks/ table and other tables:  make it sortable
 * make updates be atomic
