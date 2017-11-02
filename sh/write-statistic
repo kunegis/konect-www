@@ -10,7 +10,7 @@
 #	skeleton/statistics/$statistic/table.html
 #	skeleton/statistics/$statistic/count
 #	dat-www/html-symbol.$statistic
-#	TEXTS-STATISTIC 
+#	DESCRIPTIONS-STATISTIC 
 #
 
 set -e 
@@ -33,7 +33,7 @@ In total, it has been computed for <B>$(cat skeleton/statistics/"$statistic"/cou
 </P>
 EOF
 
-text=$(<TEXTS-STATISTIC sed -E -e 's,^\s*'"$statistic"'\s*:\s*(.*)\s*$,\1,;t;d')
+text=$(<DESCRIPTIONS-STATISTIC sed -E -e 's,^\s*'"$statistic"'\s*:\s*(.*)\s*$,\1,;t;d')
 echo >&4 "text=$text"
 
 if [ "$text" ] ; then

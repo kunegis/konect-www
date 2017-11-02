@@ -61,4 +61,3 @@ twostars:  The number of wedges (s) counts the number of times a wedge appears a
 uniquevolume:  The unique edge count (m̿) of a network is the number of edges it contains, not taking into account multiple edges.  In other words, it is the number of node pairs that are connected by at least one edge. This statistic is only computed for networks in which multiple edges are allowed.
 
 volume:  The volume (m) of a network is the number of edges it contains.  This does take into account multiple edges, if they are present.
-
