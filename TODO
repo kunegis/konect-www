@@ -20,12 +20,9 @@
 * networks/ table and other tables:  make it sortable
 * make updates be atomic
 * metadata:  add a line stating whether the network is connected or not 
+* plot:  show and link to the network 
 
 == Public announcements ==
-* konect.cc -- twitter
-* konect.cc -- gplus
-* konect.cc -- blog article 
-* @network.convote
 * @network.bag-{kos,nips,enron,nytimes,pubmed}
 * @network.wikilens
 * @statistic.avgmult 
@@ -34,3 +31,4 @@
 * http://konect.cc/networks/slashdot-zoo/
 * http://konect.cc/networks/twitter/
 * http://konect.cc/categories/Citation/
+* @network.marvel
