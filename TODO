@@ -3,7 +3,8 @@
 * category:  show entity names and relationship names 
 * statistic and other pages:  always show the full "Attributes" column with all icons, like on the Networks page
 * statistics:  average left and right degrees
-* include measures of bipartivity
+* include statistics of bipartivity
+* statistic:  "own-ratio" P
 * make the TSV downloadable for more datasets
 ** Have an icon for datasets with the data available 
 * check that the 'name' of networks is unique over all networks
@@ -24,7 +25,6 @@
 
 == Public announcements ==
 * @network.bag-{kos,nips,enron,nytimes,pubmed}
-* @network.wikilens
 * @statistic.avgmult 
 * @network.dimacs9-*
 * http://konect.cc/networks/ucidata-zachary/
