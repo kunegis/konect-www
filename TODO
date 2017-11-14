@@ -24,11 +24,10 @@
 * plot:  show and link to the network 
 
 == Public announcements ==
-* @network.bag-{kos,nips,enron,nytimes,pubmed}
-* @statistic.avgmult 
 * @network.dimacs9-*
 * http://konect.cc/networks/ucidata-zachary/
 * http://konect.cc/networks/slashdot-zoo/
 * http://konect.cc/networks/twitter/
 * http://konect.cc/categories/Citation/
 * @network.marvel
+* @network.bag-{enron,nytimes,pubmed}
