@@ -77,8 +77,11 @@ while ~((network = fgetl(NETWORKS)) == -1)
   text_weights= int_weights{weights}; 
   title_format = labels_format{format};
   title_weights = labels_weights{weights};
-  fprintf(OUT, '<TR><TD><A href="../../networks/%s/">%s</A><TD class="padleft"><A href="${root}/categories/%s">%s</A> <IMG class="icon" src="${root}/ic/icon-format-%s.png" title="%s"> <IMG class="icon" src="${root}/ic/icon-weights-%s.png" title="%s">', ...
-	  network, name, meta.category, icon_category, text_format, title_format, text_weights, title_weights); 
+  text_icon_all = www_icon_all(network, meta); 
+
+  fprintf(OUT, '<TR><TD><A href="../../networks/%s/">%s</A><TD class="padleft">%s', ...
+	  network, name, text_icon_all); 
+
   for i = 1 : length(substatistics)
     fprintf(OUT, '<TD class="padleft" align="%s">', align); 
     if substatistics(i) > length(values),  continue;  end; 

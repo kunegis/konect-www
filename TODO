@@ -1,7 +1,5 @@
-* category:  tags for each network 
 * category:  size and volume of each network 
 * category:  show entity names and relationship names 
-* statistic and other pages:  always show the full "Attributes" column with all icons, like on the Networks page
 * statistics:  average left and right degrees
 * include statistics of bipartivity
 * statistic:  "own-ratio" P
@@ -10,7 +8,6 @@
 * check that the 'name' of networks is unique over all networks
 * check that all bipartite networks have a double 'entity-names' field,
   and that all unipartite networks have only one 
-
 * www-specific plots:
 ** plots:  show sample plot for each plot type (extract them from the Handbook)
 ** for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot) (also, add to konect-analysis/@www)
@@ -24,10 +21,9 @@
 * plot:  show and link to the network 
 
 == Public announcements ==
-* @network.dimacs9-*
-* http://konect.cc/networks/ucidata-zachary/
 * http://konect.cc/networks/slashdot-zoo/
-* http://konect.cc/networks/twitter/
 * http://konect.cc/categories/Citation/
 * @network.marvel
+* http://konect.cc/networks/twitter/
 * @network.bag-{enron,nytimes,pubmed}
+* @network.dimacs9-{CTR,W,E,LKS,CAL,NE,NW,FLA,COL,BAY,NY}

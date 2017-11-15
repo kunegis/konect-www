@@ -8,7 +8,7 @@ assortativity:  The degree assortativity (ρ) in a network is defined as the Pea
 
 avgdegree:  The average degree (d) is the average number of edges incident to a node in the network.  In networks without multiple edges, this equals the average number of neighbors of nodes in the network.
 
-avgmult:  The average edge multiplicity (m̃) is calculated for networks in which multiple edges are allowed.  For one node pair, the edge multiplicity is the number of edges connecting these two nodes, taking into account the direction of edges in directed networks.  This statistic equals the maximal value of the edge multiplicity attained over any node pair. 
+avgmult:  The average edge multiplicity (m̃) is calculated for networks in which multiple edges are allowed.  For one node pair, the edge multiplicity is the number of edges connecting these two nodes, taking into account the direction of edges in directed networks.  This statistic equals the average value of the edge multiplicity attained over all node pairs. 
 
 coco:  The size of LCC (N) refers to the size of the largest connected component (LCC) of the graph, i.e., the size of the largest set of nodes in the graph such that there are paths from any node to any other node in the set.  In directed networks, this statistics does not take into account edge directions.  We additionally show the relative size of the LCC (N<SUP>rel</SUP>), which equals N divided by the total number of nodes.  Taking into account edge directions leads to the <A href="../cocos/">size of the LSCC</A>. 
 
