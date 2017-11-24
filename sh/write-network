@@ -91,12 +91,18 @@ if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
 else
 	show_tsv=
 fi
+url=$(<uni/meta."$network" sed -E -e 's,^\s*url\s*:\s*(\S+)\s*$,\1,;t;d')
+if [ "$url" ] ; then
+	show_url=1
+else
+	show_url=
+fi
 if [ "$extr" ] ; then
 	show_extr=1
 else
 	show_extr=
 fi
-if [ "$show_tsv$show_extr" ] ; then
+if [ "$show_tsv$show_url$show_extr" ] ; then
 	cat <<EOF
 <H2>Downloads</H2>
 <UL>
@@ -106,8 +112,13 @@ EOF
 <LI><A href="../../files/download.tsv.$network.tar.bz2">Data as TSV</A> ($(stat -c%s dat/download.tsv.$network.tar.bz2 | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta') bytes)
 EOF
 	fi
+	if [ "$show_url" ] ; then
+		cat <<EOF
+<LI><A href="$url">Original dataset souce</A>
+EOF
+	fi
 	if [ "$show_extr" ] ; then
-		echo "<LI><A href=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">Extraction code</A> (GitHub)"
+		echo "<LI><A href=\"https://github.com/kunegis/konect-extr/tree/master/extr/$extr\">KONECT extraction code</A> (GitHub)"
 	fi
 	echo '</UL>'
 fi
