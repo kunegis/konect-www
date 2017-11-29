@@ -36,7 +36,7 @@ fprintf(OUT, '#nav:<A href="../../">KONECT</A> ‣ <A href="../">Categories</A> 
 fprintf(OUT, '<H1>%s</H1>\n', label_category); 
 fprintf(OUT, '<P>This is the category <B>%s</B>.  It contains <B>%u</B> networks. ${description}</P>\n', label_category_lc, count); 
 fprintf(OUT, '<TABLE>\n'); 
-fprintf(OUT, '<TR><TD><B>Name</B><TD class="padleft"><B>Attributes</B>\n'); 
+fprintf(OUT, '<TR><TD><B>Name</B><TD class="padleft"><B>Attributes</B><TD align="right" title="Size – number of nodes"><B>n</B><TD align="right" title="Volume – number of edges"><B>m</B>\n'); 
 
 count = 0;
 while ~((network = fgetl(NETWORKS)) == -1)
@@ -51,8 +51,14 @@ while ~((network = fgetl(NETWORKS)) == -1)
   title_weights = labels_weights{weights};
   text_icon_all = www_icon_all(network, meta); 
 
-  fprintf(OUT, '<TR><TD><A href="../../networks/%s/">%s</A><TD class="padleft">%s\n', ...
-	  network, name, text_icon_all); 
+  size= read_statistic('size', network);  size = size(1);
+  volume= read_statistic('volume', network);  volume = volume(1); 
+  text_size= www_format_statistic('size', size);
+  text_volume= www_format_statistic('volume', volume); 
+
+  fprintf(OUT, '<TR><TD><A href="../../networks/%s/">%s</A><TD class="padleft">%s<TD align="right">%s<TD align="right">%s\n', ...
+	  network, name, text_icon_all, ...
+	  text_size, text_volume); 
 
   count = count + 1; 
 end
