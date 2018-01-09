@@ -20,3 +20,4 @@
 * plot:  show and link to the network 
 
 == Public announcements ==
+* @network.librec-{filmtrust-{ratings,trust},ciaodvd-{movie_ratings,review_ratings,trust}}
