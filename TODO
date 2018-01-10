@@ -18,6 +18,8 @@
 * make updates be atomic
 * metadata:  add a line stating whether the network is connected or not 
 * plot:  show and link to the network 
+* networks:  show whether the TSV can be downloaded
 
 == Public announcements ==
 * @network.librec-{filmtrust-{ratings,trust},ciaodvd-{movie_ratings,review_ratings,trust}}
+* Fun fact:  the diameter of the Zachary Karate club is 5
