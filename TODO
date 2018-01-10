@@ -1,4 +1,3 @@
-* category:  show entity names and relationship names 
 * statistics:  average left and right degrees
 * include statistics of bipartivity
 * statistic:  "own-ratio" P
@@ -23,3 +22,4 @@
 == Public announcements ==
 * @network.librec-{filmtrust-{ratings,trust},ciaodvd-{movie_ratings,review_ratings,trust}}
 * Fun fact:  the diameter of the Zachary Karate club is 5
+* category:  We now show all node and edge meanings for each category.  Example:  Affiliation networks

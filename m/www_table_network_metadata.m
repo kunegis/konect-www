@@ -54,20 +54,22 @@ if isfield(meta, 'timeiso')
 end
 if isfield(meta, 'entity_names')
   en= meta.entity_names;
-  en= regexprep(en, ',', ', '); 
-  en= regexprep(en, '^\s*', '');
-  if length(en) >= 1 && en(1) >= 'a' && en(1) <= 'z'
-    en(1) = en(1) + ('A' - 'a'); 
-  end
+  en= www_format_entrel_names(en); 
+%%  en= regexprep(en, ',', ', '); 
+%%  en= regexprep(en, '^\s*', '');
+%%  if length(en) >= 1 && en(1) >= 'a' && en(1) <= 'z'
+%%    en(1) = en(1) + ('A' - 'a'); 
+%%  end
   fprintf(OUT, '<TR><TD>Node meaning<TD><TD>%s\n', en); 
 end
 if isfield(meta, 'relationship_names')
   en= meta.relationship_names;
-  en= regexprep(en, ',', ', '); 
-  en= regexprep(en, '^\s*', '');
-  if length(en) >= 1 && en(1) >= 'a' && en(1) <= 'z'
-    en(1) = en(1) + ('A' - 'a'); 
-  end
+  en= www_format_entrel_names(en); 
+%%  en= regexprep(en, ',', ', '); 
+%%  en= regexprep(en, '^\s*', '');
+%%  if length(en) >= 1 && en(1) >= 'a' && en(1) <= 'z'
+%%    en(1) = en(1) + ('A' - 'a'); 
+%%  end
   fprintf(OUT, '<TR><TD>Edge meaning<TD><TD>%s\n', en); 
 end
 fprintf(OUT, '<TR><TD>Network format<TD class="padleft"><IMG class="icon" src="${root}/ic/icon-format-%s.png"><TD>%s\n', ...

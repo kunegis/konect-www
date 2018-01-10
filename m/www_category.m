@@ -10,6 +10,7 @@
 % INPUT FILES
 %	dat/NETWORKS_CATEGORY_$category
 %	dat-www/COUNT_CATEGORY_$category
+%	uni/meta.[dat/NETWORKS_CATEGORY_$category]
 %
 
 category = getenv('category')
@@ -36,7 +37,7 @@ fprintf(OUT, '#nav:<A href="../../">KONECT</A> ‣ <A href="../">Categories</A> 
 fprintf(OUT, '<H1>%s</H1>\n', label_category); 
 fprintf(OUT, '<P>This is the category <B>%s</B>.  It contains <B>%u</B> networks. ${description}</P>\n', label_category_lc, count); 
 fprintf(OUT, '<TABLE>\n'); 
-fprintf(OUT, '<TR><TD><B>Name</B><TD class="padleft"><B>Attributes</B><TD align="right" title="Size – number of nodes"><B>n</B><TD align="right" title="Volume – number of edges"><B>m</B>\n'); 
+fprintf(OUT, '<TR><TD><B>Name</B><TD class="padleft"><B>Attributes</B><TD align="right" title="Size – number of nodes"><B>n</B><TD align="right" title="Volume – number of edges"><B>m</B><TD class="padleft"><B>Node meaning</B><TD class="padleft"><B>Edge meaning</B>\n'); 
 
 count = 0;
 while ~((network = fgetl(NETWORKS)) == -1)
@@ -56,9 +57,19 @@ while ~((network = fgetl(NETWORKS)) == -1)
   text_size= www_format_statistic('size', size);
   text_volume= www_format_statistic('volume', volume); 
 
-  fprintf(OUT, '<TR><TD><A href="../../networks/%s/">%s</A><TD class="padleft">%s<TD align="right">%s<TD align="right">%s\n', ...
+  text_node_meaning= '';
+  text_edge_meaning= '';
+  if isfield(meta, 'entity_names')
+    text_node_meaning= www_format_entrel_names(meta.entity_names);
+  end
+  if isfield(meta, 'relationship_names')
+    text_edge_meaning= www_format_entrel_names(meta.relationship_names);
+  end
+  
+  fprintf(OUT, '<TR><TD><A href="../../networks/%s/">%s</A><TD class="padleft">%s<TD align="right">%s<TD align="right">%s<TD class="padleft">%s<TD class="padleft">%s\n', ...
 	  network, name, text_icon_all, ...
-	  text_size, text_volume); 
+	  text_size, text_volume, ...
+	  text_node_meaning, text_edge_meaning); 
 
   count = count + 1; 
 end

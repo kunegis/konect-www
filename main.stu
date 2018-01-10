@@ -231,6 +231,7 @@ skeleton/categories/$category/base.html:
 	-p skeleton/categories/$category/
 	dat/NETWORKS_CATEGORY_$category
 	dat-www/COUNT_CATEGORY_$category
+	uni/meta.[dat/NETWORKS_CATEGORY_$category]       
 {
 	./octave m/www_category.m 
 }
