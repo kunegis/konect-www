@@ -20,6 +20,4 @@
 * networks:  show whether the TSV can be downloaded
 
 == Public announcements ==
-* @network.librec-{filmtrust-{ratings,trust},ciaodvd-{movie_ratings,review_ratings,trust}}
-* Fun fact:  the diameter of the Zachary Karate club is 5
-* category:  We now show all node and edge meanings for each category.  Example:  Affiliation networks
+* @network.librec-{filmtrust-{ratings,trust},ciaodvd-{movie_ratings,trust}}
