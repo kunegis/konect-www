@@ -20,4 +20,4 @@
 * networks:  show whether the TSV can be downloaded
 
 == Public announcements ==
-* @network.librec-{filmtrust-{ratings,trust},ciaodvd-{movie_ratings,trust}}
+* @network.librec-{filmtrust-trust,ciaodvd-{movie_ratings,trust}}
