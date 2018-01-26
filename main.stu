@@ -196,7 +196,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 skeleton/networks/$network/statistics.html dat-www/COUNT_STATISTICS_$network:
 	-t octave $[-t MATLABPATH] m/www_table_network_statistics.m m/www_format_statistic.m 
-	dat/STATISTICS dat/ konect-toolbox/m/konect_(label data)_statistic.m 
+	dat/STATISTICS dat/ konect-toolbox/m/konect_(label data)_statistic.m -p skeleton/networks/$network/
 {
 	./octave m/www_table_network_statistics.m 
 }
@@ -256,7 +256,7 @@ skeleton/networks/table.html:
 	-t octave $[-t MATLABPATH]
 	m/www_table_networks.m
 	konect-toolbox/m/konect_data_(category tag).m 
-	dat/NETWORKS uni/meta.[dat/NETWORKS] -o dat/check.[dat/NETWORKS]
+	dat/NETWORKS uni/meta.[dat/NETWORKS] -o dat/check.[dat/NETWORKS] -o dat/statistic.(size volume).[dat/NETWORKS] 
 {
 	./octave m/www_table_networks.m
 }

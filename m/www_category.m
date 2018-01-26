@@ -52,10 +52,24 @@ while ~((network = fgetl(NETWORKS)) == -1)
   title_weights = labels_weights{weights};
   text_icon_all = www_icon_all(network, meta); 
 
-  size= read_statistic('size', network);  size = size(1);
-  volume= read_statistic('volume', network);  volume = volume(1); 
-  text_size= www_format_statistic('size', size);
-  text_volume= www_format_statistic('volume', volume); 
+  try
+    size= read_statistic('size', network);  size = size(1);
+    text_size= www_format_statistic('size', size);
+  catch err
+    text_size= ''; 
+  end
+
+  try
+    volume= read_statistic('volume', network);  volume = volume(1); 
+    text_volume= www_format_statistic('volume', volume);
+  catch
+    text_volume= ''; 
+  end
+
+%%  size= read_statistic('size', network);  size = size(1);
+%%  volume= read_statistic('volume', network);  volume = volume(1); 
+%%  text_size= www_format_statistic('size', size);
+%%  text_volume= www_format_statistic('volume', volume); 
 
   text_node_meaning= '';
   text_edge_meaning= '';

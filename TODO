@@ -1,3 +1,4 @@
+* networks:  show whether the TSV can be downloaded
 * statistics:  average left and right degrees
 * include statistics of bipartivity
 * statistic:  "own-ratio" P
@@ -17,7 +18,9 @@
 * make updates be atomic
 * metadata:  add a line stating whether the network is connected or not 
 * plot:  show and link to the network 
-* networks:  show whether the TSV can be downloaded
 
 == Public announcements ==
 * @network.librec-{filmtrust-trust,ciaodvd-{movie_ratings,trust}}
+* @network.dimacs10-(celegans_metabolic as-22july06 astro-ph celegansneural cond-mat-(2003
+  2005) football netscience polblogs polbooks cnr-2000 eu-2005 in-2004
+  uk-2002 chesapeake)

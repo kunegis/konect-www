@@ -16,8 +16,8 @@
 network = getenv('network') 
 
 filename_out= sprintf('skeleton/networks/%s/statistics.html', network); 
-OUT = fopen(filename_out, 'w');
-if OUT < 0,  error(filename_out);  end;
+[OUT, errmsg] = fopen(filename_out, 'w');
+if OUT < 0,  error(sprintf('%s: %s', filename_out, errmsg));  end;
 
 filename_statistics = 'dat/STATISTICS'; 
 STATISTICS = fopen(filename_statistics, 'r');
