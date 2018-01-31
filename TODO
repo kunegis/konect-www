@@ -20,7 +20,7 @@
 * plot:  show and link to the network 
 
 == Public announcements ==
-* @network.librec-{filmtrust-trust,ciaodvd-{movie_ratings,trust}}
-* @network.dimacs10-(celegans_metabolic as-22july06 astro-ph celegansneural cond-mat-(2003
+* @network.dimacs10-(celegans_metabolic as-22july06 astro-ph cond-mat-(2003
   2005) football netscience polblogs polbooks cnr-2000 eu-2005 in-2004
   uk-2002 chesapeake)
+* @network.librec-{filmtrust-trust,ciaodvd-trust}
