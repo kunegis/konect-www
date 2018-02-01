@@ -39,7 +39,16 @@ fprintf(OUT, '<TR><TD>Code<TD class="padleft"><TD><CODE>%s</CODE>\n', meta.code)
 fprintf(OUT, '<TR><TD>Internal name<TD><TD><CODE>%s</CODE>\n', network); 
 fprintf(OUT, '<TR><TD>Name<TD><TD>%s\n', meta.name); 
 if isfield(meta, 'url')
-  fprintf(OUT, '<TR><TD>Data source<TD><TD><A href="%s">%s</A>\n', meta.url, meta.url); 
+  fprintf(OUT, '<TR><TD>Data source<TD><TD>'); 
+  urls = regexp(meta.url, 'http[^, ]+', 'match'); 
+  for i = 1 : length(urls)
+    url = urls{i};
+    fprintf(OUT, '<A href="%s">%s</A>', url, url);
+    if i < length(urls)
+      fprintf(OUT, ', '); 
+    end
+  end
+  fprintf(OUT, '\n'); 
 end
 fprintf(OUT, '<TR><TD>Consistency check<TD class="padleft">%s<TD>%s\n', check_icon, check_text); 
 

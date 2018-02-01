@@ -1,5 +1,5 @@
 * networks:  show whether the TSV can be downloaded
-* statistics:  average left and right degrees
+* statistics:  average left and right degrees (only bipartite networks)
 * include statistics of bipartivity
 * statistic:  "own-ratio" P
 * make the TSV downloadable for more datasets
@@ -18,9 +18,11 @@
 * make updates be atomic
 * metadata:  add a line stating whether the network is connected or not 
 * plot:  show and link to the network 
+* statistic:  number of loops 
 
 == Public announcements ==
 * @network.dimacs10-(celegans_metabolic as-22july06 astro-ph cond-mat-(2003
   2005) football netscience polblogs polbooks cnr-2000 eu-2005 in-2004
   uk-2002 chesapeake)
 * @network.librec-{filmtrust-trust,ciaodvd-trust}
+* @network.soc-sign-bitcoinalpha
