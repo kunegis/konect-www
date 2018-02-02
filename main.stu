@@ -256,7 +256,7 @@ skeleton/networks/table.html:
 	-t octave $[-t MATLABPATH]
 	m/www_table_networks.m
 	konect-toolbox/m/konect_data_(category tag).m 
-	dat/NETWORKS uni/meta.[dat/NETWORKS] -o dat/check.[dat/NETWORKS] -o dat/statistic.(size volume).[dat/NETWORKS] 
+	dat/NETWORKS uni/meta.[dat/NETWORKS] -o dat/check.[dat/NETWORKS] -o dat/statistic.(size volume format weights).[dat/NETWORKS] 
 {
 	./octave m/www_table_networks.m
 }
