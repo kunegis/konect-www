@@ -1,3 +1,4 @@
+* make available all networks from @pholme 
 * networks:  show whether the TSV can be downloaded
 * statistics:  average left and right degrees (only bipartite networks)
 * include statistics of bipartivity
@@ -19,6 +20,8 @@
 * metadata:  add a line stating whether the network is connected or not 
 * plot:  show and link to the network 
 * statistic:  number of loops 
+* Have a page about matrix decompositions (/decompositions/)
+* Have a page for selected families of networks (/families/)
 
 == Public announcements ==
 * @network.dimacs10-(celegans_metabolic as-22july06 astro-ph cond-mat-(2003
@@ -26,5 +29,5 @@
   uk-2002 chesapeake)
 * @network.librec-{filmtrust-trust,ciaodvd-trust}
 * @network.soc-sign-bitcoinalpha
-* @network.iceland via @pholme
+* @network.(iceland gene_fusion) via @pholme
 
