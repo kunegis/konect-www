@@ -1,9 +1,7 @@
-* networks:  show whether the TSV can be downloaded
 * statistics:  average left and right degrees (only bipartite networks)
 * include statistics of bipartivity
 * statistic:  "own-ratio" P
 * make the TSV downloadable for more datasets
-** Have an icon for datasets with the data available 
 * check that the 'name' of networks is unique over all networks
 * check that all bipartite networks have a double 'entity-names' field,
   and that all unipartite networks have only one 

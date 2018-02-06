@@ -5,7 +5,8 @@
 %	skeleton/networks/table.html
 %
 % INPUT FILES
-%	dat/NETWORKS	List of all networks
+%	dat/NETWORKS				List of all networks
+%	dat-www/availability.[NETWORKS]
 %
 
 OUT = fopen('skeleton/networks/table.html', 'w');
@@ -18,10 +19,13 @@ fprintf(OUT, '<TR><TD><TD><B>Name</B><TD><B>Attributes</B><TD align="right" titl
 
 while ~((network = fgetl(NETWORKS)) == -1)
   network
+
   meta = read_meta(network); 
   code= meta.code;
   name= meta.name;
-  check_result = www_icon_check(network);
+
+  availability_icon= www_icon_availability(network); 
+  check_icon = www_icon_check(network);
   text_icon_all = www_icon_all(network, meta); 
 
   try
@@ -38,9 +42,9 @@ while ~((network = fgetl(NETWORKS)) == -1)
     text_volume= ''; 
   end
 
-  fprintf(OUT, '<TR><TD><CODE>%s</CODE><TD><A href="%s/">%s</A><TD>%s %s<TD align="right">%s<TD align="right">%s\n', ...
-	  code, network, name, check_result, ...
-	  text_icon_all, ...
+  fprintf(OUT, '<TR><TD><CODE>%s</CODE><TD><A href="%s/">%s</A><TD>%s %s %s<TD align="right">%s<TD align="right">%s\n', ...
+	  code, network, name, ...
+	  availability_icon, check_icon, text_icon_all, ...
 	  text_size, text_volume); 
 end
 

@@ -7,7 +7,8 @@
 % OUTPUT FILES
 %	skeleton/networks/$network/metadata.html
 %
-% INPUT FILES 
+% INPUT FILES
+%	dat-www/availability.$network
 %
 
 network = getenv('network');
@@ -24,6 +25,7 @@ if OUT < 0,  error(sprintf('fopen "%s"', filename));  end;
 meta = read_meta(network); 
 tags = get_tags(meta); 
 
+[availability_icon availability_text] = www_icon_availability(network);
 [check_icon check_text] = www_icon_check(network);
 
 format = read_statistic('format', network);  format = format(1); 
@@ -50,6 +52,7 @@ if isfield(meta, 'url')
   end
   fprintf(OUT, '\n'); 
 end
+fprintf(OUT, '<TR><TD>Availability<TD class="padleft">%s<TD>%s\n', availability_icon, availability_text); 
 fprintf(OUT, '<TR><TD>Consistency check<TD class="padleft">%s<TD>%s\n', check_icon, check_text); 
 
 %

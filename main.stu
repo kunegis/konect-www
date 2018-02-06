@@ -205,6 +205,7 @@ skeleton/networks/$network/metadata.html:
 	-t octave $[-t MATLABPATH] m/www_table_network_metadata.m 
 	m/www_icon_category.m m/www_icon_check.m  konect-toolbox/m/konect_data_tag.m 
 	dat/ uni/meta.$network -o dat/check.$network
+	dat-www/availability.$network
 {
 	./octave m/www_table_network_metadata.m 
 }
@@ -256,7 +257,8 @@ skeleton/networks/table.html:
 	-t octave $[-t MATLABPATH]
 	m/www_table_networks.m
 	konect-toolbox/m/konect_data_(category tag).m 
-	dat/NETWORKS uni/meta.[dat/NETWORKS] -o dat/check.[dat/NETWORKS] -o dat/statistic.(size volume format weights).[dat/NETWORKS] 
+	dat/NETWORKS uni/meta.[dat/NETWORKS] -o dat/check.[dat/NETWORKS] -o dat/statistic.(size volume format weights).[dat/NETWORKS]
+	dat-www/availability.[dat/NETWORKS]       
 {
 	./octave m/www_table_networks.m
 }
@@ -306,6 +308,15 @@ skeleton/categories/table.html:
 	dat-www/plots-network.[dat/NETWORKS]
 {
 	<dat/NETWORKS sed -E -e 's,^,dat-www/plots-network.,' | xargs cat | wc -l
+}
+
+>dat-www/availability.$network:  dat-www/NETWORKS-DOWNLOAD
+{
+	if grep -q -E '^'"$network"'$' dat-www/NETWORKS-DOWNLOAD ; then
+		echo 1
+	else
+		echo 0
+	fi
 }
 
 #
