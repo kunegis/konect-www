@@ -1,4 +1,3 @@
-* statistics:  average left and right degrees (only bipartite networks)
 * include statistics of bipartivity
 * statistic:  "own-ratio" P
 * make the TSV downloadable for more datasets

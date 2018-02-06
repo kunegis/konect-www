@@ -6,7 +6,7 @@ alcon:  The algebraic connectivity (a) of a network is the second smallest eigen
 
 assortativity:  The degree assortativity (ρ) in a network is defined as the Pearson correlation coefficient of the degree of connected nodes, measured over the set of all edges.  We additionally give the <I>p</I>-value (p<SUB>ρ</SUB>) associated with it.  This calculation does not take into account loops, edge multiplicites, edge directions or edge weights. 
 
-avgdegree:  The average degree (d) is the average number of edges incident to a node in the network.  In networks without multiple edges, this equals the average number of neighbors of nodes in the network.
+avgdegree:  The average degree (d) is the average number of edges incident to a node in the network.  In networks without multiple edges, this equals the average number of neighbors of nodes in the network.  For bipartite networks, we also give average left degree (d<SUB>1</SUB>) and average right degree (d<SUB>2</SUB>).
 
 avgmult:  The average edge multiplicity (m̃) is calculated for networks in which multiple edges are allowed.  For one node pair, the edge multiplicity is the number of edges connecting these two nodes, taking into account the direction of edges in directed networks.  This statistic equals the average value of the edge multiplicity attained over all node pairs. 
 
