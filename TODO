@@ -1,4 +1,3 @@
-* make available all networks from @pholme 
 * networks:  show whether the TSV can be downloaded
 * statistics:  average left and right degrees (only bipartite networks)
 * include statistics of bipartivity
