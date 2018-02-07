@@ -1,4 +1,3 @@
-* include statistics of bipartivity
 * statistic:  "own-ratio" P
 * make the TSV downloadable for more datasets
 * check that the 'name' of networks is unique over all networks
@@ -20,10 +19,10 @@
 * Have a page for selected families of networks (/families/)
 
 == Public announcements ==
-* @network.dimacs10-(celegans_metabolic as-22july06 astro-ph cond-mat-(2003
-  2005) football netscience polblogs polbooks cnr-2000 eu-2005 in-2004
-  uk-2002 chesapeake)
 * @network.librec-{filmtrust-trust,ciaodvd-trust}
 * @network.soc-sign-bitcoinalpha
 * @network.(iceland gene_fusion) via @pholme
+* @network.dimacs10-(astro-ph cond-mat-(2003
+  2005) football netscience polblogs polbooks cnr-2000 eu-2005 in-2004
+  uk-2002 chesapeake celegans_metabolic)
 
