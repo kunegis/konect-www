@@ -12,6 +12,7 @@
 #	dat-www/plots-network.$network
 #	skeleton/networks/$network/metadata.html
 #	skeleton/networks/$network/statistics.html
+#	dat/NETWORKS_DOWNLOAD
 #
 
 set -e
@@ -86,7 +87,8 @@ fi
 #
 # Downloads 
 #
-if grep -q -E '^\s*'"$network"'\s*,\s*matrix\s*$' dat/allowed_src.txt ; then
+
+if grep -q -E '^'"$network"'$' dat/NETWORKS_DOWNLOAD ; then
 	show_tsv=1
 else
 	show_tsv=

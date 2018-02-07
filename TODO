@@ -1,6 +1,3 @@
-* statistic:  "own-ratio" P
-* make the TSV downloadable for more datasets
-* check that the 'name' of networks is unique over all networks
 * check that all bipartite networks have a double 'entity-names' field,
   and that all unipartite networks have only one 
 * www-specific plots:
@@ -17,6 +14,7 @@
 * statistic:  number of loops 
 * Have a page about matrix decompositions (/decompositions/)
 * Have a page for selected families of networks (/families/)
+* check programmatically that the 'name' of networks is unique over all networks
 
 == Public announcements ==
 * @network.librec-{filmtrust-trust,ciaodvd-trust}

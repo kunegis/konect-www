@@ -36,7 +36,7 @@
 	www/categories/[dat/CATEGORIES]/index.html
 	www/networks/[dat/NETWORKS]/index.html
 	www/plots/[dat/PLOTS]/index.html
-	www/files/download.tsv.[dat-www/NETWORKS-DOWNLOAD].tar.bz2
+	www/files/download.tsv.[dat/NETWORKS_DOWNLOAD].tar.bz2
 	www/plot/[dat-www/plots-network.[dat/NETWORKS]].(small full).png
 ;
 
@@ -142,7 +142,8 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 >skeleton/networks/$network/index.html:
 	sh/write-network sh/read-meta dat/ plot/
-	-p skeleton/networks/$network/ konect-extr/konect.bib dat/allowed_src.txt
+	-p skeleton/networks/$network/ konect-extr/konect.bib ##dat/allowed_src.txt
+	dat/NETWORKS_DOWNLOAD
 	uni/meta.$network
 	dat-www/plots-network.$network
 	konect-toolbox/m/konect_(consts data_plot).m
@@ -310,9 +311,9 @@ skeleton/categories/table.html:
 	<dat/NETWORKS sed -E -e 's,^,dat-www/plots-network.,' | xargs cat | wc -l
 }
 
->dat-www/availability.$network:  dat-www/NETWORKS-DOWNLOAD
+>dat-www/availability.$network:  dat/NETWORKS_DOWNLOAD
 {
-	if grep -q -E '^'"$network"'$' dat-www/NETWORKS-DOWNLOAD ; then
+	if grep -q -E '^'"$network"'$' dat/NETWORKS_DOWNLOAD ; then
 		echo 1
 	else
 		echo 0
@@ -349,10 +350,10 @@ www/plot/$name.full.png:
 # Files
 #
 
->dat-www/NETWORKS-DOWNLOAD:  <dat/allowed_src.txt
-{
-	sed -E -e 's|^\s*([^, ]+)\s*,\s*matrix\s*$|\1|;t;d'
-}
+## >dat-www/NETWORKS-DOWNLOAD:  <dat/allowed_src.txt
+## {
+## 	sed -E -e 's|^\s*([^, ]+)\s*,\s*matrix\s*$|\1|;t;d'
+## }
 
 www/files/download.tsv.$network.tar.bz2: dat/download.tsv.$network.tar.bz2 -p www/files/
 {
