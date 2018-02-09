@@ -1,26 +1,40 @@
-* check that all bipartite networks have a double 'entity-names' field,
-  and that all unipartite networks have only one 
-* www-specific plots:
-** plots:  show sample plot for each plot type (extract them from the Handbook)
-** for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot) (also, add to konect-analysis/@www)
-** for each statistic:  distribution and cumulative distribution plot for that statistic (also, add to konect-analysis/@www)
-** main page:  show three example graphs for each group:  3 statistics, 3 plots, 3 networks, etc. 
-* network:  for each statistic, show the percentile of the network for that statistic
-* plots:  decomposition, decomposition_time
-* networks/ table and other tables:  make it sortable
-* make updates be atomic
+* left and right size of [coco]
+* statistic: controllability
+* statistic: mediandist
+* statistic: separation
+* statistic: tconflict
+* statistic: signed clustering coefficient 
+* statistic:  median degree 
+* new statistic:  maximal egde multiplicity 
+* for rating networks:  mean rating, i.e., mean edge weight
+* statistic: [prefatt] pref. att. exponent
+* Second largest eigenvalue of N:  spectral gap, as per Martin Gueuning 
+* new node statistic:  k-core number (largest k for which a node has
+  degree >0 in the k-core). (as measure of centrality).  Plot the
+  corresponding distribution, the k-core distribution. 
+  (matlab_bgl function core_numbers.m)
+* The spectral radius divided by the spectral norm (a measure of the [a]cyclic-ness)
+* Ratios:   maxdiag/opnorm, maxdiag/snorm:  they are measures of the "cyclicness" of a directed graph 
+* plots:  show sample plot for each plot type (extract them from the Handbook or somewhere else)
+* for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot) (also, add to konect-analysis/@www)
+* for each statistic:  distribution and cumulative distribution plot for that statistic (also, add to konect-analysis/@www)
 * metadata:  add a line stating whether the network is connected or not 
-* plot:  show and link to the network 
-* statistic:  number of loops 
 * Have a page about matrix decompositions (/decompositions/)
 * Have a page for selected families of networks (/families/)
 * check programmatically that the 'name' of networks is unique over all networks
+* in the metadata section of weighted networks:  show a line summarizing the possible weights 
+* for certain statistics and plots, have references, in particular to our own
+* statistics:  for each statistic, show using icons to which types of networks it applies 
+* plot:  show network name, and have a link to the network (don't know how to make this beautiful)
+* main page:  show three example graphs for each group:  3 statistics, 3 plots, 3 networks, etc. 
+* network:  for each statistic, show the percentile of the network for that statistic
+* networks/ table and other tables:  make it sortable (needs Javascript :/)
 
 == Public announcements ==
-* @network.librec-{filmtrust-trust,ciaodvd-trust}
 * @network.soc-sign-bitcoinalpha
 * @network.(iceland gene_fusion) via @pholme
 * @network.dimacs10-(astro-ph cond-mat-(2003
   2005) football netscience polblogs polbooks cnr-2000 eu-2005 in-2004
   uk-2002 chesapeake celegans_metabolic)
+* @network.librec-ciaodvd-trust
 

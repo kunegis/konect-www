@@ -1,13 +1,18 @@
 #! /bin/sh
 
+set -e
+
+TMPDIR=${TMPDIR:-/tmp}
+
 if [ -e plot/"$name".eps ] ; then
-	convert plot/"$name".eps -resize x130 www/plot/"$name".small.png
+	convert plot/"$name".eps -resize x130 "$TMPDIR"/conv."$name".small.png
+	pngquant -f "$TMPDIR"/conv."$name".small.png -o www/plot/"$name".small.png
 elif [ -e plot/"$name".png ] ; then
-	convert plot/"$name".png -resize x130 www/plot/"$name".small.png
+	convert plot/"$name".png -resize x130 "$TMPDIR"/conv."$name".small.png
+	pngquant -f "$TMPDIR"/conv."$name".small.png -o www/plot/"$name".small.png
 else
 	echo >&2 "*** Expected one of 'plot/$name.eps' or 'plot/$name.png' to exist 'plot/$name.png'"
 	exit 1
 fi
 
 exit 0
-

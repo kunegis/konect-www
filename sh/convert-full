@@ -1,9 +1,15 @@
 #! /bin/sh
 
+set -e
+
+TMPDIR=${TMPDIR:-/tmp}
+
 if [ -e plot/"$name".eps ] ; then
-	convert plot/"$name".eps -resize x600 www/plot/"$name".full.png
+	convert plot/"$name".eps -resize x600 "$TMPDIR"/conv."$name".full.png
+	pngquant -f "$TMPDIR"/conv."$name".full.png -o www/plot/"$name".full.png
+	rm -f "$TMPDIR"/conv."$name".full.png
 elif [ -e plot/"$name".png ] ; then
-	cp plot/"$name".png www/plot/"$name".full.png
+	pngquant -f plot/"$name".png -o www/plot/"$name".full.png
 else
 	echo >&2 "*** Expected one of 'plot/$name.eps' or 'plot/$name.png' to exist 'plot/$name.png'"
 	exit 1

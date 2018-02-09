@@ -6,7 +6,7 @@
 %
 % INPUT FILES 
 %	dat/STATISTICS
-%	dat/statistics.*.$network
+%	dat/statistic.*.$network
 %
 % OUTPUT FILES 
 %	skeleton/networks/$network/statistics.html

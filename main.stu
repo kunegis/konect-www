@@ -197,7 +197,8 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 skeleton/networks/$network/statistics.html dat-www/COUNT_STATISTICS_$network:
 	-t octave $[-t MATLABPATH] m/www_table_network_statistics.m m/www_format_statistic.m 
-	dat/STATISTICS dat/ konect-toolbox/m/konect_(label data)_statistic.m -p skeleton/networks/$network/
+	dat/STATISTICS dat/ konect-toolbox/m/konect_(label data)_statistic.m
+	-p skeleton/networks/$network/
 {
 	./octave m/www_table_network_statistics.m 
 }

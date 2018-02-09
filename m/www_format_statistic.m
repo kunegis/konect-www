@@ -1,3 +1,7 @@
+%
+% Format one statistic to HTML/UTF-8 text. 
+%
+
 function text = www_format_statistic(statistic, value)
 
 [logarithmic integer percent negative] = konect_data_statistic();
@@ -8,6 +12,11 @@ loga = logarithmic.(statistic_dataname);
 inte = integer.(statistic_dataname);
 perc = percent.(statistic_dataname); 
 nega = negative.(statistic_dataname); 
+
+if isnan(value)
+  text = '<IMG class="icon" src="${root}/ic/icon-check-failure.png" title="Computation returned NaN">'; 
+  return;
+end
 
 if inte
   if nega
