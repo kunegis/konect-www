@@ -1,12 +1,13 @@
 %
-% Create the table of all networks
+% Create the table of all networks. 
 %
-% OUTPUT FILES
+% OUTPUT FILES 
 %	skeleton/networks/table.html
 %
-% INPUT FILES
+% INPUT FILES 
 %	dat/NETWORKS				List of all networks
-%	dat-www/availability.[NETWORKS]
+%	dat-www/availability.[dat/NETWORKS]
+%	dat/statistic.(size volume).[dat/NETWORKS]
 %
 
 OUT = fopen('skeleton/networks/table.html', 'w');
