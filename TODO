@@ -1,5 +1,3 @@
-* statistic: mediandist
-* statistic: separation
 * statistic: tconflict
 * lapdiag:  determine spectrum type
 * write the "Timer" class for triangle counting 
@@ -21,6 +19,7 @@
   corresponding distribution, the k-core distribution. 
   (matlab_bgl function core_numbers.m)
 * The spectral radius divided by the spectral norm (a measure of the [a]cyclic-ness)
+* norm. alg. conflict; norm. alg. connectivity; norm. alg. non-bipartivity (related to [nonbipn])
 * Ratios:   maxdiag/opnorm, maxdiag/snorm:  they are measures of the "cyclicness" of a directed graph 
 * plots:  show sample plot for each plot type (extract them from the Handbook or somewhere else)
 * for each statistic:  scatter plots of that statistic vs size (show the "largest" available plot) (also, add to konect-analysis/@www)
@@ -68,8 +67,8 @@ triangles.  There should be a power-law slope of a round 1.5, according
 to [Fast Counting of Triangles in Large Real Networks:
 Algorithms and Laws] p.8, fig 7.
 * size distribution of connected components (directed and undirected)
+* implement all repulsive matrices 
 
 == Public announcements ==
-* @network.librec-ciaodvd-trust
 * @network.gene_fusion via @pholme
 * @network.dimacs10-(cond-mat-(2003 2005) football netscience polblogs polbooks cnr-2000 eu-2005 in-2004 uk-2002 chesapeake celegans_metabolic)
