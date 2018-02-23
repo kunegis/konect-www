@@ -1,14 +1,4 @@
-* lapdiag:  determine spectrum type
-* write the "Timer" class for triangle counting 
-* distr plots:  those for large networks are often empty 
-* hopdistr .c and .d:  find out the proper names of the underlying distirbutions and re-enable these subplots 
-* make @degree.libimseti work
-* make @degree.netflix work
-* make @degree.yahoo-song work
-* rating_evolution2:  make sure it is not executed for (non-rating) edit-* networks 
-* @statistic.own:   separate values of left/right/out/in-degrees [needs to renumber the substatistics]
-* statistic: signed clustering coefficient 
-* statistic:  median degree 
+* statistic:  median degree  [mediandegree]
 * new statistic:  maximal egde multiplicity 
 * for rating networks:  mean rating, i.e., mean edge weight
 * statistic: [prefatt] pref. att. exponent
@@ -68,6 +58,8 @@ Algorithms and Laws] p.8, fig 7.
 * size distribution of connected components (directed and undirected)
 * implement all repulsive matrices 
 * statistic:  revive [aredis]
+* statistic:  on each statistic page, insert a phrase describing to which group of networks the statistic applies 
 
 == Public announcements ==
-* @network.dimacs10-(cond-mat-(2003 2005) football netscience polblogs polbooks cnr-2000 eu-2005 in-2004 uk-2002 chesapeake celegans_metabolic)
+* @network.dimacs10-(netscience polblogs polbooks cnr-2000 eu-2005 in-2004 uk-2002 chesapeake celegans_metabolic)
+* @network.komarix-citeseer

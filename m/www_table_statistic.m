@@ -86,10 +86,10 @@ while ~((network = fgetl(NETWORKS)) == -1)
     fprintf(OUT, '<TD class="padleft" align="%s">', align); 
     if substatistics(i) > length(values),  continue;  end; 
     value= values(substatistics(i)); 
-%%    if isnan(value),  continue;  end; 
     if i == 1
       substatistic = statistic;
     else
+      if isnan(value),  continue;  end; 
       substatistic = sprintf('%s+%u', statistic, i); 
     end
     text_value = www_format_statistic(substatistic, value); 
@@ -109,4 +109,3 @@ COUNT = fopen(filename_count, 'w');
 if COUNT < 0,  error(sprintf('fopen(%s)', filename_count));  end;
 fprintf(COUNT, '%u\n', count);
 if fclose(COUNT) < 0,  error(sprintf('fclose(%s)', filename_count));  end;
-
