@@ -61,5 +61,5 @@ Algorithms and Laws] p.8, fig 7.
 * statistic:  on each statistic page, insert a phrase describing to which group of networks the statistic applies 
 
 == Public announcements ==
-* @network.dimacs10-(netscience polblogs polbooks cnr-2000 eu-2005 in-2004 uk-2002 chesapeake celegans_metabolic)
-* @network.komarix-citeseer
+* @network.amazon
+* @network.dimacs10-(polblogs polbooks cnr-2000 eu-2005 in-2004 uk-2002 chesapeake celegans_metabolic)
