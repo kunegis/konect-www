@@ -70,6 +70,8 @@ power:  The power law exponent (γ) measures the slope of the degree distributio
 
 power2:  The power law exponent (γ<SUB>t</SUB>) measures the slope of the degree distribution, assuming that it is a power law.  This value is computed by taking into account only the tail of the degree distribution.  
 
+power3:  The power law exponent (γ<SUB>t</SUB>) measures the slope of the degree distribution, assuming that it is a power law.  This value is computed by taking into account only the tail of the degree distribution.  In addition, this calculation produced a <I>p</I>-value that indicates the probability that the degree distribution could have been produced under the hypothesis of a perfect power law with the given exponent.   For bipartite graphs, we show the corresponding left and right statistics (1,2) and for directed graphs, we show the corresponding outdegree and indegree statistics (o,i). 
+
 reciprocity:  In directed networks, the reciprocity (y) equals the proportion of edges for which a reciprocal edge exists, i.e., for which another directed edge connects the two connected nodes in opposite direction. 
 
 separation:  The spectral separation (|λ<SUB>1</SUB>[A] / λ<SUB>2</SUB>[A]|) equals the largest absolute eigenvalue of the adjacency matrix divided by the second largest absolute eigenvalue.  The value is at least one.  Larger values indicate "less diversity" in the network structure, in the sense that the adjacency matrix approaches a rank-one matrix.  Low values (just slightly larger than one) indicate many independent substructures in the network; this can be interpreted as "more diversity", "more structure", or "more complexity". 

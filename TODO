@@ -1,4 +1,5 @@
-* statistic:  median degree  [mediandegree]
+* statistic:  median degree  [mediandegree]:  solve the C++/C thing
+* one of the statistics have empty substatistics
 * new statistic:  maximal egde multiplicity 
 * for rating networks:  mean rating, i.e., mean edge weight
 * statistic: [prefatt] pref. att. exponent
@@ -61,5 +62,5 @@ Algorithms and Laws] p.8, fig 7.
 * statistic:  on each statistic page, insert a phrase describing to which group of networks the statistic applies 
 
 == Public announcements ==
-* @network.amazon
-* @network.dimacs10-(polblogs polbooks cnr-2000 eu-2005 in-2004 uk-2002 chesapeake celegans_metabolic)
+* @network.wang-{tripadvisor,amazon}
+* @network.dimacs10-(eu-2005 in-2004 uk-2002 chesapeake celegans_metabolic polbooks)

@@ -90,7 +90,7 @@ while ~((network = fgetl(NETWORKS)) == -1)
       substatistic = statistic;
     else
       if isnan(value),  continue;  end; 
-      substatistic = sprintf('%s+%u', statistic, i); 
+      substatistic = sprintf('%s+%u', statistic, substatistics(i)); 
     end
     text_value = www_format_statistic(substatistic, value); 
     fprintf(OUT, '%s', text_value);
