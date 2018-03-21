@@ -48,7 +48,7 @@ loops:  The number of loops (l) is simply the number of edges which start and en
 
 maxdegree:   The maximum degree (d<SUB>max</SUB>) of a network is the maximum number of edges incident to any individual node.  This takes into account multiple edges when they are present. In directed networks, we additionally calculate the maximum outdegree (d<SUP>+</SUP><SUB>max</SUB>) and the maximum indegree (d<SUP>−</SUP><SUB>max</SUB>).  In bipartite networks, we also calculate the separate maximum degree for left nodes (d<SUP>1</SUP><SUB>max</SUB>) and for right nodes (d<SUP>2</SUP><SUB>max</SUB>).
 
-maxdiag:  The cyclic eigenvalue (π) is the largest absolute eigenvalue of the (generally asymmetric) adjacency matrix of a directed graph.  It is zero if and only if the graph is symmetric, i.e., if and only if all edges are reciprocated.  
+maxdiag:  The cyclic eigenvalue (π) is the largest absolute eigenvalue of the (generally asymmetric) adjacency matrix of a directed graph.  It is zero if and only if the graph is acyclic, i.e., when the graph does not contain any directed cycle. 
 
 meandist:  The mean distance (δ<SUB>m</SUB>) equals the average distance between any two nodes, where the distance is defined as the number of edges in the shortest path between the two nodes.  Same-node pairs are included in the calculation.  Only the network's largest connected component is considered. 
 

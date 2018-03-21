@@ -126,7 +126,6 @@ www/$name.html:
 	sh/write-index
 }
 
-##skeleton/index.html = static/index.html;
 skeleton/about/index.html: static/about.html -p skeleton/about/
 {
 	cp static/about.html skeleton/about/index.html
@@ -142,7 +141,7 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 
 >skeleton/networks/$network/index.html:
 	sh/write-network sh/read-meta dat/ plot/
-	-p skeleton/networks/$network/ konect-extr/konect.bib ##dat/allowed_src.txt
+	-p skeleton/networks/$network/ konect-extr/konect.bib
 	dat/NETWORKS_DOWNLOAD
 	uni/meta.$network
 	dat-www/plots-network.$network
@@ -350,11 +349,6 @@ www/plot/$name.full.png:
 #
 # Files
 #
-
-## >dat-www/NETWORKS-DOWNLOAD:  <dat/allowed_src.txt
-## {
-## 	sed -E -e 's|^\s*([^, ]+)\s*,\s*matrix\s*$|\1|;t;d'
-## }
 
 www/files/download.tsv.$network.tar.bz2: dat/download.tsv.$network.tar.bz2 -p www/files/
 {
