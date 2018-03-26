@@ -1,4 +1,3 @@
-* power3:  have a way to report also the x_min and likelihood ration test result
 * new statistic:  maximal egde multiplicity 
 * for rating networks:  mean rating, i.e., mean edge weight
 * statistic: [prefatt] pref. att. exponent
@@ -62,7 +61,7 @@ Algorithms and Laws] p.8, fig 7.
 * statistics/loops/:  don't calculate and show it for networks that don't have loops 
 
 == Public announcements ==
-* @statistic.nonbip
 * @network.dimacs10-(uk-2002 chesapeake celegans_metabolic polbooks)
 * For visualising degree distributions, we recommend the cumulative plot, rather than the plain distribution plot @statistic.bidd
-
+* @check:  almost all were checked 
+* @network.pajek-erdos via Pajek
