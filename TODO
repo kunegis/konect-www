@@ -1,3 +1,5 @@
+* on overflow, the background should be white, not black
+* for certain statistics and plots, have references, in particular to our own
 * new statistic:  maximal egde multiplicity 
 * for rating networks:  mean rating, i.e., mean edge weight
 * statistic: [prefatt] pref. att. exponent
@@ -17,7 +19,6 @@
 * Have a page for selected families of networks (/families/)
 * check programmatically that the 'name' of networks is unique over all networks
 * in the metadata section of weighted networks:  show a line summarizing the possible weights 
-* for certain statistics and plots, have references, in particular to our own
 * statistics:  for each statistic, show using icons to which types of networks it applies 
 * plot:  show network name, and have a link to the network (don't know how to make this beautiful)
 * main page:  show three example graphs for each group:  3 statistics, 3 plots, 3 networks, etc. 
@@ -61,7 +62,7 @@ Algorithms and Laws] p.8, fig 7.
 * statistics/loops/:  don't calculate and show it for networks that don't have loops 
 
 == Public announcements ==
+* @network.pajek-erdos via Pajek
 * @network.dimacs10-(uk-2002 chesapeake celegans_metabolic polbooks)
 * For visualising degree distributions, we recommend the cumulative plot, rather than the plain distribution plot @statistic.bidd
-* @check:  almost all were checked 
-* @network.pajek-erdos via Pajek
+* @check:  all is done except the 5 largest networks 
