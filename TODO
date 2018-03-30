@@ -1,5 +1,7 @@
 * on overflow, the background should be white, not black
 * for certain statistics and plots, have references, in particular to our own
+* plot:  have a table of contents with all the plot types 
+
 * new statistic:  maximal egde multiplicity 
 * for rating networks:  mean rating, i.e., mean edge weight
 * statistic: [prefatt] pref. att. exponent
@@ -62,7 +64,8 @@ Algorithms and Laws] p.8, fig 7.
 * statistics/loops/:  don't calculate and show it for networks that don't have loops 
 
 == Public announcements ==
-* @network.pajek-erdos via Pajek
-* @network.dimacs10-(uk-2002 chesapeake celegans_metabolic polbooks)
 * For visualising degree distributions, we recommend the cumulative plot, rather than the plain distribution plot @statistic.bidd
-* @check:  all is done except the 5 largest networks 
+* @check:  all is done except the 5 largest networks
+* @network.league-(be1-2016 de1-2016 fr1-2016 uk1-2013)
+* @statistic.nonbipn
+* @network.dimacs10-(chesapeake celegans_metabolic polbooks)
