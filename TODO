@@ -1,7 +1,5 @@
-* for certain statistics and plots, have references, in particular to our own
 * plot:  have a table of contents with all the plot types 
 * enable the two Julia plots (and run them)
-
 * new statistic:  maximal egde multiplicity 
 * for rating networks:  mean rating, i.e., mean edge weight
 * statistic: [prefatt] pref. att. exponent

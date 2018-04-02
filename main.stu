@@ -145,7 +145,8 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 }
 
 >skeleton/networks/$network/index.html:
-	sh/write-network sh/read-meta dat/ plot/
+	sh/write-network sh/read-meta sh/write-references
+	dat/ plot/
 	-p skeleton/networks/$network/ konect-extr/konect.bib
 	dat/NETWORKS_DOWNLOAD
 	uni/meta.$network
@@ -165,11 +166,13 @@ skeleton/about/index.html: static/about.html -p skeleton/about/
 }
 
 >skeleton/statistics/$statistic/index.html:
-	sh/write-statistic sh/format-int 
+	sh/write-statistic sh/format-int sh/write-references
 	-p skeleton/statistics/$statistic/ 
 	konect-toolbox/m/konect_label_statistic.m
 	skeleton/statistics/$statistic/(table.html count)
-	dat-www/html-symbol.$statistic DESCRIPTIONS-STATISTIC 
+	dat-www/html-symbol.$statistic
+	DESCRIPTIONS-STATISTIC REFERENCES-STATISTIC
+	konect-extr/konect.bib 
 {
 	sh/write-statistic
 }

@@ -20,8 +20,6 @@ set -e
 symbol=$(cat dat-www/html-symbol."$statistic")
 name=$(sh/name-statistic)
 name_lc=$(echo "$name" | sed -E -e 's,^([^A-Z]*[A-Z]).*$,\1,' | tr A-Z a-z )$(echo "$name" | sed -E -e 's,^[^A-Z]*[A-Z](.*)$,\1,')
-## name_lc=$(printf '%s' "$name" | sed -E -e 'h;s,^(.).*$,\1,;y,ABCDEFGHIJKLMNOPQRSTUVWXYZ,abcdefghijklmnopqrstuvwxyz,;G;s,\
-##.,,')
 echo >&4 "name_lc=$name_lc"
 
 cat <<EOF
@@ -49,4 +47,15 @@ cat <<EOF
 </P>
 EOF
 
+#
+# The reference(s) for the statistic
+#
+references=$(sed -E -e 's,^\s*'"$statistic"'\s*:,,;t;d' REFERENCES-STATISTIC)
+if [ "$references" ] ; then
+	echo '<P>References for this statistic:</P>'
+	sh/write-references "$references"
+	echo '<BR>'
+fi
+
 cat skeleton/statistics/"$statistic"/table.html
+

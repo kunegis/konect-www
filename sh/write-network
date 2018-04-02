@@ -129,31 +129,33 @@ fi
 # References
 #
 
-# Make sure they all exist, because Bibtex2Html does *not*
-# return a non-zero exit status when references are missing. 
-
-for bibkey in $(echo "$cite" | tr ',' ' ') ; do
-	grep -q -E '\{\s*'"$bibkey"'\s*,\s*$' konect-extr/konect.bib || {
-		echo >&2 "*** Bibtex reference '$bibkey' used by network '$network' expected in 'konect-extr/konect.bib', but not found"
-		exit 1
-	}
-done
-	
 echo
 echo '<H2>References</H2>'
-tmpfile=$(mktemp)
-{ printf '%s\n' "$cite" | sed -E -e 's|,|\
-|g' ; echo konect ; } >"$tmpfile"
-dir=$(pwd)
-cd "$(dirname "$tmpfile")"
-tmpfile2=$(mktemp)
-bibtex2html -q -w --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o - --no-header "$dir"/konect-extr/konect.bib >"$tmpfile2" || {
-	echo >&2 "*** Error running Bibtex"
-	echo >&2 "Content of citefile:"
-	cat >&2 -- "$tmpfile"
-	exit 1
-}
-exitstatus=$?
-<"$tmpfile2" sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' | sed -E -e 's,--,–,g'
-rm -f -- "$tmpfile" "$tmpfile2"
+
+sh/write-references "$cite konect"
+
+## # Make sure they all exist, because Bibtex2Html does *not*
+## # return a non-zero exit status when references are missing. 
+## for bibkey in $(echo "$cite" | tr ',' ' ') ; do
+## 	grep -q -E '\{\s*'"$bibkey"'\s*,\s*$' konect-extr/konect.bib || {
+## 		echo >&2 "*** Bibtex reference '$bibkey' used by network '$network' expected in 'konect-extr/konect.bib', but not found"
+## 		exit 1
+## 	}
+## done
+	
+## tmpfile=$(mktemp)
+## { printf '%s\n' "$cite" | sed -E -e 's|,|\
+## |g' ; } >"$tmpfile"
+## dir=$(pwd)
+## cd "$(dirname "$tmpfile")"
+## tmpfile2=$(mktemp)
+## bibtex2html -q -w --citefile "$(basename "$tmpfile")" --nodoc --nobibsource -o - --no-header "$dir"/konect-extr/konect.bib >"$tmpfile2" || {
+## 	echo >&2 "*** Error running Bibtex"
+## 	echo >&2 "Content of citefile:"
+## 	cat >&2 -- "$tmpfile"
+## 	exit 1
+## }
+## exitstatus=$?
+## <"$tmpfile2" sed -E -e 's,<hr>.*$,,;tx;by;:x;q;:y' | sed -E -e 's,--,–,g'
+## rm -f -- "$tmpfile" "$tmpfile2"
 

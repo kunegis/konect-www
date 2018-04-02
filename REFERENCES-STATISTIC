@@ -1,0 +1,11 @@
+# These are references for statistics.
+
+alcon:  	konect:fiedler1973
+gini:   	konect:kunegis2012c
+own:		konect:kunegis2012c
+dentropyn:	konect:kunegis2012c
+nonbip:		konect:kunegis2015
+nonbipn:	konect:kunegis2015
+nonbipal:	konect:kunegis2015
+anticonflict:	konect:kunegis2015
+controllability:	konect:kunegis2012b
