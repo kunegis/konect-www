@@ -1,12 +1,13 @@
 html {
-    background-color:	black;
+    /* background-color:	black; */
     font-family:	sans-serif;
 }
 
 .bod {
     margin:		0;
     display:		block;
-    background-color:	black;
+    background-color:	white;
+    /* background-color:	black; */
 }
 
 #nav {
@@ -30,7 +31,7 @@ html {
 }
 
 #page {
-    background-color:	white;
+    /* background-color:	white; */
     padding-left:	2.4em;
     padding-right:	2.4em;
     padding-top:	1em;
@@ -58,7 +59,7 @@ td.padleft {
 }
 
 td {
-/*  vertical-align:	top;  */
+    /*  vertical-align:	top;  */
 }
 
 td.bibtexnumber {
