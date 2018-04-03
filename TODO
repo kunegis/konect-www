@@ -1,4 +1,4 @@
-* plot:  have a table of contents with all the plot types 
+* fix two check errors 
 * enable the two Julia plots (and run them)
 * new statistic:  maximal egde multiplicity 
 * for rating networks:  mean rating, i.e., mean edge weight

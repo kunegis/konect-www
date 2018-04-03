@@ -1,0 +1,25 @@
+#! /bin/sh
+#
+# Write the readable text of a subplot, in HTML.
+#
+# INVOCATION 
+#	$1 	Complete subplot name, i.e., "$plot.$subplot"
+#
+
+set -e 
+
+name="$1"
+
+[ "$name" ] || {
+	echo >&2 "*** Expected subplot name"
+	exit 1
+}
+
+ind=$(echo "$name" | sed -E -e 's,\.,___,g')
+text_subplot=$(<konect-toolbox/m/konect_data_plot.m sed -E -e 's,^\s*labels_plot\s*\.\s*'"$ind"'\s*=\s*'"'"'([^'"'"']+)'"'"'\s*;\s*$,\1,;t;d')
+text_subplot=$(echo "$text_subplot" | sed -E -e 's,^(.).*$,\1,' | tr a-z A-Z)$(echo "$text_subplot" | sed -E -e 's,^.,,')
+[ -z "$text_subplot" ] && { echo >&2 "*** Missing label for '$name'" ; exit 1 ; }
+
+printf '%s\n' "$text_subplot" 
+
+exit 0
