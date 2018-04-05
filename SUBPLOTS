@@ -15,3 +15,5 @@ distr.sym-n:		f
 distr.lap:		f
 lybl:			a b
 delaunay:		a b f g
+inter:			a
+inter2:			a u v
