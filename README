@@ -1,10 +1,7 @@
 KONECT-WWW
 ==========
 
-This is the code to generate the website of the KONECT project, by
-Jérôme Kunegis at the University of Namur, as made available at:
-
-http://konect.cc/
+This is the code to generate the website of the KONECT project. 
 
 KONECT is a project in the area of network science with the goal to
 collect and analyse network datasets.  The KONECT website shows all
@@ -42,6 +39,6 @@ WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 General Public License for more details.
 
-For support, write to Jérôme Kunegis <jerome.kunegis@unamur.be>, or go to 
+For support, write to Jérôme Kunegis <kunegis@gmail.com>, or go to 
 
 https://github.com/kunegis/konect-www
