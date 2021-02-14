@@ -371,8 +371,8 @@ www/favicon.ico = logo/;
 www/konect256.png = logo/;
 www/main.css = static/;
 
-# Note about icons:  We don't use the "icons/" directory name because it
-# is special to Apache. 
+# Note about icons:  We don't use "icons" as a directory name because it
+# is special to Apache, hence "ic". 
 
 >dat-www/ICONS:  ic
 {

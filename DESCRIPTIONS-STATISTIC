@@ -36,7 +36,7 @@ threestars:  The number of claws (z) equals the number of times a claw appears a
 
 fconflict:  The spectral signed frustration (φ) is, for signed graphs, a measure of the conflict in the network.  It is defined as the <A href="../conflict/">algebraic conflict</A> (the smallest eigenvalue of the signed Laplacian matrix) times the number of nodes, divided by eight times the number of edges.  It approximates the fraction of edges whose sign must be switched for the graph to be balanced.  Its value lies between zero and one.  It is analogous to the <A href="../anticonflict/">spectral bipartite frustration</A>, by formally switching the sign of all edges. 
 
-fill:  The fill (p) of a network the probability that two randomly chosen edges are connected.  This takes into account the type of network, i.e., whether the network is directed or undirected, and whether loops are allowed.  The fill equals one when all possible edges are present.
+fill:  The fill (p) of a network is the probability that two randomly chosen edges are connected.  This takes into account the type of network, i.e., whether the network is directed or undirected, and whether loops are allowed.  The fill equals one when all possible edges are present.
 
 fourstars:  The number of crosses (x) counts the number of times a cross appears as a subgraph of a given graph.  A cross is a pattern consisting of a central node connected to four other nodes, and is also known as a 4-star. 
 

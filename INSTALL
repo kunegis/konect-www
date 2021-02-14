@@ -4,4 +4,27 @@ generated in www/.
 == Requirements ==
 
 * bibtex2html
-* ...
+* ImageMagick (convert)
+
+== Fixes ==
+
+For the "convert" program (part of ImageMagick), we needed to perform the fixes
+as described at
+
+https://alexvanderbist.com/2018/fixing-imagick-error-unauthorized/
+
+but applied to EPS and variants.
+
+How to do this:  Edit /etc/ImageMagick-6/policy.xml and replace
+
+  rights="none"
+
+by
+
+  rights="read|write"
+
+on the lines corresponding to EPS, PS and PSX (where X is a number).
+
+A better fix would be to call convert with an option to ignore all security
+issues.  (This is because ImageMagick assumes arbitrary input.  It does not
+apply here.)

@@ -5,6 +5,7 @@ set -e
 TMPDIR=${TMPDIR:-/tmp}
 
 if [ -e plot/"$name".eps ] ; then
+##	echo convert plot/"$name".eps -resize x130 "$TMPDIR"/conv."$name".small.png
 	convert plot/"$name".eps -resize x130 "$TMPDIR"/conv."$name".small.png
 	pngquant -f "$TMPDIR"/conv."$name".small.png -o www/plot/"$name".small.png
 elif [ -e plot/"$name".png ] ; then
