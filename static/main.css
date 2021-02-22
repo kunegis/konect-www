@@ -1,5 +1,4 @@
 html {
-    /* background-color:	black; */
     font-family:	sans-serif;
 }
 
@@ -7,31 +6,29 @@ html {
     margin:		0;
     display:		block;
     background-color:	white;
-    /* background-color:	black; */
 }
 
 #nav {
-    background-color:	black; 
-    color: 		white;
+    background-color:	/* black; */ #AAAAAA; 
+    color: 		black; /* white; */
     margin:		0;
     padding-top:	0.2em;
     padding-bottom:	0.2em;
 }
 
 #nav a:link, #nav a:visited {
-    color:		white;
+    color:		black;
     font-weight:	bold;
     text-decoration:	none;
 }
 
 #nav a:hover, #nav a:active {
-    color:		white;
+    color:		black;
     font-weight:	bold;
     text-decoration:	underline;
 }
 
 #page {
-    /* background-color:	white; */
     padding-left:	2.4em;
     padding-right:	2.4em;
     padding-top:	1em;
