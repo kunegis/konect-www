@@ -18,11 +18,9 @@ cat <<EOF
   All source code is made available as Free Software, and includes a
   network analysis toolbox for GNU Octave, a network extraction library,
   as well as code to generate these web pages, including all statistics
-  and plots.  KONECT is run by the research group
-  around <A href="https://directory.unamur.be/staff/jkunegis?_LOCALE_=en">Jérôme
-  Kunegis</A> at the <A href="https://www.unamur.be/en">University of
-  Namur</A>, in the <A href="http://www.naxys.be/">Namur Center for
-  Complex Networks</A>.
+  and plots.  KONECT is run by the research group around Jérôme Kunegis at
+  the <A href="https://www.unamur.be/en">University of Namur</A>, in
+  the <A href="http://www.naxys.be/">Namur Center for Complex Networks</A>. 
 </P>
 <P>
   The KONECT project has
