@@ -116,7 +116,7 @@ EOF
 	fi
 	if [ "$show_url" ] ; then
 		cat <<EOF
-<LI><A href="$url">Original dataset souce</A>
+<LI><A href="$url">Original dataset source</A>
 EOF
 	fi
 	if [ "$show_extr" ] ; then
